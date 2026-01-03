@@ -1,8 +1,11 @@
 package com.astarhub.astarsquad.Bai5.controller;
 
+import java.util.List;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 
+import com.astarhub.astarsquad.Bai5.User;
 import com.astarhub.astarsquad.Bai5.service.UserService;
 
 @Controller // presentation layer: nhận http request/ response;
@@ -16,8 +19,8 @@ public class UserController {
 
     @GetMapping
     public String showAllUser() {
-        // List<User> users = userService.findAllUser();
-        // users.forEach((user) -> System.out.println(user.getUserName() + " " + user.getUserPassword()));
+        List<User> users = userService.findAllUser();
+        users.forEach((user) -> System.out.println(user.getUserName() + " " + user.getUserPassword()));
         return "user-list.html";
     }
 }
