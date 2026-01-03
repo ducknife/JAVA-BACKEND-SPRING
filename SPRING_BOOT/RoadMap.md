@@ -2,10 +2,10 @@
 1.1 Java Core (Bạn đã có)
 ✅ OOP: Encapsulation, Inheritance, Polymorphism, Abstraction
 ✅ Interface & Abstract Class
-Collections Framework (List, Set, Map)
-Exception Handling
-Lambda & Stream API
-Optional
+✅ Collections Framework (List, Set, Map)
+✅ Exception Handling
+✅ Lambda & Stream API
+✅ Optional
 1.2 Database (Bạn đã có)
 ✅ SQL cơ bản: CRUD, JOIN
 ✅ MySQL
@@ -15,8 +15,8 @@ Optional
 ✅ IoC (Inversion of Control)
 ✅ DI (Dependency Injection)
 ✅ Bean & Bean Lifecycle
-ApplicationContext
-@Component, @Service, @Repository, @Controller
+✅ ApplicationContext
+✅ @Component, @Service, @Repository, @Controller
 2.2 Spring Boot Fundamentals
 Project Structure
 application.properties / application.yml
