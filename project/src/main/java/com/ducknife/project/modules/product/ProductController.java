@@ -8,7 +8,7 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 
 @RestController
-@RequestMapping("/api/product")
+@RequestMapping("/api/products")
 @Slf4j // ghi lại log 
 @RequiredArgsConstructor
 public class ProductController {

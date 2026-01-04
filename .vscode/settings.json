@@ -1,5 +1,5 @@
 {
-    "editor.fontFamily": "ibm plex mono",
+    "editor.fontFamily": "jetbrains mono",
     "java.compile.nullAnalysis.mode": "disabled",
     "java.configuration.updateBuildConfiguration": "interactive"
 }
