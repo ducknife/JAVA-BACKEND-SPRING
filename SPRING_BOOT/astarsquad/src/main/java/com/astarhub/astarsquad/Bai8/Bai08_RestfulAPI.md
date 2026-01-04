@@ -1,3 +1,9 @@
+Mình đã chỉnh sửa lại cấu trúc đề mục (Heading) để phân cấp rõ ràng thành 3 phần lớn (Part 1, 2, 3). Nội dung chữ được giữ nguyên 100% như bạn yêu cầu.
+
+Bạn có thể copy toàn bộ block dưới đây vào file `.md`.
+
+```markdown
+# PHẦN 1: KHÁI NIỆM CƠ BẢN VÀ CẤU HÌNH CONTROLLER
 
 ## 1. API (Application Programming Interface)
 
@@ -36,8 +42,6 @@ Nếu API là người phục vụ, thì **REST** là **cuốn sổ tay quy tắ
 
 > **Tại sao cần REST?** Để Frontend (React) và Backend (Java) có một "ngôn ngữ chung". Dù thay đổi đầu bếp (Backend) hay thay đổi khách hàng (Frontend), quy tắc gọi món vẫn không đổi.
 
-
-
 ---
 
 ## 3. @RestController
@@ -60,30 +64,33 @@ public class ProductController {
     // Các hàm trong này sẽ luôn trả về DỮ LIỆU (JSON)
 }
 
+```
+
 ---
 
 ## 4. @RequestMapping
+
 ### 📘 Định nghĩa kỹ thuật
-@RequestMapping là annotation dùng để ánh xạ (map) các web request (thông qua URL và HTTP Method) tới các phương thức xử lý (Handler Methods) cụ thể trong Controller.
+
+`@RequestMapping` là annotation dùng để ánh xạ (map) các web request (thông qua URL và HTTP Method) tới các phương thức xử lý (Handler Methods) cụ thể trong Controller.
 
 * Nó có thể được cấu hình với nhiều tham số:
+* `value` hoặc `path`: Đường dẫn URL (ví dụ: `/api/products`).
+* `method`: Loại HTTP Method (GET, POST...).
+* `consumes` / `produces`: Định dạng dữ liệu đầu vào/đầu ra (ví dụ: `application/json`).
 
-* value hoặc path: Đường dẫn URL (ví dụ: /api/products).
 
-* method: Loại HTTP Method (GET, POST...).
-
-* consumes / produces: Định dạng dữ liệu đầu vào/đầu ra (ví dụ: application/json).
 
 ### 💡 Giải thích nôm na (Analogy: Biển chỉ dẫn)
+
 Hãy tưởng tượng một tòa nhà văn phòng lớn (Ứng dụng của bạn).
 
-@RequestMapping("/api/v1") ở cửa chính: Đây là biển chỉ dẫn tổng. "Tất cả các dịch vụ API mời đi lối này".
+* `@RequestMapping("/api/v1")` ở cửa chính: Đây là biển chỉ dẫn tổng. "Tất cả các dịch vụ API mời đi lối này".
+* `@RequestMapping("/products")` ở cửa phòng: "Phòng này chuyên xử lý các việc liên quan đến Sản phẩm".
 
-@RequestMapping("/products") ở cửa phòng: "Phòng này chuyên xử lý các việc liên quan đến Sản phẩm".
+### Ví dụ tổng hợp
 
-Ví dụ tổng hợp
-Java
-
+```java
 @RestController // 1. Đây là quầy dịch vụ trả về dữ liệu
 @RequestMapping("/api/v1/products") // 2. Địa chỉ của quầy này
 public class ProductController {
@@ -96,24 +103,16 @@ public class ProductController {
     }
 }
 
-**Chính xác tuyệt đối! 10 điểm.** 👏
-
-Bạn đã nắm rất nhanh tư duy RESTful:
-
-* **DELETE**: Là hành động (Verb).
-* `/api/v1/products`: Là tài nguyên cha (Collection).
-* `/5`: Là định danh cụ thể của tài nguyên đó.
-
-Vậy là chúng ta đã xong **Bài 1** (Khởi tạo Controller & Routing cơ bản). Bây giờ mình sẽ soạn tiếp **Bài 2** theo đúng lộ trình bạn yêu cầu: **Các phương thức HTTP (CRUD)**.
-
-Đây là file Markdown cho **Bài 2**. Bạn copy lưu lại nhé.
+```
 
 ---
 
-```markdown
-# Bài 2: Các Phương Thức HTTP & CRUD (Create - Read - Update - Delete)
+---
+
+# PHẦN 2: CÁC PHƯƠNG THỨC HTTP & CRUD
 
 ## 1. Tổng quan
+
 Trong RESTful API, chúng ta không đặt tên hàm kiểu "động từ" trong URL (như `/getProduct`, `/createProduct` - đây là cách sai!). Thay vào đó, chúng ta dùng các **HTTP Methods** để xác định hành động.
 
 Spring Boot cung cấp bộ 4 annotation tương ứng với 4 thao tác dữ liệu cơ bản (CRUD).
@@ -123,14 +122,18 @@ Spring Boot cung cấp bộ 4 annotation tương ứng với 4 thao tác dữ li
 ## 2. @GetMapping (Read - Đọc dữ liệu)
 
 ### 📘 Định nghĩa
+
 Dùng để xử lý yêu cầu **LẤY** dữ liệu từ Server.
+
 * Không làm thay đổi dữ liệu trên Server (An toàn).
 * Có thể lấy danh sách hoặc lấy chi tiết 1 đối tượng.
 
 ### 💡 Ví dụ thực tế
+
 Giống như bạn **Xem Menu** hoặc **Hỏi giờ mở cửa**. Bạn chỉ nhìn và lấy thông tin, không vẽ bậy lên menu hay đổi giờ của họ.
 
 ### 💻 Code ví dụ
+
 ```java
 // 1. Lấy tất cả (GET /api/v1/products)
 @GetMapping
@@ -237,36 +240,21 @@ public ResponseEntity<Void> delete(@PathVariable Long id) {
 | `@PutMapping` | PUT | Sửa đổi | Có | ✅ Có (Gọi 100 lần vẫn là sửa cái đó) |
 | `@DeleteMapping` | DELETE | Xóa | Không | ✅ Có (Xóa rồi thì thôi, gọi lại vẫn thế) |
 
-```
-
-***
-
-**Nhiệm vụ tiếp theo:**
-Bài 3 sẽ là một phần cực kỳ quan trọng và hay gây nhầm lẫn: **Cách lấy dữ liệu từ Request**.
-(Phân biệt `@PathVariable`, `@RequestParam`, `@RequestBody`).
-
-Bạn có muốn mình đi tiếp sang bài 3 luôn không?
-
-```
-Ok, mình sẽ viết trực tiếp dưới dạng bài giảng để bạn dễ đọc và copy luôn nhé.
-
-Đây là **Bài 3: Cách lấy dữ liệu từ Client** (Phân biệt `@PathVariable`, `@RequestParam`, `@RequestBody`).
+---
 
 ---
 
-# Bài 3: Lấy dữ liệu từ Request - 3 Vũ khí tối thượng
-
-Khi Frontend (React) gửi một yêu cầu đến Backend, họ sẽ gửi kèm dữ liệu (Ví dụ: ID sản phẩm cần xóa, thông tin User mới cần tạo, hoặc từ khóa tìm kiếm).
+# PHẦN 3: CÁCH LẤY DỮ LIỆU TỪ REQUEST
 
 Spring Boot cung cấp 3 annotation để "bóc tách" dữ liệu này ra khỏi Request. Đây là phần dễ nhầm lẫn nhất, nên hãy chú ý kỹ nhé.
 
 ## 1. @PathVariable (Biến đường dẫn)
 
-### Định nghĩa chuẩn
+### 📘 Định nghĩa chuẩn
 
 Dùng để lấy một giá trị nằm trực tiếp **trong đường dẫn URL**. Nó thường đại diện cho **định danh duy nhất** (ID) của một tài nguyên.
 
-### Giải thích nôm na (Analogy)
+### 💡 Giải thích nôm na (Analogy)
 
 Giống như số nhà.
 Khi bạn nói: *"Đến nhà số 10 phố Hàng Mã"*, thì số `10` chính là PathVariable. Nó là phần không thể thiếu của địa chỉ đó.
@@ -275,7 +263,7 @@ Khi bạn nói: *"Đến nhà số 10 phố Hàng Mã"*, thì số `10` chính l
 
 Khi bạn muốn xác định **chính xác 1 đối tượng** (Get by ID, Delete by ID, Update by ID).
 
-### Ví dụ Code
+### 💻 Ví dụ Code
 
 URL: `GET /api/v1/products/10` (Lấy sản phẩm số 10)
 
@@ -292,11 +280,11 @@ public ResponseEntity<Product> getById(@PathVariable Long id) {
 
 ## 2. @RequestParam (Tham số truy vấn)
 
-### Định nghĩa chuẩn
+### 📘 Định nghĩa chuẩn
 
 Dùng để lấy giá trị nằm sau dấu hỏi chấm `?` trên URL (Query String). Dữ liệu này thường mang tính chất **phụ trợ** (lọc, sắp xếp, phân trang).
 
-### Giải thích nôm na (Analogy)
+### 💡 Giải thích nôm na (Analogy)
 
 Giống như yêu cầu thêm khi gọi món.
 *"Cho tôi 1 bát phở (Main Resource), nhưng **không hành** và **nhiều thịt**"*.
@@ -308,7 +296,7 @@ Giống như yêu cầu thêm khi gọi món.
 
 Khi bạn làm tính năng **Search (tìm kiếm), Filter (lọc), Sort (sắp xếp)**.
 
-### Ví dụ Code
+### 💻 Ví dụ Code
 
 URL: `GET /api/v1/products/search?name=iphone&color=black` (Tìm iphone màu đen)
 
@@ -327,11 +315,11 @@ public List<Product> search(
 
 ## 3. @RequestBody (Thân yêu cầu)
 
-### Định nghĩa chuẩn
+### 📘 Định nghĩa chuẩn
 
 Dùng để lấy toàn bộ dữ liệu JSON nằm trong phần **Body (Thân)** của Request và map (ánh xạ) nó vào một **Java Object** (DTO).
 
-### Giải thích nôm na (Analogy)
+### 💡 Giải thích nôm na (Analogy)
 
 Giống như một cái **hồ sơ đăng ký**.
 Khi bạn đi làm thủ tục, bạn điền một tờ form đầy đủ thông tin (Họ tên, ngày sinh, quê quán...) rồi đưa cả tờ giấy đó cho nhân viên. Nhân viên không đọc từng dòng trên URL mà đọc nội dung trong tờ giấy đó.
@@ -340,7 +328,7 @@ Khi bạn đi làm thủ tục, bạn điền một tờ form đầy đủ thôn
 
 Dùng cho các hành động gửi **nhiều dữ liệu** hoặc dữ liệu phức tạp: **Tạo mới (POST)** hoặc **Cập nhật (PUT)**.
 
-### Ví dụ Code
+### 💻 Ví dụ Code
 
 URL: `POST /api/v1/products`
 Body (JSON gửi lên):
@@ -368,7 +356,7 @@ public ResponseEntity<Product> create(@RequestBody ProductDTO productDTO) {
 
 ---
 
-## TỔNG KẾT (Bảng so sánh nhanh)
+## 4. Bảng so sánh nhanh (Tổng kết)
 
 | Annotation | Vị trí trên URL | Ví dụ URL | Mục đích chính |
 | --- | --- | --- | --- |
@@ -378,12 +366,17 @@ public ResponseEntity<Product> create(@RequestBody ProductDTO productDTO) {
 
 ---
 
-**Bài tập nhỏ để check kiến thức:**
+## 5. Bài tập thực hành
 
+**Đề bài:**
 Nếu tôi muốn làm chức năng: **"Cập nhật giá (price) cho sản phẩm có ID là 5"**.
 Frontend gửi lên:
 
 1. URL: `/api/v1/products/5`
 2. JSON Body: `{"price": 15000000}`
 
-Trong hàm Controller, tôi sẽ phải dùng những Annotation nào kết hợp với nhau?
+**Câu hỏi:** Trong hàm Controller, tôi sẽ phải dùng những Annotation nào kết hợp với nhau?
+
+```
+
+```
