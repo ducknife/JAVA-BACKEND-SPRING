@@ -33,8 +33,8 @@
 
 ### 2.3 REST API
 - ✅ @RestController, @RequestMapping
-- [ ] @GetMapping, @PostMapping, @PutMapping, @DeleteMapping
-- [ ] @PathVariable, @RequestParam, @RequestBody
+- ✅ @GetMapping, @PostMapping, @PutMapping, @DeleteMapping
+- ✅ @PathVariable, @RequestParam, @RequestBody
 - [ ] ResponseEntity
 - [ ] Exception Handling (@ControllerAdvice, @ExceptionHandler)
 
