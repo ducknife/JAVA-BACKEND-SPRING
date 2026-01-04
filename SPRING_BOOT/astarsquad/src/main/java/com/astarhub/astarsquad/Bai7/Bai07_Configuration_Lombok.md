@@ -137,6 +137,14 @@ logging.level.com.example.myproject=DEBUG
 logging.level.org.hibernate.SQL=DEBUG
 logging.file.name=logs/app.log
 ```
+## Các Log Level (từ thấp → cao):
+Level	Khi nào dùng
+TRACE	Chi tiết nhất, debug sâu
+DEBUG	Thông tin debug khi dev
+INFO	Thông tin chung, hoạt động bình thường
+WARN	Cảnh báo, có thể có vấn đề
+ERROR	Lỗi nghiêm trọng
+
 
 ---
 

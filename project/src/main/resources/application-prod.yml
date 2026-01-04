@@ -1,0 +1,48 @@
+# ============================================================
+# PRODUCTION CONFIGURATION
+# ============================================================
+# Cách chạy production:
+#
+# 1. Build JAR file:
+#    mvn clean package -DskipTests
+#
+# 2. Chạy với command line:
+#    java -jar target/project-0.0.1-SNAPSHOT.jar --spring.profiles.active=prod
+#
+# 3. Hoặc dùng environment variable:
+#    set SPRING_PROFILES_ACTIVE=prod   (Windows)
+#    export SPRING_PROFILES_ACTIVE=prod (Linux/Mac)
+#    java -jar target/project-0.0.1-SNAPSHOT.jar
+#
+# 4. Với Docker:
+#    docker run -e SPRING_PROFILES_ACTIVE=prod -e DB_USERNAME=user -e DB_PASSWORD=pass myapp
+#
+# Lưu ý: Cần set environment variables cho database:
+#    - DB_USERNAME: username của database production
+#    - DB_PASSWORD: password của database production
+# ============================================================
+
+spring:
+    datasource:
+        url: jdbc:mysql://prod-server:3306/mydb_prod
+        username: ${DB_USERNAME}
+        password: ${DB_PASSWORD}
+    jpa:
+        hibernate: 
+            ddl-auto: validate 
+        show-sql: false
+
+server:
+    port: 80
+
+logging:
+    level:
+        root: INFO
+    file:
+        name: logs/check-log.log 
+    logback:
+        rollingpolicy:
+            file-name-pattern: logs/archived/check-log-%d{yyyy-MM-dd_HH-mm}.%i.log
+            max-history: 1
+            max-file-size: 10MB
+

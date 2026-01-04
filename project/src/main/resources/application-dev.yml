@@ -1,0 +1,26 @@
+spring:
+    datasource:
+        url: jdbc:mysql://localhost:3306/astar_hub
+        username: root 
+        password: Hung12062005@
+    jpa:
+        hibernate: 
+            ddl-auto: update 
+        show-sql: true
+
+server:
+    port: 8080
+
+logging:
+    level:
+        root: DEBUG
+    file:
+        name: logs/check-log.log  
+    logback:
+        rollingpolicy:
+            # Rolling theo phút 
+            file-name-pattern: logs/archived/check-log-%d{yyyy-MM-dd_HH-mm}.%i.log 
+            # Chỉ giữ lại 1 file archived 
+            max-history: 1
+            max-file-size: 10MB
+            # quá 10MB thì i sẽ tăng lên 

@@ -26,13 +26,13 @@
 - ✅ @Component, @Service, @Repository, @Controller
 
 ### 2.2 Spring Boot Fundamentals
-- [ ] Project Structure (Package by Feature vs Layer)
-- [ ] application.properties / application.yml
-- [ ] Profiles (dev, prod, test)
-- [ ] Lombok
+- ✅ Project Structure (Package by Feature vs Layer)
+- ✅ application.properties / application.yml
+- ✅ Profiles (dev, prod, test)
+- ✅ Lombok
 
 ### 2.3 REST API
-- [ ] @RestController, @RequestMapping
+- ✅ @RestController, @RequestMapping
 - [ ] @GetMapping, @PostMapping, @PutMapping, @DeleteMapping
 - [ ] @PathVariable, @RequestParam, @RequestBody
 - [ ] ResponseEntity

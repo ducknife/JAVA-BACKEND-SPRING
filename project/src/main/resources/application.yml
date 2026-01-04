@@ -1,0 +1,15 @@
+spring:
+    application:
+        name: project
+    profiles:
+        active: dev
+ 
+# ```
+# Ưu tiên từ CAO → THẤP:
+# ──────────────────────
+# 1. Command line arguments (--server.port=9090)
+# 2. Environment variables (SERVER_PORT=9090)
+# 3. application-{profile}.properties
+# 4. application.properties
+# 5. Default values trong code
+# ```
