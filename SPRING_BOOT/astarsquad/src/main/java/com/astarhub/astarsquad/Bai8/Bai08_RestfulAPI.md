@@ -1,8 +1,3 @@
-Mình đã chỉnh sửa lại cấu trúc đề mục (Heading) để phân cấp rõ ràng thành 3 phần lớn (Part 1, 2, 3). Nội dung chữ được giữ nguyên 100% như bạn yêu cầu.
-
-Bạn có thể copy toàn bộ block dưới đây vào file `.md`.
-
-```markdown
 # PHẦN 1: KHÁI NIỆM CƠ BẢN VÀ CẤU HÌNH CONTROLLER
 
 ## 1. API (Application Programming Interface)
@@ -64,9 +59,6 @@ public class ProductController {
     // Các hàm trong này sẽ luôn trả về DỮ LIỆU (JSON)
 }
 
-```
-
----
 
 ## 4. @RequestMapping
 
