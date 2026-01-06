@@ -3,6 +3,7 @@ package com.astarhub.astarsquad.Bai2;
 import java.util.ArrayList;
 import java.util.Optional;
 
+import org.springframework.beans.factory.ObjectProvider;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -80,10 +81,10 @@ class ServiceService {
 
 @Service
 class UserService {
-    private final Optional<ServiceService> serviceService; // đây là 1 prototype
-    // để dùng trong 1 singleton phải bọc trong Optional.
+    private final ObjectProvider<ServiceService> serviceService; // đây là 1 prototype
+    // để dùng trong 1 singleton phải bọc trong ObjectProvider.
 
-    public UserService(Optional<ServiceService> serviceService) { 
+    public UserService(ObjectProvider<ServiceService> serviceService) { 
         this.serviceService = serviceService;
     }
 

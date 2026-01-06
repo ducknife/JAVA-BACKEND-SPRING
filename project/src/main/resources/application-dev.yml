@@ -22,5 +22,5 @@ logging:
             file-name-pattern: logs/archived/check-log-%d{yyyy-MM-dd_HH-mm}.%i.log 
             # Chỉ giữ lại 1 file archived 
             max-history: 1
-            max-file-size: 10MB
+            max-file-size: 1MB
             # quá 10MB thì i sẽ tăng lên 

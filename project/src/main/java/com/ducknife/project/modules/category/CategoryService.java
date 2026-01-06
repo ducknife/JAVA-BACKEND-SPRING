@@ -38,7 +38,7 @@ public class CategoryService {
 
     }
 
-    public List<CategoryDTO> search(String name) {
+    public List<CategoryDTO> searchByName(String name) {
         return categoryRepository.findByName(name).stream()
                 .map(c -> CategoryDTO.builder()
                         .name(c.getName())

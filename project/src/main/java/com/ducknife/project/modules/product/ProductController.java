@@ -1,6 +1,5 @@
 package com.ducknife.project.modules.product;
 
-import java.net.http.HttpResponse;
 import java.util.List;
 
 import org.springframework.web.bind.annotation.GetMapping;
