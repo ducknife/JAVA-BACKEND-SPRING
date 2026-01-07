@@ -2,9 +2,12 @@ package com.ducknife.project.modules.product;
 
 import java.util.List;
 
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -13,7 +16,6 @@ import com.ducknife.project.common.ApiResponse;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.web.bind.annotation.RequestBody;
 
 @RestController
 @RequestMapping("/api/products")
@@ -23,35 +25,29 @@ public class ProductController {
     private final ProductService productService;
 
     @GetMapping
-    public ApiResponse<List<ProductDTO>> showProducts() {
+    public ResponseEntity<ApiResponse<List<ProductDTO>>> showProducts() {
         log.info("-".repeat(50) + "USER: Muốn hiển thị tất cả product!" + "-".repeat(50));
-        return ApiResponse.<List<ProductDTO>>builder() // truyền kiểu T lên trước builder
-                .status(200)
-                .message("OK")
-                .data(productService.getProductDTOs())
-                .build();
+        return ApiResponse.ok(productService.getProductDTOs());
     }
 
     @GetMapping("/search")
-    public ApiResponse<List<ProductDTO>> searchProductByNameAndPrice(
+    public ResponseEntity<ApiResponse<List<ProductDTO>>> searchProductByNameAndPrice(
         @RequestParam String name, 
         @RequestParam double minPrice,
         @RequestParam double maxPrice
     ) {
-        return ApiResponse.<List<ProductDTO>>builder()
-                        .status(200)
-                        .message("OK")
-                        .data(productService.getProductDTOsByNameAndPrice(name, minPrice, maxPrice))
-                        .build();
+        return ApiResponse.ok(productService.getProductDTOsByNameAndPrice(name, minPrice, maxPrice));
     }
 
-    @PatchMapping("/{id}")
-    public ApiResponse<ProductDTO> updateProductName(@PathVariable Long id, @RequestBody ProductDTO product) {
+    @PutMapping("/{id}")
+    public ResponseEntity<ApiResponse<ProductDTO>> updateProductName(@PathVariable Long id, @RequestBody ProductDTO product) {
         ProductDTO updatedProduct = productService.updateProduct(id, product);
-        return ApiResponse.<ProductDTO>builder()
-                .status(200)
-                .message("OK")
-                .data(updatedProduct)
-                .build();
+        return ApiResponse.ok(updatedProduct);
+    }
+
+    @PostMapping
+    public ResponseEntity<ApiResponse<ProductDTO>> addProduct(@RequestBody ProductDTO product) {
+        productService.addProduct(product);
+        return ApiResponse.created(product);
     }
 }

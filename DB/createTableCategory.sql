@@ -10,3 +10,4 @@ insert into category (name) values
 ('Deep Learning');
 
 select * from category;
+describe category;

@@ -1,7 +1,7 @@
 use astar_hub;
 
-delete from product 
+delete from category 
 where 
-id = 1;
+id = 3 or id = 4;
 
-select * from product;
+select * from category;

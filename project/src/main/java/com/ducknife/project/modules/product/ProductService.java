@@ -54,4 +54,8 @@ public class ProductService {
                 .category_id(updatedProduct.getCategory_id())
                 .build();
     }
+
+    public void addProduct(ProductDTO product) {
+        productRepository.save(product);
+    }
 }
