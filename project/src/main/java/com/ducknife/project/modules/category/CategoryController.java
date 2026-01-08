@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.ducknife.project.common.ApiResponse;
 import com.ducknife.project.modules.product.ProductDTO;
 
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 
 @RestController // là một annotation kết hợp giữa @Controller và @ResponseBody
@@ -32,7 +33,7 @@ public class CategoryController {
     
     @GetMapping
     public ResponseEntity<ApiResponse<List<CategoryDTO>>> showCategories() {
-        return ApiResponse.ok(categoryService.getCategorieDTOs());
+        return ApiResponse.ok(categoryService.getCategories());
     }
 
     @GetMapping("/{cid}")
@@ -40,14 +41,14 @@ public class CategoryController {
     // nếu chuyển thành công -> gán vào biến 
     // tên biến có thể khác tên trên url nhưng phải chỉ rõ là tên nào. Ví dụ @PathVariable("id") Long id 
     public ResponseEntity<ApiResponse<CategoryDTO>> showCategoryById(@PathVariable("cid") Long id) {
-        return ApiResponse.ok(categoryService.getCategoryDTOById(id));
+        return ApiResponse.ok(categoryService.getCategoryById(id));
     }
 
     @GetMapping("/{id}/products")
     // PathVariable lấy giá trị nằm trực tiếp trong url, thường là các giá trị định
     // danh duy nhất cho 1 tài nguyên
     public ResponseEntity<ApiResponse<List<ProductDTO>>> showProductsByCategoryId(@PathVariable Long id) {
-        return ApiResponse.ok(categoryService.getProductDTOsById(id));
+        return ApiResponse.ok(categoryService.getProductsByCategoryId(id));
     }
 
     @GetMapping("/search")
@@ -66,7 +67,7 @@ public class CategoryController {
     // viện JACKSON (qua ObjectMapper) để phản tuần tự
     // Dùng reflection để quét các field sau đó tạo 1 object mới bằng default
     // Constructor rồi dùng setter để gán giá trị từ json vào
-    public ResponseEntity<ApiResponse<CategoryDTO>> addNewCategory(@RequestBody CategoryDTO category) {
+    public ResponseEntity<ApiResponse<CategoryDTO>> addNewCategory(@RequestBody @Valid CategoryDTO category) {
         categoryService.addCategory(category);
         // categoryService.addCategory(Category.builder().name("OOP").build());
         return ApiResponse.created(category);

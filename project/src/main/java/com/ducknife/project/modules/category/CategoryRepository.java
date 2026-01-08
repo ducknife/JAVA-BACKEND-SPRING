@@ -1,6 +1,7 @@
 package com.ducknife.project.modules.category;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
@@ -25,14 +26,23 @@ public class CategoryRepository {
                                                 .build());
         }
 
-        public Category findById(Long id) {
-                return jdbcTemplate.queryForObject(
+        public Optional<Category> findById(Long id) {
+                List<Category> categories = jdbcTemplate.query(
                                 "select * from category where id = ?",
                                 (rs, row) -> Category.builder()
                                                 .id(rs.getLong("id"))
                                                 .name(rs.getString("name"))
                                                 .build(),
                                 id);
+                return categories.stream().findFirst();
+        }
+
+        public boolean existsByName(String name) {
+                Integer count = jdbcTemplate.queryForObject(
+                                "select count(*) from category where name = ?",
+                                Integer.class,
+                                name);
+                return count != null && count > 0;
         }
 
         public List<Category> findByName(String name) {
@@ -63,15 +73,15 @@ public class CategoryRepository {
                                 categoryDTO.getName());
         }
 
-        public void updateCategoryById(Long id, CategoryDTO categoryDTO) {
-                jdbcTemplate.update(
+        public int updateCategoryById(Long id, CategoryDTO categoryDTO) {
+                return jdbcTemplate.update( // trả về số dòng ảnh hưởng
                                 "update category set name = ? where id = ?",
                                 categoryDTO.getName(),
                                 id);
         }
 
-        public void delete(Long id) {
-                jdbcTemplate.update(
+        public int delete(Long id) {
+                return jdbcTemplate.update(
                                 "delete from category where id = ?",
                                 id);
         }

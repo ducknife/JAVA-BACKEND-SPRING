@@ -1,6 +1,7 @@
 package com.ducknife.project.modules.product;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
@@ -25,8 +26,8 @@ public class ProductRepository {
                                                 .build());
         }
 
-        public Product findById(Long id) {
-                return jdbcTemplate.queryForObject(
+        public Optional<Product> findById(Long id) {
+                List<Product> products = jdbcTemplate.query(
                                 "select * from product where id = ?",
                                 (rs, row) -> Product.builder().id(rs.getLong("id"))
                                                 .name(rs.getString("name"))
@@ -34,6 +35,7 @@ public class ProductRepository {
                                                 .category_id(rs.getLong("category_id"))
                                                 .build(),
                                 id);
+                return products.stream().findFirst();
         }
 
         public List<Product> findByNameAndPrice(String name, double minPrice, double maxPrice) {
@@ -49,23 +51,31 @@ public class ProductRepository {
                                 maxPrice);
         }
 
-        public Product updateProduct(Long id, ProductDTO product) {
-                Product updatedProduct = Product.builder()
-                                .id(id)
-                                .name(product.getName())
-                                .price(product.getPrice())
-                                .category_id(product.getCategory_id())
-                                .build();
-                jdbcTemplate.update(
+        public boolean existByName(String name) {
+                Integer count = jdbcTemplate.queryForObject(
+                        "select count(*) from product where name = ?",
+                        Integer.class,
+                        name
+                );
+                return count != null && count > 0;
+        }
+
+        public int updateProduct(Long id, ProductDTO product) {
+                return jdbcTemplate.update(
                                 "update product set name = ? where id = ?",
                                 product.getName(),
                                 id);
-                return updatedProduct;
         }
 
         public void save(ProductDTO product) {
                 jdbcTemplate.update(
                                 "insert into product (name, price, category_id) values (?, ?, ?)",
                                 product.getName(), product.getPrice(), product.getCategory_id());
+        }
+
+        public int delete(Long id) {
+                return jdbcTemplate.update(
+                                "delete from product where id = ?",
+                                id);
         }
 }

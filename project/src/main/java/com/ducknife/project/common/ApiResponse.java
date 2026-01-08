@@ -39,9 +39,9 @@ public class ApiResponse<T> {
                         .build());
     }
 
-    public static <T> ResponseEntity<ApiResponse<T>> error(int status, String message) {
+    public static ResponseEntity<ApiResponse<?>> error(int status, String message) {
         return ResponseEntity.status(status)
-                .body(ApiResponse.<T>builder()
+                .body(ApiResponse.builder()
                         .status(status)
                         .message(message)
                         .data(null)

@@ -6,8 +6,10 @@ spring:
     jpa:
         hibernate: 
             ddl-auto: none # không tự sửa cấu trúc bảng 
-        show-sql: true
-
+        show-sql: true 
+    web:
+        resources:
+            add-mappings: false
 server:
     port: 8080
 

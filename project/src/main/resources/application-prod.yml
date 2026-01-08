@@ -31,6 +31,11 @@ spring:
         hibernate: 
             ddl-auto: validate 
         show-sql: false
+    # mvc:
+    #     throw-exception-if-no-handler-found: true 
+    web:
+        resources:
+            add-mappings: false
 
 server:
     port: 80
