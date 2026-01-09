@@ -1,6 +1,7 @@
 package com.ducknife.project.modules.category;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 import org.springframework.stereotype.Service;
@@ -33,6 +34,9 @@ public class CategoryService {
     }
 
     public List<ProductDTO> getProductsByCategoryId(Long id) {
+        Optional<Category> category = categoryRepository.findById(id);
+        if (!category.isPresent()) throw new ResourceNotFoundException("Không tìm thấy danh mục sản phẩm!");
+
         return categoryRepository.findProductsById(id).stream()
                 .map(p -> ProductDTO.builder()
                         .name(p.getName())
@@ -53,19 +57,22 @@ public class CategoryService {
 
     public void addCategory(CategoryDTO categoryDTO) {
         if (categoryRepository.existsByName(categoryDTO.getName())) {
-            throw new ResourceConflictException("Danh mục sản phẩm " + categoryDTO.getName() + " đã tồn tại! (Bắt khi service thấy)");
+            throw new ResourceConflictException(
+                    "Danh mục sản phẩm " + categoryDTO.getName() + " đã tồn tại! (Bắt khi service thấy)");
         }
         categoryRepository.save(categoryDTO);
     }
 
     public void updateCategory(Long id, CategoryDTO categoryDTO) {
         int affectedRows = categoryRepository.updateCategoryById(id, categoryDTO);
-        if (affectedRows == 0) throw new ResourceNotFoundException("Danh mục sản phẩm không tồn tại!");
+        if (affectedRows == 0)
+            throw new ResourceNotFoundException("Danh mục sản phẩm không tồn tại!");
     }
 
     public void deleteCategory(Long id) {
         int affectedRows = categoryRepository.delete(id);
-        if (affectedRows == 0) throw new ResourceNotFoundException("Không thể xóa danh mục sản phẩm không tồn tại!");
+        if (affectedRows == 0)
+            throw new ResourceNotFoundException("Không thể xóa danh mục sản phẩm không tồn tại!");
     }
 
 }

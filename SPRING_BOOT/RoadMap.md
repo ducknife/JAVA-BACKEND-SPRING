@@ -36,7 +36,7 @@
 - ✅ @GetMapping, @PostMapping, @PutMapping, @DeleteMapping
 - ✅ @PathVariable, @RequestParam, @RequestBody
 - ✅ ResponseEntity
-- [ ] Exception Handling (@ControllerAdvice, @ExceptionHandler)
+- ✅ Exception Handling (@ControllerAdvice, @ExceptionHandler)
 
 ---
 

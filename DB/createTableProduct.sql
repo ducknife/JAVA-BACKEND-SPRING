@@ -10,3 +10,9 @@ create table product (
 );
 
 describe product;
+
+alter table product 
+add constraint uk_product_name unique(name);
+
+alter table product
+modify name varchar(200) not null;

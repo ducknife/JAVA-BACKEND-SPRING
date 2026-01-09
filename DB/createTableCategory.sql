@@ -11,3 +11,6 @@ insert into category (name) values
 
 select * from category;
 describe category;
+
+alter table category
+add constraint uk_category_name unique(name);

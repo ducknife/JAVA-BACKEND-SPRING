@@ -7,9 +7,15 @@ spring:
         hibernate: 
             ddl-auto: none # không tự sửa cấu trúc bảng 
         show-sql: true 
-    web:
+    # mvc:
+    #     throw-exception-if-no-handler-found: true -> cần thiết với phiên bản cũ, Ném lỗi NoHandlerFoundException khi không có controller xử lý url.
+    #     Nếu chỉ dùng mỗi nó, thì nó sẽ không báo lỗi ngay, mà ResourceHandler nhận tìm xem có file tĩnh nào không -> ko báo lỗi nữa.
+
+    web: # phiên bản spring 4 chỉ cần cái này là đủ. Đó là lí do vì sao dòng trên comment vẫn bắt lỗi ngon.
         resources:
-            add-mappings: false
+            add-mappings: false # cấm tìm các file tĩnh trong static như html,... phiên bản 4 này 
+            # => nó ko tìm được file tĩnh tương ứng -> nó sẽ ném lỗi luôn
+            # Nếu chỉ dùng mỗi cái này ở phiên bản spring cũ, khi không tìm được, nó sẽ chuyển đến trang /error nên hàm trong GlobalException không hứng đc lỗi.
 server:
     port: 8080
 
