@@ -1,6 +1,9 @@
 package com.ducknife.project.modules.product;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
@@ -16,8 +19,15 @@ import lombok.NoArgsConstructor;
 @Builder // tạo ra 1 object mà không quan tâm thứ tự thuộc tính, nhưng cần constructor đầy đủ thuộc tính 
 public class Product {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY) // dùng cho MySQL, là auto increment trong mysql 
     private Long id;
+
+    @Column(name = "name", nullable = false, length = 200, unique = true)
     private String name;
-    private double price;
+    
+    @Column(name = "price", scale = 2)
+    private Double price;
+
+    
     private Long category_id;
 }
