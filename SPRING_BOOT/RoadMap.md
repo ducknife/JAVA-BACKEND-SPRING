@@ -67,7 +67,7 @@
 - [ ] JWT (JSON Web Token)
 - [ ] OAuth2
 
-### 4.2 Best Practicesaasrtyuio0p]
+### 4.2 Best Practice
 - [ ] Password Encoding (BCrypt)
 - [ ] CORS Configuration
 - [ ] CSRF Protection
