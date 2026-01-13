@@ -1,0 +1,52 @@
+2026-01-12T23:01:05.283+07:00 DEBUG 17252 --- [project] [HikariPool-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - keepalive: connection com.mysql.cj.jdbc.ConnectionImpl@4e800fb1 is alive
+2026-01-12T23:01:07.670+07:00 DEBUG 17252 --- [project] [HikariPool-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - keepalive: connection com.mysql.cj.jdbc.ConnectionImpl@2746c8a9 is alive
+2026-01-12T23:01:09.606+07:00 DEBUG 17252 --- [project] [HikariPool-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - keepalive: connection com.mysql.cj.jdbc.ConnectionImpl@114b2414 is alive
+2026-01-12T23:01:10.563+07:00 DEBUG 17252 --- [project] [HikariPool-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - keepalive: connection com.mysql.cj.jdbc.ConnectionImpl@2a3d16d is alive
+2026-01-12T23:01:20.223+07:00 DEBUG 17252 --- [project] [HikariPool-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Pool stats (total=10/10, idle=10/10, active=0, waiting=0)
+2026-01-12T23:01:20.223+07:00 DEBUG 17252 --- [project] [HikariPool-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Fill pool skipped, pool has sufficient level or currently being filled.
+2026-01-12T23:01:20.224+07:00 DEBUG 17252 --- [project] [HikariPool-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - keepalive: connection com.mysql.cj.jdbc.ConnectionImpl@6382c1aa is alive
+2026-01-12T23:01:22.438+07:00 DEBUG 17252 --- [project] [HikariPool-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - keepalive: connection com.mysql.cj.jdbc.ConnectionImpl@27ab1a0 is alive
+2026-01-12T23:01:28.898+07:00 DEBUG 17252 --- [project] [HikariPool-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - keepalive: connection com.mysql.cj.jdbc.ConnectionImpl@3ad3ee5 is alive
+2026-01-12T23:01:29.963+07:00 DEBUG 17252 --- [project] [HikariPool-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - keepalive: connection com.mysql.cj.jdbc.ConnectionImpl@429034de is alive
+2026-01-12T23:01:39.092+07:00 DEBUG 17252 --- [project] [HikariPool-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - keepalive: connection com.mysql.cj.jdbc.ConnectionImpl@32647f6f is alive
+2026-01-12T23:01:45.954+07:00 DEBUG 17252 --- [project] [HikariPool-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - keepalive: connection com.mysql.cj.jdbc.ConnectionImpl@67ccde89 is alive
+2026-01-12T23:01:50.225+07:00 DEBUG 17252 --- [project] [HikariPool-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Pool stats (total=10/10, idle=10/10, active=0, waiting=0)
+2026-01-12T23:01:50.225+07:00 DEBUG 17252 --- [project] [HikariPool-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Fill pool skipped, pool has sufficient level or currently being filled.
+2026-01-12T23:01:50.884+07:00 DEBUG 17252 --- [project] [SIGINT handler] java.lang.Runtime                        : Runtime.exit() called with status: 130
+
+java.lang.Throwable: Runtime.exit(130)
+	at java.base/java.lang.Shutdown.logRuntimeExit(Shutdown.java:179) ~[na:na]
+	at java.base/java.lang.Shutdown.exit(Shutdown.java:160) ~[na:na]
+	at java.base/java.lang.Terminator$1.handle(Terminator.java:51) ~[na:na]
+	at java.base/jdk.internal.misc.Signal$1.run(Signal.java:218) ~[na:na]
+	at java.base/java.lang.Thread.run(Thread.java:1447) ~[na:na]
+
+2026-01-12T23:01:50.886+07:00 DEBUG 17252 --- [project] [SpringApplicationShutdownHook] o.s.b.a.ApplicationAvailabilityBean      : Application availability state ReadinessState changed from ACCEPTING_TRAFFIC to REFUSING_TRAFFIC
+2026-01-12T23:01:50.890+07:00 DEBUG 17252 --- [project] [SpringApplicationShutdownHook] ConfigServletWebServerApplicationContext : Closing org.springframework.boot.web.server.servlet.context.AnnotationConfigServletWebServerApplicationContext@61a88b8c, started on Mon Jan 12 22:57:47 GMT+07:00 2026
+2026-01-12T23:01:50.893+07:00 DEBUG 17252 --- [project] [SpringApplicationShutdownHook] o.s.c.support.DefaultLifecycleProcessor  : Stopping beans in phase 2147482623
+2026-01-12T23:01:50.894+07:00  INFO 17252 --- [project] [SpringApplicationShutdownHook] o.s.boot.tomcat.GracefulShutdown         : Commencing graceful shutdown. Waiting for active requests to complete
+2026-01-12T23:01:50.898+07:00  INFO 17252 --- [project] [tomcat-shutdown] o.s.boot.tomcat.GracefulShutdown         : Graceful shutdown complete
+2026-01-12T23:01:50.899+07:00 DEBUG 17252 --- [project] [SpringApplicationShutdownHook] o.s.c.support.DefaultLifecycleProcessor  : Stopping beans in phase 2147481599
+2026-01-12T23:01:50.899+07:00 DEBUG 17252 --- [project] [tomcat-shutdown] o.s.c.support.DefaultLifecycleProcessor  : Bean 'webServerGracefulShutdown' completed its stop procedure
+2026-01-12T23:01:50.901+07:00 DEBUG 17252 --- [project] [SpringApplicationShutdownHook] o.s.c.support.DefaultLifecycleProcessor  : Bean 'webServerStartStop' completed its stop procedure
+2026-01-12T23:01:50.901+07:00 DEBUG 17252 --- [project] [SpringApplicationShutdownHook] o.s.c.support.DefaultLifecycleProcessor  : Stopping beans in phase 1073741823
+2026-01-12T23:01:50.901+07:00 DEBUG 17252 --- [project] [SpringApplicationShutdownHook] o.s.c.support.DefaultLifecycleProcessor  : Bean 'applicationTaskExecutor' completed its stop procedure
+2026-01-12T23:01:50.901+07:00 DEBUG 17252 --- [project] [SpringApplicationShutdownHook] o.s.c.support.DefaultLifecycleProcessor  : Stopping beans in phase -2147483647
+2026-01-12T23:01:50.901+07:00 DEBUG 17252 --- [project] [SpringApplicationShutdownHook] o.s.c.support.DefaultLifecycleProcessor  : Bean 'springBootLoggingLifecycle' completed its stop procedure
+2026-01-12T23:01:50.903+07:00  INFO 17252 --- [project] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-01-12T23:01:50.903+07:00 DEBUG 17252 --- [project] [SpringApplicationShutdownHook] org.hibernate.orm.factory                : HHH90020005: Closing factory [1cc9372c-b647-41f0-823c-66b395390d46]
+2026-01-12T23:01:50.905+07:00  INFO 17252 --- [project] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2026-01-12T23:01:50.905+07:00 DEBUG 17252 --- [project] [SpringApplicationShutdownHook] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Before shutdown stats (total=10/10, idle=10/10, active=0, waiting=0)
+2026-01-12T23:01:50.907+07:00 DEBUG 17252 --- [project] [HikariPool-1:connection-closer] com.zaxxer.hikari.pool.PoolBase          : HikariPool-1 - Closing connection com.mysql.cj.jdbc.ConnectionImpl@114b2414: (connection evicted)
+2026-01-12T23:01:50.909+07:00 DEBUG 17252 --- [project] [HikariPool-1:connection-closer] com.zaxxer.hikari.pool.PoolBase          : HikariPool-1 - Closing connection com.mysql.cj.jdbc.ConnectionImpl@429034de: (connection evicted)
+2026-01-12T23:01:50.910+07:00 DEBUG 17252 --- [project] [HikariPool-1:connection-closer] com.zaxxer.hikari.pool.PoolBase          : HikariPool-1 - Closing connection com.mysql.cj.jdbc.ConnectionImpl@3ad3ee5: (connection evicted)
+2026-01-12T23:01:50.910+07:00 DEBUG 17252 --- [project] [HikariPool-1:connection-closer] com.zaxxer.hikari.pool.PoolBase          : HikariPool-1 - Closing connection com.mysql.cj.jdbc.ConnectionImpl@32647f6f: (connection evicted)
+2026-01-12T23:01:50.911+07:00 DEBUG 17252 --- [project] [HikariPool-1:connection-closer] com.zaxxer.hikari.pool.PoolBase          : HikariPool-1 - Closing connection com.mysql.cj.jdbc.ConnectionImpl@6382c1aa: (connection evicted)
+2026-01-12T23:01:50.911+07:00 DEBUG 17252 --- [project] [HikariPool-1:connection-closer] com.zaxxer.hikari.pool.PoolBase          : HikariPool-1 - Closing connection com.mysql.cj.jdbc.ConnectionImpl@67ccde89: (connection evicted)
+2026-01-12T23:01:50.912+07:00 DEBUG 17252 --- [project] [HikariPool-1:connection-closer] com.zaxxer.hikari.pool.PoolBase          : HikariPool-1 - Closing connection com.mysql.cj.jdbc.ConnectionImpl@27ab1a0: (connection evicted)
+2026-01-12T23:01:50.913+07:00 DEBUG 17252 --- [project] [HikariPool-1:connection-closer] com.zaxxer.hikari.pool.PoolBase          : HikariPool-1 - Closing connection com.mysql.cj.jdbc.ConnectionImpl@2746c8a9: (connection evicted)
+2026-01-12T23:01:50.913+07:00 DEBUG 17252 --- [project] [HikariPool-1:connection-closer] com.zaxxer.hikari.pool.PoolBase          : HikariPool-1 - Closing connection com.mysql.cj.jdbc.ConnectionImpl@4e800fb1: (connection evicted)
+2026-01-12T23:01:50.914+07:00 DEBUG 17252 --- [project] [HikariPool-1:connection-closer] com.zaxxer.hikari.pool.PoolBase          : HikariPool-1 - Closing connection com.mysql.cj.jdbc.ConnectionImpl@2a3d16d: (connection evicted)
+2026-01-12T23:01:50.914+07:00 DEBUG 17252 --- [project] [SpringApplicationShutdownHook] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - After  shutdown stats (total=0/10, idle=0/10, active=0, waiting=0)
+2026-01-12T23:01:50.914+07:00  INFO 17252 --- [project] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2026-01-12T23:01:50.915+07:00 DEBUG 17252 --- [project] [SpringApplicationShutdownHook] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'

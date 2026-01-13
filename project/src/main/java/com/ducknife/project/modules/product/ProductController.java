@@ -56,7 +56,6 @@ public class ProductController {
     public ResponseEntity<ApiResponse<ProductDTO>> addProduct(@RequestBody @Valid ProductDTO product) { // thẻ valid để check trong DTO 
         productService.addProduct(product);
         return ApiResponse.created(product);
- 
     }
 
     @DeleteMapping("/{id}")

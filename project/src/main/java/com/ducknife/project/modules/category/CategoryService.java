@@ -10,6 +10,7 @@ import com.ducknife.project.common.exception.ResourceConflictException;
 import com.ducknife.project.common.exception.ResourceNotFoundException;
 import com.ducknife.project.modules.product.ProductDTO;
 
+import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 
 @Service
@@ -25,13 +26,17 @@ public class CategoryService {
                 .collect(Collectors.toList());
     }
 
+    @Transactional
     public CategoryDTO getCategoryById(Long id) {
         Category category = categoryRepository.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException("Không tìm thấy danh mục sản phẩm!"));
+        category.setName("Testing Managed/Persist trong Entity LifeCycle"); // ko cần save do đang managed nếu dùng JPA/hibernate;
+        // còn JdcbTemplate ko có dirty checking 
         return CategoryDTO.builder()
                 .name(category.getName())
                 .build();
     }
+    // hết hàm này object category kia chuyển về detached(), khi đó mọi thay đổi không ảnh hưởng đến DB.
 
     public List<ProductDTO> getProductsByCategoryId(Long id) {
         Optional<Category> category = categoryRepository.findById(id);

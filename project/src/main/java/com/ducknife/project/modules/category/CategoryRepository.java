@@ -8,14 +8,12 @@ import org.springframework.stereotype.Repository;
 
 import com.ducknife.project.modules.product.Product;
 
-@Repository
+import lombok.RequiredArgsConstructor;
 
+@Repository
+@RequiredArgsConstructor
 public class CategoryRepository {
         private final JdbcTemplate jdbcTemplate;
-
-        public CategoryRepository(JdbcTemplate jdbcTemplate) {
-                this.jdbcTemplate = jdbcTemplate;
-        }
 
         public List<Category> findAll() {
                 return jdbcTemplate.query(
