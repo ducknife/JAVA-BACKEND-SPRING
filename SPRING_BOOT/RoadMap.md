@@ -43,8 +43,8 @@
 ## 📌 Phase 3: Database Integration (2-3 tuần)
 
 ### 3.1 Spring Data JPA
-- [ ] Entity & Relationship (@OneToMany, @ManyToOne, @ManyToMany)
-- [ ] JpaRepository
+- ✅ Entity & Relationship (@OneToMany, @ManyToOne, @ManyToMany)
+- ✅ JpaRepository
 - [ ] Query Methods
 - [ ] @Query (JPQL & Native Query)
 - [ ] Pagination & Sorting

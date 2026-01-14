@@ -9,8 +9,9 @@ import jakarta.persistence.Table;
 import jakarta.persistence.UniqueConstraint;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
-import lombok.Data;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 @Entity
 @Table(name = "category", 
@@ -18,7 +19,8 @@ import lombok.NoArgsConstructor;
         @UniqueConstraint(columnNames = {"id", "name"}) // nếu có nhiều cột là unique thì để như này 
     }
 )
-@Data
+@Getter
+@Setter
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder

@@ -5,9 +5,13 @@ import java.util.stream.Collectors;
 
 import org.springframework.stereotype.Service;
 
+import com.ducknife.project.common.exception.ResourceConflictException;
 import com.ducknife.project.common.exception.ResourceNotFoundException;
 import com.ducknife.project.modules.order.Order;
 import com.ducknife.project.modules.order.OrderDTO;
+import com.ducknife.project.modules.order.OrderRepository;
+import com.ducknife.project.modules.user.dto.UserRequest;
+import com.ducknife.project.modules.user.dto.UserResponse;
 
 import lombok.RequiredArgsConstructor;
 
@@ -16,26 +20,62 @@ import lombok.RequiredArgsConstructor;
 public class UserService {
 
         private final UserRepository userRepository;
+        private final OrderRepository orderRepository;
 
-        public List<UserDTO> getUsers() {
-                return userRepository.findAll()
+        public List<UserResponse> getUsers() {
+                return userRepository.findByUserNameLengthOrderByFullNameDesc(8L)
                                 .stream()
-                                .map(u -> UserDTO.builder()
+                                .map(u -> UserResponse.builder()
+                                                .userId(u.getId())
                                                 .fullName(u.getFullName())
                                                 .userName(u.getUserName())
                                                 .build())
                                 .collect(Collectors.toList());
         }
 
-        public List<OrderDTO> findOrdersById(Long id) {
-                User user = userRepository.findById(id)
+        public UserResponse getUserById(Long userId) {
+                User user = userRepository.findById(userId)
                                 .orElseThrow(() -> new ResourceNotFoundException("Không tìm thấy người dùng"));
-                List<Order> orders = userRepository.findOrdersById(id);
+                return UserResponse.builder()
+                                .userId(user.getId())
+                                .fullName(user.getFullName())
+                                .userName(user.getUserName())
+                                .build();
+        }
+
+        public List<OrderDTO> findOrdersById(Long userId) {
+                User user = userRepository.findById(userId)
+                                .orElseThrow(() -> new ResourceNotFoundException("Không tìm thấy người dùng"));
+                List<Order> orders = orderRepository.findByUserId(userId);
                 return orders.stream()
                                 .map(o -> OrderDTO.builder()
                                                 .id(o.getId())
                                                 .userId(user.getId())
                                                 .build())
                                 .collect(Collectors.toList());
+        }
+
+        public UserResponse addUser(UserRequest user) {
+                if (userRepository.existsByUserName(user.getUserName())) {
+                        throw new ResourceConflictException("Username " + user.getUserName() + " đã tồn tại!");
+                } // comment code này đi là bị ăn bom từ DB
+                User savedUser = userRepository.save(User.builder()
+                                .fullName(user.getFullName())
+                                .userName(user.getUserName())
+                                .password(user.getPassword())
+                                .build());
+                return UserResponse.builder()
+                                .userId(savedUser.getId())
+                                .fullName(savedUser.getFullName())
+                                .userName(savedUser.getUserName())
+                                .build();
+        }
+
+        public void deleteUserById(Long userId) {
+                if (!userRepository.existsById(userId)) {
+                        throw new ResourceConflictException("Không thể xóa người dùng không tồn tại!");
+                }
+                orderRepository.deleteByUserId(userId);
+                userRepository.deleteById(userId);
         }
 }

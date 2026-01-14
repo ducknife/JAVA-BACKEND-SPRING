@@ -1,6 +1,7 @@
     package com.ducknife.project.common;
 
-    import org.springframework.dao.DuplicateKeyException;
+    import org.springframework.dao.DataIntegrityViolationException;
+import org.springframework.dao.DuplicateKeyException;
     import org.springframework.http.ResponseEntity;
     import org.springframework.web.bind.MethodArgumentNotValidException;
     import org.springframework.web.bind.annotation.ExceptionHandler;
@@ -29,9 +30,15 @@ import com.ducknife.project.common.exception.AppException;
             return ApiResponse.error(400, errorMessage);
         }
 
-        // Bắt lỗi duplicateKey -> Spring bắt 
+        // Bắt lỗi duplicateKey -> Spring bắt từ DB, dùng cho JdbcTemplate 
         @ExceptionHandler(DuplicateKeyException.class)
         public ResponseEntity<ApiResponse<?>> handleDuplicateKey(DuplicateKeyException e) {
+            return ApiResponse.error(409, "Dữ liệu đã tồn tại trong hệ thống (Bắt ngay khi repo ăn bom từ DB)");
+        }
+
+        // Bắt lỗi từ DB -> dùng cho Spring data jpa
+        @ExceptionHandler(DataIntegrityViolationException.class)
+        public ResponseEntity<ApiResponse<?>> handleDataViolation(DataIntegrityViolationException e) {
             return ApiResponse.error(409, "Dữ liệu đã tồn tại trong hệ thống (Bắt ngay khi repo ăn bom từ DB)");
         }
 

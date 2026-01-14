@@ -5,7 +5,6 @@ import java.util.stream.Collectors;
 
 import org.springframework.stereotype.Service;
 
-import com.ducknife.project.common.exception.ResourceConflictException;
 import com.ducknife.project.common.exception.ResourceNotFoundException;
 import com.ducknife.project.config.properties.DataSourceProperties;
 import com.ducknife.project.config.properties.ServerProperties;
@@ -64,9 +63,9 @@ public class ProductService {
     }
 
     public void addProduct(ProductDTO product) { // để tạm để bắt lỗi dup key trong DB
-        if (productRepository.existByName(product.getName())) {
-            throw new ResourceConflictException("Sản phẩm " + product.getName() + " đã tồn tại!");
-        }
+        // if (productRepository.existByName(product.getName())) {
+        //     throw new ResourceConflictException("Sản phẩm " + product.getName() + " đã tồn tại!");
+        // }
         productRepository.save(product);
     }
 

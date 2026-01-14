@@ -1,4 +1,4 @@
-package com.ducknife.project.modules.user;
+package com.ducknife.project.modules.user.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -9,7 +9,8 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class UserDTO {
+public class UserResponse {
+    private Long userId;
     private String fullName;
     private String userName;
 }
