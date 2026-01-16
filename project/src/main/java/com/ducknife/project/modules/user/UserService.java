@@ -25,33 +25,23 @@ public class UserService {
         public List<UserResponse> getUsers() {
                 return userRepository.findByUserNameLengthOrderByFullNameDesc(8L)
                                 .stream()
-                                .map(u -> UserResponse.builder()
-                                                .userId(u.getId())
-                                                .fullName(u.getFullName())
-                                                .userName(u.getUserName())
-                                                .build())
+                                .map(UserResponse::from)
                                 .collect(Collectors.toList());
         }
 
         public UserResponse getUserById(Long userId) {
                 User user = userRepository.findById(userId)
                                 .orElseThrow(() -> new ResourceNotFoundException("Không tìm thấy người dùng"));
-                return UserResponse.builder()
-                                .userId(user.getId())
-                                .fullName(user.getFullName())
-                                .userName(user.getUserName())
-                                .build();
+                return UserResponse.from(user);
         }
 
         public List<OrderDTO> findOrdersById(Long userId) {
-                User user = userRepository.findById(userId)
-                                .orElseThrow(() -> new ResourceNotFoundException("Không tìm thấy người dùng"));
+                if (!userRepository.existsById(userId)) {
+                        throw new ResourceNotFoundException("Không tìm thấy người dùng");
+                }
                 List<Order> orders = orderRepository.findByUserId(userId);
                 return orders.stream()
-                                .map(o -> OrderDTO.builder()
-                                                .id(o.getId())
-                                                .userId(user.getId())
-                                                .build())
+                                .map(OrderDTO::from)
                                 .collect(Collectors.toList());
         }
 
@@ -59,16 +49,8 @@ public class UserService {
                 if (userRepository.existsByUserName(user.getUserName())) {
                         throw new ResourceConflictException("Username " + user.getUserName() + " đã tồn tại!");
                 } // comment code này đi là bị ăn bom từ DB
-                User savedUser = userRepository.save(User.builder()
-                                .fullName(user.getFullName())
-                                .userName(user.getUserName())
-                                .password(user.getPassword())
-                                .build());
-                return UserResponse.builder()
-                                .userId(savedUser.getId())
-                                .fullName(savedUser.getFullName())
-                                .userName(savedUser.getUserName())
-                                .build();
+                User savedUser = userRepository.save(User.from(user));
+                return UserResponse.from(savedUser);
         }
 
         public void deleteUserById(Long userId) {

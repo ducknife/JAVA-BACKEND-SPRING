@@ -45,8 +45,8 @@
 ### 3.1 Spring Data JPA
 - ✅ Entity & Relationship (@OneToMany, @ManyToOne, @ManyToMany)
 - ✅ JpaRepository
-- [ ] Query Methods
-- [ ] @Query (JPQL & Native Query)
+- ✅ Query Methods
+- ✅ @Query (JPQL & Native Query)
 - [ ] Pagination & Sorting
 
 ### 3.2 Transaction Management

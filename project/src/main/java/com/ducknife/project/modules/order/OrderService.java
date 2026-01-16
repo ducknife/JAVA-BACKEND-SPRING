@@ -20,20 +20,14 @@ public class OrderService {
     public List<OrderDTO> getOrders() {
         return orderRepository.findAll()
                 .stream()
-                .map(o -> OrderDTO.builder()
-                        .id(o.getId())
-                        .userId(o.getUser().getId())
-                        .build())
+                .map(OrderDTO::from) // không còn bị N + 1 vì đã JOIN FETCH 
                 .collect(Collectors.toList());
     }
 
     public OrderDTO getOrderById(Long id) {
         Order order = orderRepository.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException("Không tìm thấy đơn hàng!"));
-        return OrderDTO.builder()
-                .id(order.getId())
-                .userId(order.getUser().getId())
-                .build();
+        return OrderDTO.from(order);
     }
 
     public Long countOrders() {
@@ -47,12 +41,7 @@ public class OrderService {
     public OrderDTO add(OrderDTO order) {
         User user = userRepository.findById(order.getUserId())
                 .orElseThrow(() -> new ResourceNotFoundException("Không tìm thấy người dùng!"));
-        Order savedOrder = orderRepository.save(Order.builder()
-                .user(user)
-                .build());
-        return OrderDTO.builder()
-                .id(savedOrder.getId())
-                .userId(savedOrder.getUser().getId())
-                .build();
+        Order savedOrder = orderRepository.save(Order.from(order, user));
+        return OrderDTO.from(savedOrder);
     }
 }

@@ -14,4 +14,11 @@ import lombok.Setter;
 public class OrderDTO {
     private Long id;
     private Long userId;
+
+    public static OrderDTO from(Order order) {
+        return OrderDTO.builder()
+                .id(order.getId())
+                .userId(order.getUser().getId())
+                .build();
+    }
 }

@@ -33,12 +33,21 @@ public class Order {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id", nullable = false)
     private User user;
+
+    public static Order from(OrderDTO order, User user) {
+        return Order.builder()
+                .user(user)
+                .build();
+    }
 }
 
-// Owning side: Giữ khóa ngoại, luôn là @ManyToOne, Chịu trách nhiệm lưu/sửa mối quan hệ
-// Dùng @JoinColumn để chỉ định cột khóa ngoại 
+// Owning side: Giữ khóa ngoại, luôn là @ManyToOne, Chịu trách nhiệm lưu/sửa mối
+// quan hệ
+// Dùng @JoinColumn để chỉ định cột khóa ngoại
 
-// FetchType: 
-// 1. EAGER: tải toàn bộ dữ liệu liên quan ngay lập tức , default của ManyToOne, OneToOne 
-// 2. LAZY: chỉ tải dữ liệu khi thấy lệnh .get...(), default của OneToMany, ManyToMany 
-// Luôn ưu tiên LAZY, còn sau này sẽ dùng JOIN FETCH để tối ưu 
+// FetchType:
+// 1. EAGER: tải toàn bộ dữ liệu liên quan ngay lập tức , default của ManyToOne,
+// OneToOne
+// 2. LAZY: chỉ tải dữ liệu khi thấy lệnh .get...(), default của OneToMany,
+// ManyToMany
+// Luôn ưu tiên LAZY, còn sau này sẽ dùng JOIN FETCH để tối ưu

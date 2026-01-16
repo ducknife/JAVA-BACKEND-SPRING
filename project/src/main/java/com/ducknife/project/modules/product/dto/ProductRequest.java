@@ -1,4 +1,4 @@
-package com.ducknife.project.modules.product;
+package com.ducknife.project.modules.product.dto;
 
 import jakarta.validation.constraints.NotBlank;
 import lombok.AllArgsConstructor;
@@ -10,7 +10,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class ProductDTO {
+public class ProductRequest {
     @NotBlank(message = "Tên sản phẩm không được để trống")
     private String name;
     private double price;

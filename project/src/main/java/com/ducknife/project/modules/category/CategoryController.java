@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.ducknife.project.common.ApiResponse;
-import com.ducknife.project.modules.product.ProductDTO;
+import com.ducknife.project.modules.product.dto.ProductResponse;
 
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
@@ -47,7 +47,7 @@ public class CategoryController {
     @GetMapping("/{id}/products")
     // PathVariable lấy giá trị nằm trực tiếp trong url, thường là các giá trị định
     // danh duy nhất cho 1 tài nguyên
-    public ResponseEntity<ApiResponse<List<ProductDTO>>> showProductsByCategoryId(@PathVariable Long id) {
+    public ResponseEntity<ApiResponse<List<ProductResponse>>> showProductsByCategoryId(@PathVariable Long id) {
         return ApiResponse.ok(categoryService.getProductsByCategoryId(id));
     }
 

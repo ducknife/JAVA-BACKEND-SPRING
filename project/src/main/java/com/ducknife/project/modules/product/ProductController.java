@@ -14,6 +14,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.ducknife.project.common.ApiResponse;
+import com.ducknife.project.modules.product.dto.ProductRequest;
+import com.ducknife.project.modules.product.dto.ProductResponse;
 
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
@@ -27,18 +29,18 @@ public class ProductController {
     private final ProductService productService;
 
     @GetMapping
-    public ResponseEntity<ApiResponse<List<ProductDTO>>> showProducts() {
+    public ResponseEntity<ApiResponse<List<ProductResponse>>> showProducts() {
         log.info("-".repeat(50) + "USER: Muốn hiển thị tất cả product!" + "-".repeat(50));
         return ApiResponse.ok(productService.getProducts());
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<ApiResponse<ProductDTO>> showProductById(@PathVariable Long id) {
+    public ResponseEntity<ApiResponse<ProductResponse>> showProductById(@PathVariable Long id) {
         return ApiResponse.ok(productService.getProductById(id));
     }
 
     @GetMapping("/search")
-    public ResponseEntity<ApiResponse<List<ProductDTO>>> searchProductByNameAndPrice(
+    public ResponseEntity<ApiResponse<List<ProductResponse>>> searchProductByNameAndPrice(
         @RequestParam String name, 
         @RequestParam double minPrice,
         @RequestParam double maxPrice
@@ -47,15 +49,15 @@ public class ProductController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<ApiResponse<ProductDTO>> updateProductName(@PathVariable Long id, @RequestBody ProductDTO product) {
-        productService.updateProduct(id, product);
-        return ApiResponse.ok(product);
+    public ResponseEntity<ApiResponse<ProductResponse>> updateProductName(@PathVariable Long id, @RequestBody ProductRequest product) {
+        ProductResponse updatedProduct = productService.updateProduct(id, product);
+        return ApiResponse.ok(updatedProduct);
     }
 
     @PostMapping
-    public ResponseEntity<ApiResponse<ProductDTO>> addProduct(@RequestBody @Valid ProductDTO product) { // thẻ valid để check trong DTO 
-        productService.addProduct(product);
-        return ApiResponse.created(product);
+    public ResponseEntity<ApiResponse<ProductResponse>> addProduct(@RequestBody @Valid ProductRequest product) { // thẻ valid để check trong DTO 
+        ProductResponse updatedProduct = productService.addProduct(product);
+        return ApiResponse.created(updatedProduct);
     }
 
     @DeleteMapping("/{id}")

@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 @Repository
@@ -15,8 +16,8 @@ public interface UserRepository extends JpaRepository<User, Long>{
         List<User> findByFullNameLike(String subName);
         List<User> findByFullNameLikeAndUserNameLike(String fullName, String userName);
 
-        @Query("SELECT u FROM User u WHERE LENGTH(u.userName) <= ?1 ORDER BY u.fullName DESC")
-        List<User> findByUserNameLengthOrderByFullNameDesc(Long length);
+        @Query("SELECT u FROM User u WHERE LENGTH(u.userName) <= :length ORDER BY u.fullName DESC")
+        List<User> findByUserNameLengthOrderByFullNameDesc(@Param("length") Long length); // Param giúp nối một biến vào đúng vị trí câu lệnh trên Query.
         @Query("SELECT u FROM User u ORDER BY LENGTH(u.fullName) DESC LIMIT 1")
         List<User> findTop1ByOrderByFullNameLengthDesc();
 

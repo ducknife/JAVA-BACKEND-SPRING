@@ -3,6 +3,7 @@ package com.ducknife.project.modules.user;
 import java.util.List;
 
 import com.ducknife.project.modules.order.Order;
+import com.ducknife.project.modules.user.dto.UserRequest;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
@@ -42,9 +43,18 @@ public class User {
     private String password;
 
     // mappedBy = "user" -> Trỏ vào biến 'private User user' trong class Order
-    // Nếu thiếu mappedBy -> JPA sẽ tự tạo ra bảng trung gian (User_Order) -> SAI thiết kế
+    // Nếu thiếu mappedBy -> JPA sẽ tự tạo ra bảng trung gian (User_Order) -> SAI
+    // thiết kế
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<Order> orders;
+
+    public static User from(UserRequest user) {
+        return User.builder()
+                .fullName(user.getFullName())
+                .userName(user.getUserName())
+                .password(user.getPassword())
+                .build();
+    }
 }
 // Inverse side: Luôn là phía @OneToMany, chỉ mang ý nghĩa read-only;
 // Bắt buộc dùng mappedBy trỏ vào tên biến bên Owning side;
@@ -52,4 +62,5 @@ public class User {
 // CascadeType.PERSIST: Lưu cha -> lưu con (nếu có cập nhật);
 // CascadeType.REMOVE: Xóa cha -> xóa tất cả các con;
 // CascadeType.ALL: Bao gồm tất cả quyền trên;
-// Nếu dùng chay jdbcTemplate phải thêm on delete cascade để xóa khóa ngoại liên quan;
+// Nếu dùng chay jdbcTemplate phải thêm on delete cascade để xóa khóa ngoại liên
+// quan;
