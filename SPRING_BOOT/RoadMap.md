@@ -47,7 +47,7 @@
 - ✅ JpaRepository
 - ✅ Query Methods
 - ✅ @Query (JPQL & Native Query)
-- [ ] Pagination & Sorting
+- ✅ Pagination & Sorting
 
 ### 3.2 Transaction Management
 - [ ] @Transactional

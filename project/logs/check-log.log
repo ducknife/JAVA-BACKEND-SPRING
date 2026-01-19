@@ -1,45 +1,36 @@
-2026-01-16T17:16:05.099+07:00 DEBUG 5484 --- [project] [HikariPool-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - keepalive: connection com.mysql.cj.jdbc.ConnectionImpl@1f163b79 is alive
-2026-01-16T17:16:09.656+07:00 DEBUG 5484 --- [project] [HikariPool-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - keepalive: connection com.mysql.cj.jdbc.ConnectionImpl@5bda4f59 is alive
-2026-01-16T17:16:11.487+07:00 DEBUG 5484 --- [project] [HikariPool-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - keepalive: connection com.mysql.cj.jdbc.ConnectionImpl@18e8a2f4 is alive
-2026-01-16T17:16:15.332+07:00 DEBUG 5484 --- [project] [HikariPool-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Pool stats (total=10/10, idle=10/10, active=0, waiting=0)
-2026-01-16T17:16:15.334+07:00 DEBUG 5484 --- [project] [HikariPool-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Fill pool skipped, pool has sufficient level or currently being filled.
-2026-01-16T17:16:16.244+07:00 DEBUG 5484 --- [project] [HikariPool-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - keepalive: connection com.mysql.cj.jdbc.ConnectionImpl@45b08b17 is alive
-2026-01-16T17:16:25.159+07:00 DEBUG 5484 --- [project] [HikariPool-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - keepalive: connection com.mysql.cj.jdbc.ConnectionImpl@3db48adb is alive
-2026-01-16T17:16:40.397+07:00 DEBUG 5484 --- [project] [SIGINT handler] java.lang.Runtime                        : Runtime.exit() called with status: 130
+2026-01-16T20:48:06.415+07:00 DEBUG 11148 --- [project] [HikariPool-266:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-266 - Pool stats (total=10/10, idle=10/10, active=0, waiting=0)
+2026-01-16T20:48:06.416+07:00 DEBUG 11148 --- [project] [HikariPool-266:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-266 - Fill pool skipped, pool has sufficient level or currently being filled.
+2026-01-16T20:48:12.334+07:00 DEBUG 11148 --- [project] [http-nio-8080-exec-5] o.apache.coyote.http11.Http11Processor   : Error parsing HTTP request header
 
-java.lang.Throwable: Runtime.exit(130)
-	at java.base/java.lang.Shutdown.logRuntimeExit(Shutdown.java:179) ~[na:na]
-	at java.base/java.lang.Shutdown.exit(Shutdown.java:160) ~[na:na]
-	at java.base/java.lang.Terminator$1.handle(Terminator.java:51) ~[na:na]
-	at java.base/jdk.internal.misc.Signal$1.run(Signal.java:218) ~[na:na]
+java.io.EOFException
+	at org.apache.tomcat.util.net.NioEndpoint$NioSocketWrapper.fillReadBuffer(NioEndpoint.java:1338) ~[tomcat-embed-core-11.0.15.jar:11.0.15]
+	at org.apache.tomcat.util.net.NioEndpoint$NioSocketWrapper.read(NioEndpoint.java:1223) ~[tomcat-embed-core-11.0.15.jar:11.0.15]
+	at org.apache.coyote.http11.Http11InputBuffer.fill(Http11InputBuffer.java:776) ~[tomcat-embed-core-11.0.15.jar:11.0.15]
+	at org.apache.coyote.http11.Http11InputBuffer.parseRequestLine(Http11InputBuffer.java:334) ~[tomcat-embed-core-11.0.15.jar:11.0.15]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:270) ~[tomcat-embed-core-11.0.15.jar:11.0.15]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63) ~[tomcat-embed-core-11.0.15.jar:11.0.15]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:903) ~[tomcat-embed-core-11.0.15.jar:11.0.15]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1778) ~[tomcat-embed-core-11.0.15.jar:11.0.15]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52) ~[tomcat-embed-core-11.0.15.jar:11.0.15]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:946) ~[tomcat-embed-core-11.0.15.jar:11.0.15]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:480) ~[tomcat-embed-core-11.0.15.jar:11.0.15]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:57) ~[tomcat-embed-core-11.0.15.jar:11.0.15]
 	at java.base/java.lang.Thread.run(Thread.java:1447) ~[na:na]
 
-2026-01-16T17:16:40.407+07:00 DEBUG 5484 --- [project] [SpringApplicationShutdownHook] o.s.b.a.ApplicationAvailabilityBean      : Application availability state ReadinessState changed from ACCEPTING_TRAFFIC to REFUSING_TRAFFIC
-2026-01-16T17:16:40.432+07:00 DEBUG 5484 --- [project] [SpringApplicationShutdownHook] ConfigServletWebServerApplicationContext : Closing org.springframework.boot.web.server.servlet.context.AnnotationConfigServletWebServerApplicationContext@61a88b8c, started on Fri Jan 16 17:08:41 GMT+07:00 2026
-2026-01-16T17:16:40.436+07:00 DEBUG 5484 --- [project] [SpringApplicationShutdownHook] o.s.c.support.DefaultLifecycleProcessor  : Stopping beans in phase 2147482623
-2026-01-16T17:16:40.436+07:00  INFO 5484 --- [project] [SpringApplicationShutdownHook] o.s.boot.tomcat.GracefulShutdown         : Commencing graceful shutdown. Waiting for active requests to complete
-2026-01-16T17:16:40.451+07:00  INFO 5484 --- [project] [tomcat-shutdown] o.s.boot.tomcat.GracefulShutdown         : Graceful shutdown complete
-2026-01-16T17:16:40.452+07:00 DEBUG 5484 --- [project] [SpringApplicationShutdownHook] o.s.c.support.DefaultLifecycleProcessor  : Stopping beans in phase 2147481599
-2026-01-16T17:16:40.452+07:00 DEBUG 5484 --- [project] [tomcat-shutdown] o.s.c.support.DefaultLifecycleProcessor  : Bean 'webServerGracefulShutdown' completed its stop procedure
-2026-01-16T17:16:40.456+07:00 DEBUG 5484 --- [project] [SpringApplicationShutdownHook] o.s.c.support.DefaultLifecycleProcessor  : Bean 'webServerStartStop' completed its stop procedure
-2026-01-16T17:16:40.456+07:00 DEBUG 5484 --- [project] [SpringApplicationShutdownHook] o.s.c.support.DefaultLifecycleProcessor  : Stopping beans in phase 1073741823
-2026-01-16T17:16:40.456+07:00 DEBUG 5484 --- [project] [SpringApplicationShutdownHook] o.s.c.support.DefaultLifecycleProcessor  : Bean 'applicationTaskExecutor' completed its stop procedure
-2026-01-16T17:16:40.456+07:00 DEBUG 5484 --- [project] [SpringApplicationShutdownHook] o.s.c.support.DefaultLifecycleProcessor  : Stopping beans in phase -2147483647
-2026-01-16T17:16:40.459+07:00 DEBUG 5484 --- [project] [SpringApplicationShutdownHook] o.s.c.support.DefaultLifecycleProcessor  : Bean 'springBootLoggingLifecycle' completed its stop procedure
-2026-01-16T17:16:40.461+07:00  INFO 5484 --- [project] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
-2026-01-16T17:16:40.462+07:00 DEBUG 5484 --- [project] [SpringApplicationShutdownHook] org.hibernate.orm.factory                : HHH90020005: Closing factory [aacf4bda-fad1-49c3-8357-120627a36cb0]
-2026-01-16T17:16:40.467+07:00  INFO 5484 --- [project] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
-2026-01-16T17:16:40.470+07:00 DEBUG 5484 --- [project] [SpringApplicationShutdownHook] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Before shutdown stats (total=10/10, idle=10/10, active=0, waiting=0)
-2026-01-16T17:16:40.473+07:00 DEBUG 5484 --- [project] [HikariPool-1:connection-closer] com.zaxxer.hikari.pool.PoolBase          : HikariPool-1 - Closing connection com.mysql.cj.jdbc.ConnectionImpl@45b08b17: (connection evicted)
-2026-01-16T17:16:40.477+07:00 DEBUG 5484 --- [project] [HikariPool-1:connection-closer] com.zaxxer.hikari.pool.PoolBase          : HikariPool-1 - Closing connection com.mysql.cj.jdbc.ConnectionImpl@18e8a2f4: (connection evicted)
-2026-01-16T17:16:40.478+07:00 DEBUG 5484 --- [project] [HikariPool-1:connection-closer] com.zaxxer.hikari.pool.PoolBase          : HikariPool-1 - Closing connection com.mysql.cj.jdbc.ConnectionImpl@59d5a8cf: (connection evicted)
-2026-01-16T17:16:40.478+07:00 DEBUG 5484 --- [project] [HikariPool-1:connection-closer] com.zaxxer.hikari.pool.PoolBase          : HikariPool-1 - Closing connection com.mysql.cj.jdbc.ConnectionImpl@68c653a8: (connection evicted)
-2026-01-16T17:16:40.480+07:00 DEBUG 5484 --- [project] [HikariPool-1:connection-closer] com.zaxxer.hikari.pool.PoolBase          : HikariPool-1 - Closing connection com.mysql.cj.jdbc.ConnectionImpl@39fa5780: (connection evicted)
-2026-01-16T17:16:40.480+07:00 DEBUG 5484 --- [project] [HikariPool-1:connection-closer] com.zaxxer.hikari.pool.PoolBase          : HikariPool-1 - Closing connection com.mysql.cj.jdbc.ConnectionImpl@3db48adb: (connection evicted)
-2026-01-16T17:16:40.481+07:00 DEBUG 5484 --- [project] [HikariPool-1:connection-closer] com.zaxxer.hikari.pool.PoolBase          : HikariPool-1 - Closing connection com.mysql.cj.jdbc.ConnectionImpl@6d8936fa: (connection evicted)
-2026-01-16T17:16:40.481+07:00 DEBUG 5484 --- [project] [HikariPool-1:connection-closer] com.zaxxer.hikari.pool.PoolBase          : HikariPool-1 - Closing connection com.mysql.cj.jdbc.ConnectionImpl@6e7feb94: (connection evicted)
-2026-01-16T17:16:40.482+07:00 DEBUG 5484 --- [project] [HikariPool-1:connection-closer] com.zaxxer.hikari.pool.PoolBase          : HikariPool-1 - Closing connection com.mysql.cj.jdbc.ConnectionImpl@1f163b79: (connection evicted)
-2026-01-16T17:16:40.482+07:00 DEBUG 5484 --- [project] [HikariPool-1:connection-closer] com.zaxxer.hikari.pool.PoolBase          : HikariPool-1 - Closing connection com.mysql.cj.jdbc.ConnectionImpl@5bda4f59: (connection evicted)
-2026-01-16T17:16:40.482+07:00 DEBUG 5484 --- [project] [SpringApplicationShutdownHook] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - After  shutdown stats (total=0/10, idle=0/10, active=0, waiting=0)
-2026-01-16T17:16:40.482+07:00  INFO 5484 --- [project] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
-2026-01-16T17:16:40.482+07:00 DEBUG 5484 --- [project] [SpringApplicationShutdownHook] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2026-01-16T20:48:12.336+07:00 DEBUG 11148 --- [project] [http-nio-8080-exec-5] o.apache.coyote.http11.Http11Processor   : Error state [CLOSE_CONNECTION_NOW] reported while processing request
+
+java.io.EOFException
+	at org.apache.tomcat.util.net.NioEndpoint$NioSocketWrapper.fillReadBuffer(NioEndpoint.java:1338) ~[tomcat-embed-core-11.0.15.jar:11.0.15]
+	at org.apache.tomcat.util.net.NioEndpoint$NioSocketWrapper.read(NioEndpoint.java:1223) ~[tomcat-embed-core-11.0.15.jar:11.0.15]
+	at org.apache.coyote.http11.Http11InputBuffer.fill(Http11InputBuffer.java:776) ~[tomcat-embed-core-11.0.15.jar:11.0.15]
+	at org.apache.coyote.http11.Http11InputBuffer.parseRequestLine(Http11InputBuffer.java:334) ~[tomcat-embed-core-11.0.15.jar:11.0.15]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:270) ~[tomcat-embed-core-11.0.15.jar:11.0.15]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63) ~[tomcat-embed-core-11.0.15.jar:11.0.15]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:903) ~[tomcat-embed-core-11.0.15.jar:11.0.15]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1778) ~[tomcat-embed-core-11.0.15.jar:11.0.15]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52) ~[tomcat-embed-core-11.0.15.jar:11.0.15]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:946) ~[tomcat-embed-core-11.0.15.jar:11.0.15]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:480) ~[tomcat-embed-core-11.0.15.jar:11.0.15]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:57) ~[tomcat-embed-core-11.0.15.jar:11.0.15]
+	at java.base/java.lang.Thread.run(Thread.java:1447) ~[na:na]
+

@@ -2,6 +2,11 @@ package com.ducknife.project.modules.user;
 
 import java.util.List;
 
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
+import org.springframework.data.web.PageableDefault;
+import org.springframework.data.web.SortDefault;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -9,6 +14,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.ducknife.project.common.ApiResponse;
@@ -27,8 +33,18 @@ public class UserController {
     private final UserService userService;
 
     @GetMapping
-    public ResponseEntity<ApiResponse<List<UserResponse>>> getUsers() {
-        return ApiResponse.ok(userService.getUsers());
+    public ResponseEntity<ApiResponse<Page<UserResponse>>> getUsers(
+        @PageableDefault(page = 0, size = 5, sort = "fullName", direction = Sort.Direction.DESC) Pageable pageable
+    ) {
+        return ApiResponse.ok(userService.getUsers(pageable));  
+    }
+
+    @GetMapping("/sort")
+    public ResponseEntity<ApiResponse<List<UserResponse>>> getUserByIdLessThan(
+        @RequestParam(required = false) Long id,
+        @SortDefault(sort = "id", direction = Sort.Direction.DESC) Sort sort
+    ) {
+        return ApiResponse.ok(userService.getUsersByIdLessThan(id, sort));
     }
 
     @GetMapping("/{id}")

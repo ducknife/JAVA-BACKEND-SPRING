@@ -3,6 +3,9 @@ package com.ducknife.project.modules.user;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import com.ducknife.project.common.exception.ResourceConflictException;
@@ -22,8 +25,13 @@ public class UserService {
         private final UserRepository userRepository;
         private final OrderRepository orderRepository;
 
-        public List<UserResponse> getUsers() {
-                return userRepository.findByUserNameLengthOrderByFullNameDesc(8L)
+        public Page<UserResponse> getUsers(Pageable pageable) {
+                return userRepository.findByNameLength(pageable)
+                                .map(UserResponse::from);
+        }
+
+        public List<UserResponse> getUsersByIdLessThan(Long id, Sort sort) {
+                return userRepository.findByIdLessThan(id, sort)
                                 .stream()
                                 .map(UserResponse::from)
                                 .collect(Collectors.toList());

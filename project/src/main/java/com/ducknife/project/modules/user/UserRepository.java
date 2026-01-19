@@ -2,6 +2,9 @@ package com.ducknife.project.modules.user;
 
 import java.util.List;
 
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
@@ -21,4 +24,8 @@ public interface UserRepository extends JpaRepository<User, Long>{
         @Query("SELECT u FROM User u ORDER BY LENGTH(u.fullName) DESC LIMIT 1")
         List<User> findTop1ByOrderByFullNameLengthDesc();
 
+        @Query("SELECT u FROM User u ORDER BY LENGTH(u.userName) DESC")
+        Page<User> findByNameLength(Pageable pageable);
+
+        List<User> findByIdLessThan(Long id, Sort sort);
 }
