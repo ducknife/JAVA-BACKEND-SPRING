@@ -21,7 +21,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Entity
-@Table(name = "category", 
+@Table(name = "categories", 
     uniqueConstraints = {
         @UniqueConstraint(columnNames = {"id", "name"}) // nếu có nhiều cột là unique thì để như này 
     }
@@ -37,6 +37,6 @@ public class Category {
     private Long id;
     @Column(name = "name", length = 100, nullable = false, unique = true)
     private String name;
-    @OneToMany(mappedBy = "category", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    private List<Product> products;
+    // @OneToMany(mappedBy = "category", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    // private List<Product> products;
 }

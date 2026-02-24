@@ -16,6 +16,6 @@ public interface CategoryRepository extends JpaRepository<Category, Long>{
         @Query("SELECT c FROM Category c ORDER BY c.name DESC LIMIT 3")
         List<Category> findTop3ByOrderByName();
 
-        @Query("SELECT c FROM Category c LEFT JOIN FETCH c.products")
-        List<Category> findProductsByCategory();
+        // @Query("SELECT c FROM Category c LEFT JOIN FETCH c.products")
+        // List<Category> findProductsByCategory();
 }

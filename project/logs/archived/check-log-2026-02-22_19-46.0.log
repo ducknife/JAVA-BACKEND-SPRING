@@ -1,0 +1,9 @@
+2026-02-22T19:46:04.261+07:00 DEBUG 23880 --- [project] [HikariPool-102:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-102 - keepalive: connection com.mysql.cj.jdbc.ConnectionImpl@1b0ca6b0 is alive
+2026-02-22T19:46:09.398+07:00 DEBUG 23880 --- [project] [HikariPool-102:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-102 - keepalive: connection com.mysql.cj.jdbc.ConnectionImpl@1cdd0e1e is alive
+2026-02-22T19:46:11.719+07:00 DEBUG 23880 --- [project] [HikariPool-102:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-102 - keepalive: connection com.mysql.cj.jdbc.ConnectionImpl@3181efd2 is alive
+2026-02-22T19:46:25.459+07:00 DEBUG 23880 --- [project] [HikariPool-102:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-102 - Pool stats (total=10/10, idle=10/10, active=0, waiting=0)
+2026-02-22T19:46:25.462+07:00 DEBUG 23880 --- [project] [HikariPool-102:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-102 - Fill pool skipped, pool has sufficient level or currently being filled.
+2026-02-22T19:46:35.558+07:00 DEBUG 23880 --- [project] [HikariPool-102:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-102 - keepalive: connection com.mysql.cj.jdbc.ConnectionImpl@7cdda474 is alive
+2026-02-22T19:46:35.601+07:00 DEBUG 23880 --- [project] [HikariPool-102:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-102 - keepalive: connection com.mysql.cj.jdbc.ConnectionImpl@67ee94d2 is alive
+2026-02-22T19:46:55.471+07:00 DEBUG 23880 --- [project] [HikariPool-102:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-102 - Pool stats (total=10/10, idle=10/10, active=0, waiting=0)
+2026-02-22T19:46:55.472+07:00 DEBUG 23880 --- [project] [HikariPool-102:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-102 - Fill pool skipped, pool has sufficient level or currently being filled.

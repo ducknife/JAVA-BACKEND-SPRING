@@ -1,6 +1,9 @@
 package com.ducknife.project.modules.product;
 
+import java.math.BigDecimal;
+
 import com.ducknife.project.modules.category.Category;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -18,7 +21,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Entity
-@Table(name = "product")
+@Table(name = "products")
 // @Data // với entity không nên dùng @Data, vì khi fix bug nó sẽ in theo dây chuyền nếu có khóa ngoại;
 // ví dụ: in ra Order nó sẽ cố in ra User -> kích hoạt truy vấn tìm user 
 @Getter
@@ -34,10 +37,11 @@ public class Product {
     @Column(name = "name", nullable = false, length = 200, unique = true)
     private String name;
     
-    @Column(name = "price", scale = 2)
-    private Double price;
+    @Column(name = "price", precision = 10, scale = 2)
+    private BigDecimal price;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.LAZY) // nếu dùng ở cả 2 phía cho quan hệ OneToMany thì phải dùng DTO để tránh vòng lặp vô hạn;
     @JoinColumn(name = "category_id", nullable = false)
+    @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"}) // nếu dùng 1 phía như product - category trong dự án này thì phải thêm dòng này ở Owning Side để tránh lỗi do LAZY;
     private Category category;
 }

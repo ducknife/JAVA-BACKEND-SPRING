@@ -5,7 +5,7 @@ spring:
         password: Hung12062005@
     jpa:
         hibernate: 
-            ddl-auto: update # không tự sửa cấu trúc bảng 
+            ddl-auto: validate # không tự sửa cấu trúc bảng 
         show-sql: true 
     # mvc:
     #     throw-exception-if-no-handler-found: true -> cần thiết với phiên bản cũ, Ném lỗi NoHandlerFoundException khi không có controller xử lý url.
@@ -16,8 +16,16 @@ spring:
             add-mappings: false # cấm tìm các file tĩnh trong static như html,... phiên bản 4 này 
             # => nó ko tìm được file tĩnh tương ứng -> nó sẽ ném lỗi luôn
             # Nếu chỉ dùng mỗi cái này ở phiên bản spring cũ, khi không tìm được, nó sẽ chuyển đến trang /error nên hàm trong GlobalException không hứng đc lỗi.
+    flyway:
+        enabled: true
+        # bật tính năng baseline, tránh lỗi xung đột nếu máy đã có dữ liệu.
+        baseline-on-migrate: true
+        # Đặt mốc (flyway sẽ mặc định là db đã có mốc này)
+        # baseline-version: "1" # ví dụ ở đây là đã có V1
+        out-of-order: false # nếu đã chạy tới V3 mà hôm sau chèn 1 file V2.5 thì báo lỗi luôn (xây dựng tính kỉ luật cho team). Nếu để true thì nó sẽ chạy thêm 
+        # file V2.5 đó.
 server:
-    port: 8080
+    port: ${PORT:8080}
 
 logging:
     level:

@@ -1,0 +1,10 @@
+2026-02-24T11:19:17.328+07:00 DEBUG 31292 --- [project] [HikariPool-20:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-20 - Pool stats (total=10/10, idle=10/10, active=0, waiting=0)
+2026-02-24T11:19:17.344+07:00 DEBUG 31292 --- [project] [HikariPool-20:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-20 - Fill pool skipped, pool has sufficient level or currently being filled.
+2026-02-24T11:19:32.978+07:00 DEBUG 31292 --- [project] [HikariPool-20:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-20 - keepalive: connection com.mysql.cj.jdbc.ConnectionImpl@ee1ec62 is alive
+2026-02-24T11:19:44.757+07:00 DEBUG 31292 --- [project] [HikariPool-20:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-20 - keepalive: connection com.mysql.cj.jdbc.ConnectionImpl@62d5125f is alive
+2026-02-24T11:19:47.345+07:00 DEBUG 31292 --- [project] [HikariPool-20:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-20 - Pool stats (total=10/10, idle=10/10, active=0, waiting=0)
+2026-02-24T11:19:47.345+07:00 DEBUG 31292 --- [project] [HikariPool-20:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-20 - Fill pool skipped, pool has sufficient level or currently being filled.
+2026-02-24T11:19:51.527+07:00 DEBUG 31292 --- [project] [HikariPool-20:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-20 - keepalive: connection com.mysql.cj.jdbc.ConnectionImpl@7002da67 is alive
+2026-02-24T11:19:53.362+07:00 DEBUG 31292 --- [project] [HikariPool-20:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-20 - keepalive: connection com.mysql.cj.jdbc.ConnectionImpl@3fa5646f is alive
+2026-02-24T11:19:53.978+07:00 DEBUG 31292 --- [project] [HikariPool-20:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-20 - keepalive: connection com.mysql.cj.jdbc.ConnectionImpl@4fdce659 is alive
+2026-02-24T11:19:59.480+07:00 DEBUG 31292 --- [project] [HikariPool-20:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-20 - keepalive: connection com.mysql.cj.jdbc.ConnectionImpl@24be84fd is alive

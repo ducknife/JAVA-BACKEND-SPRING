@@ -14,6 +14,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
+import jakarta.persistence.Version;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -21,7 +22,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Entity
-@Table(name = "user")
+@Table(name = "users")
 @NoArgsConstructor
 @AllArgsConstructor
 @Setter
@@ -47,6 +48,11 @@ public class User {
     // thiết kế
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<Order> orders;
+
+    @Version // khóa lạc quan: nếu version đã
+             // được update (có transaction khác sửa và lưu trước mình), thì nó báo lỗi
+             // OptimisticLockException
+    private Long version;
 
     public static User from(UserRequest user) {
         return User.builder()

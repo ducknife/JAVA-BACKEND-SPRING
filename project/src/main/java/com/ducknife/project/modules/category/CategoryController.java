@@ -15,6 +15,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.ducknife.project.common.ApiResponse;
+import com.ducknife.project.modules.auditlog.AuditLog;
+import com.ducknife.project.modules.auditlog.AuditService;
 import com.ducknife.project.modules.product.dto.ProductResponse;
 
 import jakarta.validation.Valid;
@@ -29,6 +31,8 @@ import lombok.RequiredArgsConstructor;
 // GET:/api/categories/{id} trong controller
 @RequiredArgsConstructor
 public class CategoryController {
+
+    private final AuditService auditService;
     private final CategoryService categoryService;
     
     @GetMapping

@@ -5,7 +5,7 @@ create table user (
     full_name varchar(100) not null,
     user_name varchar(100) not null,
     password varchar(100) not null,
-    unique(user_name)
+    constraint uk_user_name unique(user_name)
 );
 
 insert into user values

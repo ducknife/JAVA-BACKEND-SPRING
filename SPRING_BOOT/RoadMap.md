@@ -50,9 +50,9 @@
 - ✅ Pagination & Sorting
 
 ### 3.2 Transaction Management
-- [ ] @Transactional
+- ✅ @Transactional
 - [ ] Isolation Levels
-- [ ] Propagation
+- ✅ Propagation
 
 ### 3.3 Database Migration
 - [ ] Flyway hoặc Liquibase

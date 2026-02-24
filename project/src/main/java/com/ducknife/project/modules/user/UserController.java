@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -34,16 +35,21 @@ public class UserController {
 
     @GetMapping
     public ResponseEntity<ApiResponse<Page<UserResponse>>> getUsers(
-        @PageableDefault(page = 0, size = 5, sort = "fullName", direction = Sort.Direction.DESC) Pageable pageable
+            @PageableDefault(page = 0, size = 5, sort = "fullName", direction = Sort.Direction.DESC) Pageable pageable) {
+        return ApiResponse.ok(userService.getUsers(pageable));
+    }
+
+    @GetMapping("/test")
+    public ResponseEntity<ApiResponse<List<UserResponse>>> getUsersByFullname(
+        @RequestParam String keyword
     ) {
-        return ApiResponse.ok(userService.getUsers(pageable));  
+        return ApiResponse.ok(userService.getUserByFullname(keyword));
     }
 
     @GetMapping("/sort")
     public ResponseEntity<ApiResponse<List<UserResponse>>> getUserByIdLessThan(
-        @RequestParam(required = false) Long id,
-        @SortDefault(sort = "id", direction = Sort.Direction.DESC) Sort sort
-    ) {
+            @RequestParam(required = false) Long id,
+            @SortDefault(sort = "id", direction = Sort.Direction.DESC) Sort sort) {
         return ApiResponse.ok(userService.getUsersByIdLessThan(id, sort));
     }
 
@@ -61,6 +67,12 @@ public class UserController {
     public ResponseEntity<ApiResponse<UserResponse>> addUser(@RequestBody @Valid UserRequest user) {
         UserResponse savedUser = userService.addUser(user);
         return ApiResponse.created(savedUser);
+    }
+
+    @PutMapping("/{id}")
+    public ResponseEntity<ApiResponse<String>> updateUser(@PathVariable Long id, @RequestBody @Valid UserRequest user) {
+        userService.updateUser(id, user);
+        return ApiResponse.ok("Cập nhật người dùng thành công!");
     }
 
     @DeleteMapping("/{id}")
