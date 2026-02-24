@@ -4,7 +4,7 @@ use astar_hub;
 -- drop database astar_hub;
 -- create database astar_hub;
 
-create table product (
+create table products (
 	id int auto_increment primary key not null,
     name varchar(200) not null,
     price decimal(10, 2),
@@ -13,7 +13,7 @@ create table product (
 	constraint uk_product_name unique(name)
 );
 
-describe product;
+describe products;
 
 -- alter table product 
 -- add constraint uk_product_name unique(name);
@@ -21,4 +21,4 @@ describe product;
 -- alter table product
 -- modify name varchar(200) not null;
 
-select * from product;
+select * from products;

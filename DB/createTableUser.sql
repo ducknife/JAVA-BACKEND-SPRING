@@ -1,6 +1,6 @@
 use astar_hub;
 
-create table user (
+create table users (
 	user_id bigint primary key auto_increment not null,
     full_name varchar(100) not null,
     user_name varchar(100) not null,
@@ -12,4 +12,5 @@ insert into user values
 (1, 'Alan Karmat', 'ducknife', 'hash1@'),
 (2, 'Judy Hernandez', 'judymaam', 'hash2@');
 
-select * from user;
+describe users;
+select * from users;
