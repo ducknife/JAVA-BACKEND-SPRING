@@ -1,8 +1,11 @@
 package com.ducknife.project.modules.user;
 
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import com.ducknife.project.modules.order.Order;
+import com.ducknife.project.modules.role.Role;
 import com.ducknife.project.modules.user.dto.UserRequest;
 
 import jakarta.persistence.CascadeType;
@@ -12,6 +15,9 @@ import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.JoinTable;
+import jakarta.persistence.ManyToMany;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import jakarta.persistence.Version;
@@ -51,6 +57,15 @@ public class User {
     // thiết kế
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<Order> orders;
+
+    @ManyToMany
+    @JoinTable(
+        name = "user_roles",
+        joinColumns = @JoinColumn(name = "user_id"),
+        inverseJoinColumns = @JoinColumn(name = "role_id")
+    )
+    @Builder.Default
+    private Set<Role> roles = new HashSet<>();
 
     @Version // khóa lạc quan: nếu version đã
              // được update (có transaction khác sửa và lưu trước mình), thì nó báo lỗi

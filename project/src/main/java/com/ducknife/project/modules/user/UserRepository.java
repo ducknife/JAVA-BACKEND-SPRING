@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
+import org.springframework.data.jpa.repository.EntityGraph;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Lock;
 import org.springframework.data.jpa.repository.Query;
@@ -45,5 +46,6 @@ public interface UserRepository extends JpaRepository<User, Long> {
 
         @Lock(LockModeType.PESSIMISTIC_WRITE) // khóa bi quan, khóa vật lý dòng, sinh ra for update, lock cứng db, service phải có transactional 
         @QueryHints({ @QueryHint(name = "jakarta.persistence.lock.timeout", value = "3000") }) // giới hạn 3 giây, nếu ko lấy đc khóa, ném lỗi
+        @EntityGraph(attributePaths = "roles")
         List<User> findByIdLessThan(Long id, Sort sort);
 }

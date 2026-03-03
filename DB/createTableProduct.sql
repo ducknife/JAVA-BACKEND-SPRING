@@ -1,8 +1,8 @@
 create database astar_hub;
 use astar_hub;
 
--- drop database astar_hub;
--- create database astar_hub;
+drop database astar_hub;
+create database astar_hub;
 
 create table products (
 	id int auto_increment primary key not null,

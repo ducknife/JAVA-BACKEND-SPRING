@@ -15,8 +15,8 @@ import com.ducknife.project.common.exception.AppException;
 import com.ducknife.project.common.exception.ResourceConflictException;
 import com.ducknife.project.common.exception.ResourceNotFoundException;
 import com.ducknife.project.modules.order.Order;
-import com.ducknife.project.modules.order.OrderDTO;
 import com.ducknife.project.modules.order.OrderRepository;
+import com.ducknife.project.modules.order.dto.OrderResponse;
 import com.ducknife.project.modules.user.dto.UserRequest;
 import com.ducknife.project.modules.user.dto.UserResponse;
 
@@ -55,13 +55,13 @@ public class UserService {
                 return UserResponse.from(user);
         }
 
-        public List<OrderDTO> findOrdersById(Long userId) {
+        public List<OrderResponse> findOrdersById(Long userId) {
                 if (!userRepository.existsById(userId)) {
                         throw new ResourceNotFoundException("Không tìm thấy người dùng");
                 }
                 List<Order> orders = orderRepository.findByUserId(userId);
                 return orders.stream()
-                                .map(OrderDTO::from)
+                                .map(OrderResponse::from)
                                 .collect(Collectors.toList());
         }
 

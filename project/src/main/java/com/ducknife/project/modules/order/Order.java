@@ -1,7 +1,13 @@
 package com.ducknife.project.modules.order;
 
+import java.util.List;
+
+import com.ducknife.project.modules.invoice.Invoice;
+import com.ducknife.project.modules.order.dto.OrderRequest;
+import com.ducknife.project.modules.orderdetail.OrderDetail;
 import com.ducknife.project.modules.user.User;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
@@ -10,6 +16,8 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -34,7 +42,13 @@ public class Order {
     @JoinColumn(name = "user_id", nullable = false)
     private User user;
 
-    public static Order from(OrderDTO order, User user) {
+    @OneToMany(mappedBy = "order", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private List<OrderDetail> orderDetails;
+
+    @OneToOne(mappedBy = "order", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private Invoice invoice;
+
+    public static Order from(OrderRequest order, User user) {
         return Order.builder()
                 .user(user)
                 .build();

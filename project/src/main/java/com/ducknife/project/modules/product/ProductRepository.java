@@ -11,14 +11,15 @@ import org.springframework.data.repository.query.Param;
 public interface ProductRepository extends JpaRepository<Product, Long>{
 
         @Query("SELECT p FROM Product p WHERE p.name = :name and p.price >= :minPrice and p.price <= :maxPrice")
+        @EntityGraph(attributePaths = "category")
         List<Product> findByNameAndPrice(@Param("name") String name, @Param("minPrice") double minPrice, @Param("maxPrice") double maxPrice);
         Boolean existsByName(String name);
 
+        @EntityGraph(attributePaths = "category")
         List<Product> findByCategoryId(Long categoryId);
         
         // @Query("SELECT p FROM Product p JOIN FETCH p.category")
         @EntityGraph(attributePaths = "category")
-        @Query("SELECT p from Product p")
-        List<Product> findByCategory();
+        List<Product> findAll();
 
 }

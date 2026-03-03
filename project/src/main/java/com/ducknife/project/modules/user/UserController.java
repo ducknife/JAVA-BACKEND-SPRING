@@ -19,7 +19,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.ducknife.project.common.ApiResponse;
-import com.ducknife.project.modules.order.OrderDTO;
+import com.ducknife.project.modules.order.dto.OrderResponse;
 import com.ducknife.project.modules.user.dto.UserRequest;
 import com.ducknife.project.modules.user.dto.UserResponse;
 
@@ -59,7 +59,7 @@ public class UserController {
     }
 
     @GetMapping("/{id}/orders")
-    public ResponseEntity<ApiResponse<List<OrderDTO>>> findOrdersById(@PathVariable Long id) {
+    public ResponseEntity<ApiResponse<List<OrderResponse>>> findOrdersById(@PathVariable Long id) {
         return ApiResponse.ok(userService.findOrdersById(id));
     }
 

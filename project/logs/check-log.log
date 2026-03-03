@@ -1,2 +1,40 @@
-2026-02-24T11:29:28.904+07:00 DEBUG 30776 --- [project] [HikariPool-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Pool stats (total=10/10, idle=10/10, active=0, waiting=0)
-2026-02-24T11:29:28.905+07:00 DEBUG 30776 --- [project] [HikariPool-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Fill pool skipped, pool has sufficient level or currently being filled.
+2026-02-26T15:39:05.630+07:00 DEBUG 26928 --- [project] [HikariPool-2:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-2 - keepalive: connection com.mysql.cj.jdbc.ConnectionImpl@3a392c75 is alive
+2026-02-26T15:39:08.060+07:00 DEBUG 26928 --- [project] [SIGINT handler] java.lang.Runtime                        : Runtime.exit() called with status: 130
+
+java.lang.Throwable: Runtime.exit(130)
+	at java.base/java.lang.Shutdown.logRuntimeExit(Shutdown.java:179) ~[na:na]
+	at java.base/java.lang.Shutdown.exit(Shutdown.java:160) ~[na:na]
+	at java.base/java.lang.Terminator$1.handle(Terminator.java:51) ~[na:na]
+	at java.base/jdk.internal.misc.Signal$1.run(Signal.java:218) ~[na:na]
+	at java.base/java.lang.Thread.run(Thread.java:1447) ~[na:na]
+
+2026-02-26T15:39:08.080+07:00 DEBUG 26928 --- [project] [SpringApplicationShutdownHook] o.s.b.a.ApplicationAvailabilityBean      : Application availability state ReadinessState changed from ACCEPTING_TRAFFIC to REFUSING_TRAFFIC
+2026-02-26T15:39:08.089+07:00 DEBUG 26928 --- [project] [SpringApplicationShutdownHook] ConfigServletWebServerApplicationContext : Closing org.springframework.boot.web.server.servlet.context.AnnotationConfigServletWebServerApplicationContext@3fa31b4b, started on Thu Feb 26 14:38:24 GMT+07:00 2026
+2026-02-26T15:39:08.099+07:00 DEBUG 26928 --- [project] [SpringApplicationShutdownHook] o.s.c.support.DefaultLifecycleProcessor  : Stopping beans in phase 2147482623
+2026-02-26T15:39:08.099+07:00  INFO 26928 --- [project] [SpringApplicationShutdownHook] o.s.boot.tomcat.GracefulShutdown         : Commencing graceful shutdown. Waiting for active requests to complete
+2026-02-26T15:39:08.113+07:00  INFO 26928 --- [project] [tomcat-shutdown] o.s.boot.tomcat.GracefulShutdown         : Graceful shutdown complete
+2026-02-26T15:39:08.113+07:00 DEBUG 26928 --- [project] [tomcat-shutdown] o.s.c.support.DefaultLifecycleProcessor  : Bean 'webServerGracefulShutdown' completed its stop procedure
+2026-02-26T15:39:08.113+07:00 DEBUG 26928 --- [project] [SpringApplicationShutdownHook] o.s.c.support.DefaultLifecycleProcessor  : Stopping beans in phase 2147481599
+2026-02-26T15:39:08.120+07:00 DEBUG 26928 --- [project] [SpringApplicationShutdownHook] o.s.c.support.DefaultLifecycleProcessor  : Bean 'webServerStartStop' completed its stop procedure
+2026-02-26T15:39:08.124+07:00 DEBUG 26928 --- [project] [SpringApplicationShutdownHook] o.s.c.support.DefaultLifecycleProcessor  : Stopping beans in phase 1073741823
+2026-02-26T15:39:08.124+07:00 DEBUG 26928 --- [project] [SpringApplicationShutdownHook] o.s.c.support.DefaultLifecycleProcessor  : Bean 'applicationTaskExecutor' completed its stop procedure
+2026-02-26T15:39:08.124+07:00 DEBUG 26928 --- [project] [SpringApplicationShutdownHook] o.s.c.support.DefaultLifecycleProcessor  : Stopping beans in phase -2147483647
+2026-02-26T15:39:08.124+07:00 DEBUG 26928 --- [project] [SpringApplicationShutdownHook] o.s.c.support.DefaultLifecycleProcessor  : Bean 'springBootLoggingLifecycle' completed its stop procedure
+2026-02-26T15:39:08.144+07:00  INFO 26928 --- [project] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-02-26T15:39:08.144+07:00 DEBUG 26928 --- [project] [SpringApplicationShutdownHook] org.hibernate.orm.factory                : HHH90020005: Closing factory [335833f5-9e7b-40f9-8323-172520642e10]
+2026-02-26T15:39:08.152+07:00 DEBUG 26928 --- [project] [SpringApplicationShutdownHook] o.s.o.jpa.hibernate.SpringBeanContainer  : Falling back to Hibernate's default producer after bean creation failure for interface org.hibernate.engine.jdbc.connections.spi.MultiTenantConnectionProvider: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'org.hibernate.engine.jdbc.connections.spi.MultiTenantConnectionProvider': Failed to instantiate [org.hibernate.engine.jdbc.connections.spi.MultiTenantConnectionProvider]: Specified class is an interface
+2026-02-26T15:39:08.158+07:00  INFO 26928 --- [project] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Shutdown initiated...
+2026-02-26T15:39:08.158+07:00 DEBUG 26928 --- [project] [SpringApplicationShutdownHook] com.zaxxer.hikari.pool.HikariPool        : HikariPool-2 - Before shutdown stats (total=10/10, idle=10/10, active=0, waiting=0)
+2026-02-26T15:39:08.169+07:00 DEBUG 26928 --- [project] [HikariPool-2:connection-closer] com.zaxxer.hikari.pool.PoolBase          : HikariPool-2 - Closing connection com.mysql.cj.jdbc.ConnectionImpl@3a392c75: (connection evicted)
+2026-02-26T15:39:08.169+07:00 DEBUG 26928 --- [project] [HikariPool-2:connection-closer] com.zaxxer.hikari.pool.PoolBase          : HikariPool-2 - Closing connection com.mysql.cj.jdbc.ConnectionImpl@20d224a5: (connection evicted)
+2026-02-26T15:39:08.173+07:00 DEBUG 26928 --- [project] [HikariPool-2:connection-closer] com.zaxxer.hikari.pool.PoolBase          : HikariPool-2 - Closing connection com.mysql.cj.jdbc.ConnectionImpl@74eb1863: (connection evicted)
+2026-02-26T15:39:08.174+07:00 DEBUG 26928 --- [project] [HikariPool-2:connection-closer] com.zaxxer.hikari.pool.PoolBase          : HikariPool-2 - Closing connection com.mysql.cj.jdbc.ConnectionImpl@17774a88: (connection evicted)
+2026-02-26T15:39:08.174+07:00 DEBUG 26928 --- [project] [HikariPool-2:connection-closer] com.zaxxer.hikari.pool.PoolBase          : HikariPool-2 - Closing connection com.mysql.cj.jdbc.ConnectionImpl@6a514a5c: (connection evicted)
+2026-02-26T15:39:08.177+07:00 DEBUG 26928 --- [project] [HikariPool-2:connection-closer] com.zaxxer.hikari.pool.PoolBase          : HikariPool-2 - Closing connection com.mysql.cj.jdbc.ConnectionImpl@d8702a8: (connection evicted)
+2026-02-26T15:39:08.177+07:00 DEBUG 26928 --- [project] [HikariPool-2:connection-closer] com.zaxxer.hikari.pool.PoolBase          : HikariPool-2 - Closing connection com.mysql.cj.jdbc.ConnectionImpl@48c55a9f: (connection evicted)
+2026-02-26T15:39:08.179+07:00 DEBUG 26928 --- [project] [HikariPool-2:connection-closer] com.zaxxer.hikari.pool.PoolBase          : HikariPool-2 - Closing connection com.mysql.cj.jdbc.ConnectionImpl@203273c0: (connection evicted)
+2026-02-26T15:39:08.180+07:00 DEBUG 26928 --- [project] [HikariPool-2:connection-closer] com.zaxxer.hikari.pool.PoolBase          : HikariPool-2 - Closing connection com.mysql.cj.jdbc.ConnectionImpl@610f79fb: (connection evicted)
+2026-02-26T15:39:08.181+07:00 DEBUG 26928 --- [project] [HikariPool-2:connection-closer] com.zaxxer.hikari.pool.PoolBase          : HikariPool-2 - Closing connection com.mysql.cj.jdbc.ConnectionImpl@52ecd5b6: (connection evicted)
+2026-02-26T15:39:08.181+07:00 DEBUG 26928 --- [project] [SpringApplicationShutdownHook] com.zaxxer.hikari.pool.HikariPool        : HikariPool-2 - After  shutdown stats (total=0/10, idle=0/10, active=0, waiting=0)
+2026-02-26T15:39:08.183+07:00  INFO 26928 --- [project] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Shutdown completed.
+2026-02-26T15:39:08.183+07:00 DEBUG 26928 --- [project] [SpringApplicationShutdownHook] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'

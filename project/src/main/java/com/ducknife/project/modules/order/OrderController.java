@@ -11,7 +11,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.ducknife.project.common.ApiResponse;
+import com.ducknife.project.modules.order.dto.OrderRequest;
+import com.ducknife.project.modules.order.dto.OrderResponse;
 
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 
 @RestController
@@ -21,7 +24,7 @@ public class OrderController {
     private final OrderService orderService;
 
     @GetMapping
-    public ResponseEntity<ApiResponse<List<OrderDTO>>> getOrders() {
+    public ResponseEntity<ApiResponse<List<OrderResponse>>> getOrders() {
         return ApiResponse.ok(orderService.getOrders());
     }
 
@@ -31,13 +34,13 @@ public class OrderController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<ApiResponse<OrderDTO>> getOrderById(@PathVariable Long id) {
+    public ResponseEntity<ApiResponse<OrderResponse>> getOrderById(@PathVariable Long id) {
         return ApiResponse.ok(orderService.getOrderById(id));
     }
 
     @PostMapping
-    public ResponseEntity<ApiResponse<OrderDTO>> addOrder(@RequestBody OrderDTO order) {
-        OrderDTO savedOrder = orderService.add(order);
+    public ResponseEntity<ApiResponse<OrderResponse>> addOrder(@RequestBody @Valid OrderRequest order) {
+        OrderResponse savedOrder = orderService.add(order);
         return ApiResponse.created(savedOrder);
     }
 

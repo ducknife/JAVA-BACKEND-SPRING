@@ -18,10 +18,10 @@ spring:
             # Nếu chỉ dùng mỗi cái này ở phiên bản spring cũ, khi không tìm được, nó sẽ chuyển đến trang /error nên hàm trong GlobalException không hứng đc lỗi.
     flyway:
         enabled: true
-        # bật tính năng baseline, tránh lỗi xung đột nếu máy đã có dữ liệu.
+        # bật tính năng baseline, tạo bảng flyway_schema_history, tránh lỗi xung đột nếu máy đã có dữ liệu.
         baseline-on-migrate: true
         # Đặt mốc (flyway sẽ mặc định là db đã có mốc này)
-        # baseline-version: "1" # ví dụ ở đây là đã có V1
+        # baseline-version: 1 # ví dụ ở đây là đã có V1
         out-of-order: false # nếu đã chạy tới V3 mà hôm sau chèn 1 file V2.5 thì báo lỗi luôn (xây dựng tính kỉ luật cho team). Nếu để true thì nó sẽ chạy thêm 
         # file V2.5 đó.
 server:

@@ -51,11 +51,11 @@
 
 ### 3.2 Transaction Management
 - ✅ @Transactional
-- [ ] Isolation Levels
+- ✅ Isolation Levels
 - ✅ Propagation
 
 ### 3.3 Database Migration
-- [ ] Flyway hoặc Liquibase
+- ✅ Flyway hoặc Liquibase
 
 ---
 
