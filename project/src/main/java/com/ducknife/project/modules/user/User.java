@@ -1,13 +1,20 @@
 package com.ducknife.project.modules.user;
 
+import java.util.Collection;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+import java.util.stream.Collectors;
+
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
 
 import com.ducknife.project.modules.order.Order;
 import com.ducknife.project.modules.role.Role;
 import com.ducknife.project.modules.user.dto.UserRequest;
 
+import io.micrometer.common.lang.Nullable;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -34,17 +41,17 @@ import lombok.Setter;
 @Setter
 @Getter
 @Builder
-public class User {
+public class User implements UserDetails {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "user_id")
     private Long id;
 
-    @Column(name = "full_name", nullable = false, length = 100)
-    private String fullName;
+    @Column(name = "fullname", nullable = false, length = 100)
+    private String fullname;
 
-    @Column(name = "user_name", unique = true, nullable = false, length = 100)
-    private String userName;
+    @Column(name = "username", unique = true, nullable = false, length = 100)
+    private String username;
 
     @Column(name = "email", length = 100)
     private String email;
@@ -59,11 +66,7 @@ public class User {
     private List<Order> orders;
 
     @ManyToMany
-    @JoinTable(
-        name = "user_roles",
-        joinColumns = @JoinColumn(name = "user_id"),
-        inverseJoinColumns = @JoinColumn(name = "role_id")
-    )
+    @JoinTable(name = "user_roles", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "role_id"))
     @Builder.Default
     private Set<Role> roles = new HashSet<>();
 
@@ -74,11 +77,39 @@ public class User {
 
     public static User from(UserRequest user) {
         return User.builder()
-                .fullName(user.getFullName())
-                .userName(user.getUserName())
+                .fullname(user.getFullname())
+                .username(user.getUsername())
                 .password(user.getPassword())
                 .build();
     }
+
+    @Override
+    public Collection<? extends GrantedAuthority> getAuthorities() {
+        return roles.stream()
+                .map(role -> new SimpleGrantedAuthority(role.getName()))
+                .collect(Collectors.toSet());
+    }
+
+    @Override
+    public boolean isAccountNonExpired() {
+        return true;
+    }
+
+    @Override
+    public boolean isAccountNonLocked() {
+        return true;
+    }
+
+    @Override
+    public boolean isCredentialsNonExpired() {
+        return true;
+    }
+
+    @Override
+    public boolean isEnabled() {
+        return true;
+    }
+
 }
 // Inverse side: Luôn là phía @OneToMany, chỉ mang ý nghĩa read-only;
 // Bắt buộc dùng mappedBy trỏ vào tên biến bên Owning side;

@@ -1,6 +1,7 @@
 package com.ducknife.project.modules.user;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -18,30 +19,32 @@ import jakarta.persistence.QueryHint;
 
 @Repository
 public interface UserRepository extends JpaRepository<User, Long> {
-        Boolean existsByUserName(String userName);
 
-        List<User> findTop2ByOrderByUserNameDesc();
+        Optional<User> findByUsername(String username);
+        Boolean existsByUsername(String username);
 
-        List<User> findTop2ByOrderByFullNameDesc();
+        List<User> findTop2ByOrderByUsernameDesc();
+
+        List<User> findTop2ByOrderByFullnameDesc();
 
         List<User> findByIdBetween(Long left, Long right);
 
-        List<User> findByFullNameLike(String subName);
+        List<User> findByFullnameLike(String subname);
 
-        List<User> findByFullNameLikeAndUserNameLike(String fullName, String userName);
+        List<User> findByFullnameLikeAndUsernameLike(String fullname, String username);
 
-        @Query("SELECT u FROM User u WHERE LENGTH(u.userName) <= :length ORDER BY u.fullName DESC")
-        List<User> findByUserNameLengthOrderByFullNameDesc(@Param("length") Long length); // Param giúp nối một biến vào
+        @Query("SELECT u FROM User u WHERE LENGTH(u.username) <= :length ORDER BY u.fullname DESC")
+        List<User> findByUsernameLengthOrderByFullnameDesc(@Param("length") Long length); // Param giúp nối một biến vào
                                                                                           // đúng vị trí câu lệnh trên
                                                                                           // Query.
 
-        @Query("SELECT u FROM User u ORDER BY LENGTH(u.fullName) DESC LIMIT 1")
-        List<User> findTop1ByOrderByFullNameLengthDesc();
+        @Query("SELECT u FROM User u ORDER BY LENGTH(u.fullname) DESC LIMIT 1")
+        List<User> findTop1ByOrderByFullnameLengthDesc();
 
-        @Query("SELECT u FROM User u ORDER BY LENGTH(u.userName) DESC")
+        @Query("SELECT u FROM User u ORDER BY LENGTH(u.username) DESC")
         Page<User> findByNameLength(Pageable pageable);
 
-        @Query("SELECT u FROM User u WHERE LOWER(u.fullName) LIKE CONCAT('%', LOWER(:keyword), '%')")
+        @Query("SELECT u FROM User u WHERE LOWER(u.fullname) LIKE CONCAT('%', LOWER(:keyword), '%')")
         List<User> findByFullname(@Param("keyword") String keyword);
 
         @Lock(LockModeType.PESSIMISTIC_WRITE) // khóa bi quan, khóa vật lý dòng, sinh ra for update, lock cứng db, service phải có transactional 

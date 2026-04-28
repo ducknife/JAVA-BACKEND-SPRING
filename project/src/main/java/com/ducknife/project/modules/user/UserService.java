@@ -1,7 +1,7 @@
 package com.ducknife.project.modules.user;
 
-import java.beans.Transient;
 import java.util.List;
+import java.util.Set;
 import java.util.stream.Collectors;
 
 import org.springframework.data.domain.Page;
@@ -10,13 +10,15 @@ import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.security.crypto.password.PasswordEncoder;
 
-import com.ducknife.project.common.exception.AppException;
 import com.ducknife.project.common.exception.ResourceConflictException;
 import com.ducknife.project.common.exception.ResourceNotFoundException;
 import com.ducknife.project.modules.order.Order;
 import com.ducknife.project.modules.order.OrderRepository;
 import com.ducknife.project.modules.order.dto.OrderResponse;
+import com.ducknife.project.modules.role.Role;
+import com.ducknife.project.modules.role.RoleRepository;
 import com.ducknife.project.modules.user.dto.UserRequest;
 import com.ducknife.project.modules.user.dto.UserResponse;
 
@@ -29,6 +31,8 @@ public class UserService {
 
         private final UserRepository userRepository;
         private final OrderRepository orderRepository;
+        private final RoleRepository roleRepository;
+        private final PasswordEncoder passwordEncoder;
 
         public Page<UserResponse> getUsers(Pageable pageable) {
                 return userRepository.findByNameLength(pageable)
@@ -65,12 +69,22 @@ public class UserService {
                                 .collect(Collectors.toList());
         }
 
-        @Transactional(propagation = Propagation.NEVER) // chạy ok vì method trong controller không có transaction
+        @Transactional
+        // @Transactional(propagation = Propagation.NEVER) // chạy ok vì method trong
+        // controller không có transaction
         public UserResponse addUser(UserRequest user) {
-                if (userRepository.existsByUserName(user.getUserName())) {
-                        throw new ResourceConflictException("Username " + user.getUserName() + " đã tồn tại!");
+                if (userRepository.existsByUsername(user.getUsername())) {
+                        throw new ResourceConflictException("Username " + user.getUsername() + " đã tồn tại!");
                 } // comment code này đi là bị ăn bom từ DB
-                User savedUser = userRepository.save(User.from(user));
+                User newUser = User.from(user);
+                newUser.setPassword(passwordEncoder.encode(user.getPassword()));
+                Set<Role> roles = user.getRoles().stream()
+                                .map(role -> roleRepository.findByName(role)
+                                                .orElseThrow(() -> new ResourceNotFoundException(
+                                                                "Không tìm thấy role")))
+                                .collect(Collectors.toSet());
+                newUser.setRoles(roles);
+                User savedUser = userRepository.save(newUser);
                 return UserResponse.from(savedUser);
         }
 
@@ -78,16 +92,24 @@ public class UserService {
         public void updateUser(Long id, UserRequest newUser) {
                 User user = userRepository.findById(id)
                                 .orElseThrow(() -> new ResourceNotFoundException("Không tìm thấy người dùng!"));
-                user.setFullName(newUser.getFullName());
-                user.setUserName(newUser.getUserName());
+                user.setFullname(newUser.getFullname());
+                user.setUsername(newUser.getUsername());
                 user.setPassword(newUser.getPassword());
+                Set<Role> roles = newUser.getRoles().stream()
+                                .map(role -> roleRepository.findByName(role)
+                                                .orElseThrow(() -> new ResourceNotFoundException(
+                                                                "Không tìm thấy role")))
+                                .collect(Collectors.toSet());
+                user.setRoles(roles);
                 // nếu không gọi save thì nó sẽ không lưu được.
                 userRepository.save(user);
         }
 
-        @Transactional(propagation = Propagation.MANDATORY, rollbackFor = Exception.class) // do không có Transaction
-                                                                                           // cha nào đang hoạt động nên
-                                                                                           // nó bị lỗi
+        // @Transactional(propagation = Propagation.MANDATORY, rollbackFor =
+        // Exception.class) // do không có Transaction
+        // cha nào đang hoạt động nên
+        // nó bị lỗi
+        @Transactional(rollbackFor = Exception.class)
         public void deleteUserById(Long userId) {
                 if (!userRepository.existsById(userId)) {
                         throw new ResourceConflictException("Không thể xóa người dùng không tồn tại!");
@@ -121,9 +143,14 @@ public class UserService {
 
 // Isolation levels:
 // tránh được dirty read, non-repeatable read, phantom read;
-// READ_UNCOMMITED: đọc cả dữ liệu chưa commit 
-// READ_COMMITED: chỉ đọc khi dữ liệu đã commit, tuy nhiên vẫn bị non-repeatable read, phantom read;
-// REPEATABLE_READ: trong sql-92, khi nó đọc 1 dòng, không cho phép transaction khác sửa/xóa; 
-// tuy nhiên, trong các db hiện đại, dùng cơ chế mvcc, nên nó không chặn các transaction khác truy cập, thay vào đó,
-// nó vẫn truy cập dữ liệu với bản snapshot ban đầu. Có thể bị phantom read tùy db;
-// SERIALIZABLE: đây là cấp độ cao nhất, chặn được mọi lỗi, biến mọi transaction thành tuần tự, tuy nhiên siêu chậm;
+// READ_UNCOMMITED: đọc cả dữ liệu chưa commit
+// READ_COMMITED: chỉ đọc khi dữ liệu đã commit, tuy nhiên vẫn bị non-repeatable
+// read, phantom read;
+// REPEATABLE_READ: trong sql-92, khi nó đọc 1 dòng, không cho phép transaction
+// khác sửa/xóa;
+// tuy nhiên, trong các db hiện đại, dùng cơ chế mvcc, nên nó không chặn các
+// transaction khác truy cập, thay vào đó,
+// nó vẫn truy cập dữ liệu với bản snapshot ban đầu. Có thể bị phantom read tùy
+// db;
+// SERIALIZABLE: đây là cấp độ cao nhất, chặn được mọi lỗi, biến mọi transaction
+// thành tuần tự, tuy nhiên siêu chậm;

@@ -10,7 +10,10 @@ import org.springframework.web.servlet.NoHandlerFoundException;
 
 import com.ducknife.project.common.exception.AppException;
 
+import lombok.extern.slf4j.Slf4j;
+
 @RestControllerAdvice
+@Slf4j
 public class GlobalExceptionHandler {
 
     // bắt lỗi nghiệp vụ
@@ -51,7 +54,8 @@ public class GlobalExceptionHandler {
     // Bắt lỗi hệ thống, lưới cuối cùng bắt những lỗi ko ngờ tới
     @ExceptionHandler(Exception.class)
     public ResponseEntity<ApiResponse<?>> handleUnwantedException(Exception e) {
-        // log ra trace lỗi
+        // log ra trace lỗi.0
+        log.atTrace();
         return ApiResponse.error(500, "Lỗi hệ thống, vui lòng thử lại sau!");
     }
 }

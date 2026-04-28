@@ -2,6 +2,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Key",
+            "request": "launch",
+            "mainClass": "com.astarhub.astarsquad.Bai12.Bai12.Key",
+            "projectName": "astarsquad"
+        },
+        {
+            "type": "java",
             "name": "Spring Boot-ProjectApplication<project>",
             "request": "launch",
             "cwd": "${workspaceFolder}",

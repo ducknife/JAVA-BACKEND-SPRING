@@ -12,7 +12,7 @@ import org.springframework.data.jpa.repository.Query;
 public interface OrderRepository extends JpaRepository<Order, Long>{
     @EntityGraph(attributePaths = {"user", "orderDetails"} )
     List<Order> findByUserId(Long userId);
-    Void deleteByUserId(Long userId);
+    void deleteByUserId(Long userId);
 
     @EntityGraph(attributePaths = {"user", "orderDetails"} )
     List<Order> findAll();

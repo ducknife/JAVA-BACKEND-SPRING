@@ -1,1 +1,0 @@
-2026-01-10T22:17:00.189+07:00 DEBUG 21344 --- [project] [HikariPool-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - keepalive: connection com.mysql.cj.jdbc.ConnectionImpl@127bb066 is alive

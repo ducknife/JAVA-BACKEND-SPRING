@@ -17,16 +17,20 @@ import lombok.NoArgsConstructor;
 @Builder
 public class UserResponse {
     private Long userId;
-    private String fullName;
-    private String userName;
+    private String fullname;
+    private String username;
+    private String email;
     private Set<String> roles;
 
     public static UserResponse from(User user) {
         return UserResponse.builder()
                 .userId(user.getId())
-                .fullName(user.getFullName())
-                .userName(user.getUserName())
-                .roles(user.getRoles().stream().map(r -> r.getName()).collect(Collectors.toSet()))
+                .fullname(user.getFullname())
+                .username(user.getUsername())
+                .roles(user.getRoles()
+                        .stream()
+                        .map(r -> r.getName())
+                        .collect(Collectors.toSet()))
                 .build();
     }
 }

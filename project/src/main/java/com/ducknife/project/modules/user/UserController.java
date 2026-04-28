@@ -35,7 +35,7 @@ public class UserController {
 
     @GetMapping
     public ResponseEntity<ApiResponse<Page<UserResponse>>> getUsers(
-            @PageableDefault(page = 0, size = 5, sort = "fullName", direction = Sort.Direction.DESC) Pageable pageable) {
+            @PageableDefault(page = 0, size = 5, sort = "fullname", direction = Sort.Direction.DESC) Pageable pageable) {
         return ApiResponse.ok(userService.getUsers(pageable));
     }
 

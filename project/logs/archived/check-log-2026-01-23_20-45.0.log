@@ -1,3 +1,0 @@
-2026-01-23T20:45:11.949+07:00 DEBUG 23784 --- [project] [HikariPool-245:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-245 - Pool stats (total=10/10, idle=10/10, active=0, waiting=0)
-2026-01-23T20:45:11.952+07:00 DEBUG 23784 --- [project] [HikariPool-245:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-245 - Fill pool skipped, pool has sufficient level or currently being filled.
-2026-01-23T20:45:14.955+07:00 DEBUG 23784 --- [project] [HikariPool-245:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-245 - keepalive: connection com.mysql.cj.jdbc.ConnectionImpl@47b20add is alive
