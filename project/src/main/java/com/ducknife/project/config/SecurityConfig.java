@@ -21,23 +21,23 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class SecurityConfig {
 
-    private final UserDetailsService userDetailsService;
+    // private final UserDetailsService userDetailsService;
 
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http.authorizeHttpRequests(auth -> auth
-                .requestMatchers("/api/**").hasRole("ADMIN"))
+                .requestMatchers("/api/**").permitAll())
             .csrf(csrf -> csrf.disable());
 
         return http.build();
     }
 
-    @Bean
-    public AuthenticationManager authenticationManager() {
-        DaoAuthenticationProvider provider = new DaoAuthenticationProvider(userDetailsService);
-        provider.setPasswordEncoder(passwordEncoder());
-        return new ProviderManager(provider);
-    }
+    // @Bean
+    // public AuthenticationManager authenticationManager() {
+    //     DaoAuthenticationProvider provider = new DaoAuthenticationProvider(userDetailsService);
+    //     provider.setPasswordEncoder(passwordEncoder());
+    //     return new ProviderManager(provider);
+    // }
 
     // Mã hóa mật khẩu
     @Bean
