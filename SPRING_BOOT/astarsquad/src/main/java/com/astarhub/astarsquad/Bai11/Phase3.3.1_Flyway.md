@@ -1,8 +1,19 @@
-Tuyệt vời! Chào mừng bạn đến với mảnh ghép cuối cùng của Phase 3: **Database Migration (Quản lý phiên bản cơ sở dữ liệu)**.
+﻿Tuyệt vời! Chào mừng bạn đến với mảnh ghép cuối cùng của Phase 3: **Database Migration (Quản lý phiên bản cơ sở dữ liệu)**.
 
 Để trở thành một Backend Developer thực thụ (Production-Ready), bạn bắt buộc phải biết kỹ năng này. Ở các công ty thực tế, nếu bạn dùng `ddl-auto=update` trên môi trường Production, bạn có thể sẽ... bị đuổi việc ngay ngày đầu tiên! 😅
 
 Như đã thống nhất, chúng ta sẽ xé nhỏ **Phase 3.3** thành các phần. Hôm nay chúng ta bắt đầu với:
+
+---
+
+## 📑 Mục Lục
+
+- [1. Vấn đề của "Tuổi trẻ" (`ddl-auto=update`)](#1-vấn-đề-của-tuổi-trẻ-ddl-autoupdate)
+- [2. Giải pháp của "Người trưởng thành": Database Migration](#2-giải-pháp-của-người-trưởng-thành-database-migration)
+- [3. Flyway hoạt động như thế nào?](#3-flyway-hoạt-động-như-thế-nào)
+- [🧠 Bài tập tư duy (Phần A)](#bài-tập-tư-duy-phần-a)
+  - [1. Cơ chế Checksum (Bảo vệ tính toàn vẹn)](#1-cơ-chế-checksum-bảo-vệ-tính-toàn-vẹn)
+  - [2. Tư duy "Tiến bước, không lùi" (Roll-forward)](#2-tư-duy-tiến-bước-không-lùi-roll-forward)
 
 ---
 

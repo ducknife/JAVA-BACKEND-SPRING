@@ -1,4 +1,27 @@
-# 📚 Bài 2: Bean & Bean Scope
+﻿# 📚 Bài 2: Bean & Bean Scope
+
+---
+
+## 📑 Mục Lục
+
+- [🎯 Mục tiêu](#mục-tiêu)
+- [1. Bean là gì?](#1-bean-là-gì)
+- [2. Cách đăng ký Bean](#2-cách-đăng-ký-bean)
+  - [Cách 1: Stereotype Annotations (phổ biến)](#cách-1-stereotype-annotations-phổ-biến)
+  - [Cách 2: @Bean trong @Configuration](#cách-2-bean-trong-configuration)
+- [3. Bean Scope](#3-bean-scope)
+  - [🤔 Tại sao cần hiểu Scope?](#tại-sao-cần-hiểu-scope)
+  - [Singleton (Mặc định) - 1 instance duy nhất](#singleton-mặc-định-1-instance-duy-nhất)
+  - [Prototype - Mỗi lần inject tạo instance MỚI](#prototype-mỗi-lần-inject-tạo-instance-mới)
+  - [Request Scope (Web) - 1 instance / HTTP request](#request-scope-web-1-instance-http-request)
+  - [Session Scope (Web) - 1 instance / HTTP session](#session-scope-web-1-instance-http-session)
+- [4. Vấn đề: Inject Prototype vào Singleton](#4-vấn-đề-inject-prototype-vào-singleton)
+  - [❌ Vấn đề:](#vấn-đề)
+  - [🔍 Tại sao?](#tại-sao)
+  - [✅ Giải pháp: ObjectProvider, có thể dùng Optional](#giải-pháp-objectprovider-có-thể-dùng-optional)
+  - [🔍 Kết quả:](#kết-quả)
+- [5. Khi nào dùng Scope nào?](#5-khi-nào-dùng-scope-nào)
+- [📌 Tóm tắt](#tóm-tắt)
 
 ---
 

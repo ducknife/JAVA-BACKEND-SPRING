@@ -1,4 +1,32 @@
-# 📚 Bài 3: Bean Lifecycle
+﻿# 📚 Bài 3: Bean Lifecycle
+
+---
+
+## 📑 Mục Lục
+
+- [🎯 Mục tiêu](#mục-tiêu)
+- [1. Vòng đời Bean là gì?](#1-vòng-đời-bean-là-gì)
+- [2. @PostConstruct - Chạy sau khi tạo Bean](#2-postconstruct-chạy-sau-khi-tạo-bean)
+  - [Khi nào cần?](#khi-nào-cần)
+  - [Thứ tự chạy:](#thứ-tự-chạy)
+- [3. @PreDestroy - Chạy trước khi Bean bị hủy](#3-predestroy-chạy-trước-khi-bean-bị-hủy)
+  - [Khi nào cần?](#khi-nào-cần)
+  - [Khi nào @PreDestroy được gọi?](#khi-nào-predestroy-được-gọi)
+- [4. Ví dụ thực tế: Cache Service](#4-ví-dụ-thực-tế-cache-service)
+- [5. Ví dụ thực tế: Logging khi App start/stop](#5-ví-dụ-thực-tế-logging-khi-app-startstop)
+- [6. Thứ tự thực thi nhiều Bean](#6-thứ-tự-thực-thi-nhiều-bean)
+  - [Quy tắc:](#quy-tắc)
+- [7. @PostConstruct vs Constructor](#7-postconstruct-vs-constructor)
+  - [Khi nào dùng gì?](#khi-nào-dùng-gì)
+  - [Ví dụ:](#ví-dụ)
+- [8. Lưu ý quan trọng](#8-lưu-ý-quan-trọng)
+  - [⚠️ @PreDestroy không chạy với Prototype](#️-predestroy-không-chạy-với-prototype)
+  - [⚠️ Đừng làm quá nhiều trong @PostConstruct](#️-đừng-làm-quá-nhiều-trong-postconstruct)
+- [9. Cách khác: InitializingBean & DisposableBean](#9-cách-khác-initializingbean-disposablebean)
+  - [So sánh:](#so-sánh)
+- [📌 Tóm tắt](#tóm-tắt)
+  - [Thứ tự:](#thứ-tự)
+  - [Quy tắc:](#quy-tắc)
 
 ---
 

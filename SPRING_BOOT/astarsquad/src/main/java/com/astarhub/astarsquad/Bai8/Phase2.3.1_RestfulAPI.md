@@ -1,4 +1,4 @@
-# PHẦN 1: KHÁI NIỆM CƠ BẢN VÀ CẤU HÌNH CONTROLLER
+﻿# PHẦN 1: KHÁI NIỆM CƠ BẢN VÀ CẤU HÌNH CONTROLLER
 
 ## 1. API (Application Programming Interface)
 
@@ -14,6 +14,59 @@ Hãy tưởng tượng cái **Ổ cắm điện** trên tường.
     * Bạn chỉ cần biết: Nếu cắm phích cắm 2 chân (Standard Request) vào ổ này, bạn sẽ nhận được điện 220V (Response).
 
 > **Kết luận:** API là "cổng kết nối" giúp Frontend lấy dữ liệu từ Backend mà không cần biết Backend code bằng ngôn ngữ gì hay xử lý phức tạp ra sao.
+
+---
+
+## 📑 Mục Lục
+
+- [1. API (Application Programming Interface)](#1-api-application-programming-interface)
+  - [📘 Định nghĩa kỹ thuật](#định-nghĩa-kỹ-thuật)
+  - [💡 Giải thích nôm na (Analogy: Ổ cắm điện)](#giải-thích-nôm-na-analogy-ổ-cắm-điện)
+- [2. RESTful API](#2-restful-api)
+  - [📘 Định nghĩa kỹ thuật](#định-nghĩa-kỹ-thuật)
+  - [💡 Giải thích nôm na (Analogy: Quy trình gọi món)](#giải-thích-nôm-na-analogy-quy-trình-gọi-món)
+- [3. @RestController](#3-restcontroller)
+  - [📘 Định nghĩa kỹ thuật](#định-nghĩa-kỹ-thuật)
+  - [💡 Giải thích nôm na (Analogy: Quầy "Mang về" chuyên biệt)](#giải-thích-nôm-na-analogy-quầy-mang-về-chuyên-biệt)
+- [4. @RequestMapping](#4-requestmapping)
+  - [📘 Định nghĩa kỹ thuật](#định-nghĩa-kỹ-thuật)
+  - [💡 Giải thích nôm na (Analogy: Biển chỉ dẫn)](#giải-thích-nôm-na-analogy-biển-chỉ-dẫn)
+  - [Ví dụ tổng hợp](#ví-dụ-tổng-hợp)
+- [1. Tổng quan](#1-tổng-quan)
+- [2. @GetMapping (Read - Đọc dữ liệu)](#2-getmapping-read-đọc-dữ-liệu)
+  - [📘 Định nghĩa](#định-nghĩa)
+  - [💡 Ví dụ thực tế](#ví-dụ-thực-tế)
+  - [💻 Code ví dụ](#code-ví-dụ)
+- [3. @PostMapping (Create - Tạo mới)](#3-postmapping-create-tạo-mới)
+  - [📘 Định nghĩa](#định-nghĩa)
+  - [💡 Ví dụ thực tế](#ví-dụ-thực-tế)
+  - [💻 Code ví dụ](#code-ví-dụ)
+- [4. @PutMapping (Update - Cập nhật)](#4-putmapping-update-cập-nhật)
+  - [📘 Định nghĩa](#định-nghĩa)
+  - [💡 Ví dụ thực tế](#ví-dụ-thực-tế)
+  - [💻 Code ví dụ](#code-ví-dụ)
+- [5. @DeleteMapping (Delete - Xóa)](#5-deletemapping-delete-xóa)
+  - [📘 Định nghĩa](#định-nghĩa)
+  - [💡 Ví dụ thực tế](#ví-dụ-thực-tế)
+  - [💻 Code ví dụ](#code-ví-dụ)
+- [6. Bảng tổng hợp (Cheat Sheet)](#6-bảng-tổng-hợp-cheat-sheet)
+- [1. @PathVariable (Biến đường dẫn)](#1-pathvariable-biến-đường-dẫn)
+  - [📘 Định nghĩa chuẩn](#định-nghĩa-chuẩn)
+  - [💡 Giải thích nôm na (Analogy)](#giải-thích-nôm-na-analogy)
+  - [Khi nào dùng?](#khi-nào-dùng)
+  - [💻 Ví dụ Code](#ví-dụ-code)
+- [2. @RequestParam (Tham số truy vấn)](#2-requestparam-tham-số-truy-vấn)
+  - [📘 Định nghĩa chuẩn](#định-nghĩa-chuẩn)
+  - [💡 Giải thích nôm na (Analogy)](#giải-thích-nôm-na-analogy)
+  - [Khi nào dùng?](#khi-nào-dùng)
+  - [💻 Ví dụ Code](#ví-dụ-code)
+- [3. @RequestBody (Thân yêu cầu)](#3-requestbody-thân-yêu-cầu)
+  - [📘 Định nghĩa chuẩn](#định-nghĩa-chuẩn)
+  - [💡 Giải thích nôm na (Analogy)](#giải-thích-nôm-na-analogy)
+  - [Khi nào dùng?](#khi-nào-dùng)
+  - [💻 Ví dụ Code](#ví-dụ-code)
+- [4. Bảng so sánh nhanh (Tổng kết)](#4-bảng-so-sánh-nhanh-tổng-kết)
+- [5. Bài tập thực hành](#5-bài-tập-thực-hành)
 
 ---
 

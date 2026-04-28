@@ -1,4 +1,4 @@
-Chính xác! 💯
+﻿Chính xác! 💯
 
 Bạn đã nắm được bản chất cốt lõi:
 
@@ -10,6 +10,18 @@ Bạn đã nắm được bản chất cốt lõi:
 * *Ưu điểm:* Nếu tên bảng trong DB đổi, bạn chỉ cần sửa mapping ở file Entity (`@Column(name="new_name")`), còn câu lệnh JPQL giữ nguyên. Code bền vững hơn.
 
 
+
+---
+
+## 📑 Mục Lục
+
+- [1. Tại sao cần Phân trang?](#1-tại-sao-cần-phân-trang)
+- [2. Interface thần thánh: `Pageable`](#2-interface-thần-thánh-pageable)
+  - [Cách dùng trong Repository](#cách-dùng-trong-repository)
+  - [Cách gọi từ bên ngoài (Service/Controller)](#cách-gọi-từ-bên-ngoài-servicecontroller)
+- [3. Sự khác biệt giữa `List`, `Page`, và `Slice`](#3-sự-khác-biệt-giữa-list-page-và-slice)
+- [4. Sorting (Sắp xếp động)](#4-sorting-sắp-xếp-động)
+- [🧠 Bài tập tổng kết Phase 3.1](#bài-tập-tổng-kết-phase-31)
 
 ---
 

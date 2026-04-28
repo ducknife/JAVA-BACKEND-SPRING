@@ -1,6 +1,20 @@
-Một ý tưởng tuyệt vời! Việc nắm bắt bức tranh toàn cảnh (Big Picture) sẽ giúp bạn không bị lạc lối trong "rừng" code sau này.
+﻿Một ý tưởng tuyệt vời! Việc nắm bắt bức tranh toàn cảnh (Big Picture) sẽ giúp bạn không bị lạc lối trong "rừng" code sau này.
 
 Dưới đây là tài liệu tổng quan về **Spring Data JPA** được trình bày theo đúng chuẩn Markdown để bạn có thể lưu trữ.
+
+---
+
+## 📑 Mục Lục
+
+- [1. Spring Data JPA là gì?](#1-spring-data-jpa-là-gì)
+- [2. Phân biệt các khái niệm dễ nhầm lẫn](#2-phân-biệt-các-khái-niệm-dễ-nhầm-lẫn)
+  - [Bảng so sánh tổng kết](#bảng-so-sánh-tổng-kết)
+  - [Tại sao cần hiểu rõ điều này?](#tại-sao-cần-hiểu-rõ-điều-này)
+- [3. Các thành phần cốt lõi (Core Concepts)](#3-các-thành-phần-cốt-lõi-core-concepts)
+  - [3.1. Repository Interface](#31-repository-interface)
+  - [3.2. Query Methods (Derived Queries)](#32-query-methods-derived-queries)
+  - [3.3. ORM (Object-Relational Mapping)](#33-orm-object-relational-mapping)
+- [4. Tại sao nên dùng Spring Data JPA?](#4-tại-sao-nên-dùng-spring-data-jpa)
 
 ---
 

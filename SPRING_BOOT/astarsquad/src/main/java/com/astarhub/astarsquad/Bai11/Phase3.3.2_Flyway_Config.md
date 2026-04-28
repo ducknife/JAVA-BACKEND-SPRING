@@ -1,6 +1,16 @@
-Tuyệt vời! Chúng ta xắn tay áo lên và bắt đầu code nào.
+﻿Tuyệt vời! Chúng ta xắn tay áo lên và bắt đầu code nào.
 
 Đây là lúc bạn chính thức "chia tay" với cách làm cũ và bước vào thế giới của các dự án Production thực thụ.
+
+---
+
+## 📑 Mục Lục
+
+- [1. Thêm Dependency (Cài đặt)](#1-thêm-dependency-cài-đặt)
+- [2. Cấu hình `application.yml` (Quyết định lịch sử)](#2-cấu-hình-applicationyml-quyết-định-lịch-sử)
+- [3. Quy tắc đặt tên file (Sống còn)](#3-quy-tắc-đặt-tên-file-sống-còn)
+- [4. Thực hành: Khởi tạo Database (V1)](#4-thực-hành-khởi-tạo-database-v1)
+- [🧠 Bài tập kiểm tra (Phần B)](#bài-tập-kiểm-tra-phần-b)
 
 ---
 

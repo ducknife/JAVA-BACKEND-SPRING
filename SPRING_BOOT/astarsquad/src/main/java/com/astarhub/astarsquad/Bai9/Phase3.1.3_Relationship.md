@@ -1,4 +1,20 @@
-Tuyệt vời! Đây là bản tổng hợp kiến thức chuyên sâu về **Entity Relationships** trong Spring Data JPA. Bài viết được trình bày chuẩn Markdown, bạn có thể copy nguyên văn vào file tài liệu của mình.
+﻿Tuyệt vời! Đây là bản tổng hợp kiến thức chuyên sâu về **Entity Relationships** trong Spring Data JPA. Bài viết được trình bày chuẩn Markdown, bạn có thể copy nguyên văn vào file tài liệu của mình.
+
+---
+
+## 📑 Mục Lục
+
+- [1. Bản chất: Sự xung đột giữa OOP và SQL](#1-bản-chất-sự-xung-đột-giữa-oop-và-sql)
+- [2. Các loại quan hệ phổ biến](#2-các-loại-quan-hệ-phổ-biến)
+- [3. Quy tắc vàng: Owning Side vs Inverse Side](#3-quy-tắc-vàng-owning-side-vs-inverse-side)
+  - [Mô hình chuẩn cho quan hệ User (1) - Order (N)](#mô-hình-chuẩn-cho-quan-hệ-user-1-order-n)
+- [4. Các cấu hình hành vi (Behavior)](#4-các-cấu-hình-hành-vi-behavior)
+  - [4.1. Fetch Type (Chiến lược tải dữ liệu)](#41-fetch-type-chiến-lược-tải-dữ-liệu)
+  - [4.2. Cascade Type (Hiệu ứng dây chuyền)](#42-cascade-type-hiệu-ứng-dây-chuyền)
+- [5. Vấn đề hiệu năng: N+1 Problem](#5-vấn-đề-hiệu-năng-n1-problem)
+  - [Tình huống](#tình-huống)
+  - [Hậu quả](#hậu-quả)
+  - [Giải pháp chuyên nghiệp](#giải-pháp-chuyên-nghiệp)
 
 ---
 

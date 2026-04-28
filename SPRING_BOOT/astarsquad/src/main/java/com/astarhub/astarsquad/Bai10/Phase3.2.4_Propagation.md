@@ -1,8 +1,24 @@
-Tuyệt vời. Chúng ta đã "mổ xẻ" xong cơ chế Proxy. Bây giờ, khi đã hiểu ai là người mở/đóng Transaction, chúng ta sẽ trả lời câu hỏi: **"Chuyện gì xảy ra khi Service A gọi Service B?"**
+﻿Tuyệt vời. Chúng ta đã "mổ xẻ" xong cơ chế Proxy. Bây giờ, khi đã hiểu ai là người mở/đóng Transaction, chúng ta sẽ trả lời câu hỏi: **"Chuyện gì xảy ra khi Service A gọi Service B?"**
 
 Chào mừng bạn đến với **Phần B: Transaction Propagation (Sự lan truyền)**.
 
 Đây là phần kiến thức giúp bạn thiết kế những luồng nghiệp vụ phức tạp (như đặt hàng kèm thanh toán, ghi log hệ thống) mà không bị lỗi dữ liệu chéo.
+
+---
+
+## 📑 Mục Lục
+
+- [1. Propagation là gì?](#1-propagation-là-gì)
+- [2. Các loại Propagation phổ biến (Cần thuộc lòng)](#2-các-loại-propagation-phổ-biến-cần-thuộc-lòng)
+  - [2.1. `REQUIRED` (Mặc định - "Người đồng đội")](#21-required-mặc-định-người-đồng-đội)
+  - [2.2. `REQUIRES_NEW` (Cô lập - "Người hướng nội")](#22-requires_new-cô-lập-người-hướng-nội)
+  - [2.3. `MANDATORY` (Bắt buộc - "Kẻ ăn bám")](#23-mandatory-bắt-buộc-kẻ-ăn-bám)
+- [3. Case Study: Hệ thống Đặt hàng & Ghi Log](#3-case-study-hệ-thống-đặt-hàng-ghi-log)
+  - [Kịch bản:](#kịch-bản)
+  - [Cấu hình 1: Dùng Mặc định (`REQUIRED`) - Sai lầm thường gặp](#cấu-hình-1-dùng-mặc-định-required-sai-lầm-thường-gặp)
+  - [Cấu hình 2: Dùng `REQUIRES_NEW` - Giải pháp chuẩn](#cấu-hình-2-dùng-requires_new-giải-pháp-chuẩn)
+- [4. Bảng tổng sắp (Cheat Sheet)](#4-bảng-tổng-sắp-cheat-sheet)
+- [🧠 Bài tập tình huống (Phần B)](#bài-tập-tình-huống-phần-b)
 
 ---
 

@@ -1,4 +1,40 @@
-# 📚 Bài 5: Stereotype Annotations (@Component, @Service, @Repository, @Controller)
+﻿# 📚 Bài 5: Stereotype Annotations (@Component, @Service, @Repository, @Controller)
+
+---
+
+## 📑 Mục Lục
+
+- [🎯 Mục tiêu](#mục-tiêu)
+- [1. Stereotype Annotations là gì?](#1-stereotype-annotations-là-gì)
+- [2. @Component - Annotation gốc](#2-component-annotation-gốc)
+  - [Khi nào dùng @Component?](#khi-nào-dùng-component)
+- [3. @Service - Business Logic Layer](#3-service-business-logic-layer)
+  - [Đặc điểm @Service:](#đặc-điểm-service)
+- [4. @Repository - Data Access Layer](#4-repository-data-access-layer)
+  - [Đặc điểm @Repository:](#đặc-điểm-repository)
+  - [Bonus: Exception Translation](#bonus-exception-translation)
+- [5. @Controller - Presentation Layer](#5-controller-presentation-layer)
+  - [@Controller (trả về View):](#controller-trả-về-view)
+  - [@RestController (trả về JSON):](#restcontroller-trả-về-json)
+  - [So sánh:](#so-sánh)
+- [6. Layered Architecture](#6-layered-architecture)
+  - [Các layer hoạt động cùng nhau:](#các-layer-hoạt-động-cùng-nhau)
+- [7. Ví dụ đầy đủ](#7-ví-dụ-đầy-đủ)
+  - [Product.java (Entity/Model):](#productjava-entitymodel)
+  - [ProductRepository.java:](#productrepositoryjava)
+  - [ProductService.java:](#productservicejava)
+  - [ProductController.java:](#productcontrollerjava)
+- [8. Tại sao phân biệt 4 annotation?](#8-tại-sao-phân-biệt-4-annotation)
+  - [1. Dễ đọc code:](#1-dễ-đọc-code)
+  - [2. Spring xử lý khác nhau:](#2-spring-xử-lý-khác-nhau)
+  - [3. AOP (Aspect-Oriented Programming):](#3-aop-aspect-oriented-programming)
+- [9. Quy tắc đặt tên](#9-quy-tắc-đặt-tên)
+- [10. Lỗi hay gặp](#10-lỗi-hay-gặp)
+  - [❌ Đặt business logic trong Controller:](#đặt-business-logic-trong-controller)
+  - [✅ Chuyển business logic sang Service:](#chuyển-business-logic-sang-service)
+- [📌 Tóm tắt](#tóm-tắt)
+  - [Luồng xử lý:](#luồng-xử-lý)
+  - [Quy tắc nhớ:](#quy-tắc-nhớ)
 
 ---
 

@@ -1,6 +1,18 @@
-Tuyệt vời. Chúng ta sẽ bắt đầu lại phần này một cách bài bản, chuẩn mực để bạn có thể lưu làm tài liệu.
+﻿Tuyệt vời. Chúng ta sẽ bắt đầu lại phần này một cách bài bản, chuẩn mực để bạn có thể lưu làm tài liệu.
 
 Đây là **Phần 1: Deep Dive về Entity và Cơ chế hoạt động của JPA**.
+
+---
+
+## 📑 Mục Lục
+
+- [1. Bản chất của Entity](#1-bản-chất-của-entity)
+  - [Yêu cầu bắt buộc của một Entity](#yêu-cầu-bắt-buộc-của-một-entity)
+- [2. Giải phẫu một Entity chuẩn (Anatomy)](#2-giải-phẫu-một-entity-chuẩn-anatomy)
+  - [Các chiến lược sinh khóa (@GeneratedValue)](#các-chiến-lược-sinh-khóa-generatedvalue)
+- [3. Persistence Context & Entity Lifecycle (Cốt lõi)](#3-persistence-context-entity-lifecycle-cốt-lõi)
+- [4. Cơ chế "Ma thuật": Dirty Checking](#4-cơ-chế-ma-thuật-dirty-checking)
+  - [👨‍💻 Bài tập tình huống (Case Study)](#bài-tập-tình-huống-case-study)
 
 ---
 

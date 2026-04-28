@@ -1,4 +1,4 @@
-Rất tiếc, câu trả lời này **chưa chính xác** 100% rồi! 😅
+﻿Rất tiếc, câu trả lời này **chưa chính xác** 100% rồi! 😅
 
 Bạn hãy để ý kỹ lại class `Product` trong đề bài nhé:
 
@@ -23,6 +23,16 @@ public interface ProductRepository extends JpaRepository<Product, String> {
 ```
 
 Nếu bạn để là `Long`, khi chạy ứng dụng Spring sẽ báo lỗi ngay lập tức vì nó không tìm thấy field `@Id` nào có kiểu `Long` trong entity Product cả.
+
+---
+
+## 📑 Mục Lục
+
+- [1. "Ma thuật" sinh SQL từ tên hàm](#1-ma-thuật-sinh-sql-từ-tên-hàm)
+  - [Ví dụ thực tế:](#ví-dụ-thực-tế)
+- [2. Các từ khóa "Thần chú" (Keywords)](#2-các-từ-khóa-thần-chú-keywords)
+- [3. Best Practices (Lưu ý của Senior)](#3-best-practices-lưu-ý-của-senior)
+- [🧠 Thử thách (Coding Challenge)](#thử-thách-coding-challenge)
 
 ---
 

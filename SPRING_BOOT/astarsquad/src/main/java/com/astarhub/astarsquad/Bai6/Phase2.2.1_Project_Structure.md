@@ -1,4 +1,40 @@
-# 📚 Bài 6: Project Structure (Cấu trúc dự án Spring Boot)
+﻿# 📚 Bài 6: Project Structure (Cấu trúc dự án Spring Boot)
+
+---
+
+## 📑 Mục Lục
+
+- [🎯 Mục tiêu](#mục-tiêu)
+- [1. Cấu trúc mặc định](#1-cấu-trúc-mặc-định)
+- [2. Giải thích từng phần](#2-giải-thích-từng-phần)
+  - [📁 src/main/java - Code chính](#srcmainjava-code-chính)
+  - [📁 src/main/resources - Tài nguyên](#srcmainresources-tài-nguyên)
+  - [📁 src/test/java - Unit tests](#srctestjava-unit-tests)
+- [3. Package theo Layer (Phổ biến)](#3-package-theo-layer-phổ-biến)
+  - [Cấu trúc:](#cấu-trúc)
+  - [Ưu điểm:](#ưu-điểm)
+  - [Nhược điểm:](#nhược-điểm)
+- [4. Package theo Feature (Khuyên dùng cho dự án lớn)](#4-package-theo-feature-khuyên-dùng-cho-dự-án-lớn)
+  - [Cấu trúc:](#cấu-trúc)
+  - [Ưu điểm:](#ưu-điểm)
+  - [Nhược điểm:](#nhược-điểm)
+- [5. So sánh 2 cách tổ chức](#5-so-sánh-2-cách-tổ-chức)
+  - [Khuyên dùng:](#khuyên-dùng)
+- [6. Main Application Class](#6-main-application-class)
+  - [@SpringBootApplication bao gồm:](#springbootapplication-bao-gồm)
+  - [⚠️ Lưu ý quan trọng về @ComponentScan:](#️-lưu-ý-quan-trọng-về-componentscan)
+- [7. Thư mục resources/](#7-thư-mục-resources)
+  - [application.properties:](#applicationproperties)
+  - [static/ - File tĩnh:](#static-file-tĩnh)
+  - [templates/ - HTML templates (Thymeleaf):](#templates-html-templates-thymeleaf)
+- [8. pom.xml - Maven Dependencies](#8-pomxml-maven-dependencies)
+  - [Các starter phổ biến:](#các-starter-phổ-biến)
+- [9. Maven Wrapper (mvnw)](#9-maven-wrapper-mvnw)
+- [10. Cấu trúc dự án thực tế](#10-cấu-trúc-dự-án-thực-tế)
+- [📌 Tóm tắt](#tóm-tắt)
+  - [Cấu trúc cơ bản:](#cấu-trúc-cơ-bản)
+  - [Package organization:](#package-organization)
+  - [Quy tắc:](#quy-tắc)
 
 ---
 

@@ -1,4 +1,23 @@
-# 📚 Bài 1: IoC & Dependency Injection
+﻿# 📚 Bài 1: IoC & Dependency Injection
+
+---
+
+## 📑 Mục Lục
+
+- [🎯 Mục tiêu](#mục-tiêu)
+- [1. Vấn đề khi KHÔNG có DI](#1-vấn-đề-khi-không-có-di)
+- [2. Giải pháp: Dependency Injection](#2-giải-pháp-dependency-injection)
+- [3. Spring Container làm gì?](#3-spring-container-làm-gì)
+- [4. Ví dụ thực hành](#4-ví-dụ-thực-hành)
+  - [File 1: NotificationService.java](#file-1-notificationservicejava)
+  - [File 2: OrderService.java](#file-2-orderservicejava)
+  - [File 3: DemoRunner.java (để test)](#file-3-demorunnerjava-để-test)
+  - [Kết quả khi chạy:](#kết-quả-khi-chạy)
+- [5. 3 cách Inject Dependency](#5-3-cách-inject-dependency)
+  - [Cách 1: Constructor Injection ✅ (Khuyên dùng)](#cách-1-constructor-injection-khuyên-dùng)
+  - [Cách 2: Field Injection ⚠️ (Không khuyến khích)](#cách-2-field-injection-️-không-khuyến-khích)
+  - [Cách 3: Setter Injection](#cách-3-setter-injection)
+- [📌 Tóm tắt](#tóm-tắt)
 
 ---
 

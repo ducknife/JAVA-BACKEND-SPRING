@@ -1,6 +1,17 @@
-Chấp nhận phản hồi của bạn. Xin lỗi vì cách giải thích trước chưa đủ "đô" với bạn. Chúng ta sẽ "mổ xẻ" nó ở cấp độ **Code & JVM (Java Virtual Machine)** để xem thực sự Spring làm cái trò gì ở bên dưới.
+﻿Chấp nhận phản hồi của bạn. Xin lỗi vì cách giải thích trước chưa đủ "đô" với bạn. Chúng ta sẽ "mổ xẻ" nó ở cấp độ **Code & JVM (Java Virtual Machine)** để xem thực sự Spring làm cái trò gì ở bên dưới.
 
 Đây là bản **Deep Dive** về cơ chế Proxy của `@Transactional`.
+
+---
+
+## 📑 Mục Lục
+
+- [1. Spring tạo ra cái gì lúc Runtime? (The Generated Code)](#1-spring-tạo-ra-cái-gì-lúc-runtime-the-generated-code)
+- [2. Tại sao "Self-Invocation" lại chết? (Technical Explanation)](#2-tại-sao-self-invocation-lại-chết-technical-explanation)
+- [3. Đáp án cho bài tập tình huống trước](#3-đáp-án-cho-bài-tập-tình-huống-trước)
+- [4. Giải pháp "Hardcore" (Nếu bắt buộc phải dùng Self-Invocation)](#4-giải-pháp-hardcore-nếu-bắt-buộc-phải-dùng-self-invocation)
+  - [Cách 1: Self-Injection (Tiêm chính mình)](#cách-1-self-injection-tiêm-chính-mình)
+  - [Cách 2: AopContext (Hàng "cấm" - nhưng mạnh)](#cách-2-aopcontext-hàng-cấm-nhưng-mạnh)
 
 ---
 

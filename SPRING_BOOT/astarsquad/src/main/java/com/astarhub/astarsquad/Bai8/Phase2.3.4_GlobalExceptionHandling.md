@@ -1,4 +1,4 @@
-
+﻿
 
 # BÀI 5: GLOBAL EXCEPTION HANDLING - KIẾN TRÚC XỬ LÝ LỖI TẬP TRUNG
 
@@ -15,6 +15,21 @@ Trong một hệ thống lớn, việc dùng `try-catch` trong từng Controller
 * **Controller:** Chỉ lo đường đi nước bước (Happy Path).
 * **Service:** Chỉ lo nghiệp vụ, lỗi thì cứ `throw`.
 * **Global Handler:** Đứng hứng tất cả lỗi, xử lý, log, và đóng gói chuẩn `ApiResponse`.
+
+---
+
+## 📑 Mục Lục
+
+- [1. Tư duy Senior: Tại sao `try-catch` là hạ sách?](#1-tư-duy-senior-tại-sao-try-catch-là-hạ-sách)
+- [2. Thiết kế Hệ thống Exception (Custom Hierarchy)](#2-thiết-kế-hệ-thống-exception-custom-hierarchy)
+  - [Bước 2.1: Tạo Class cha (AppException)](#bước-21-tạo-class-cha-appexception)
+  - [Bước 2.2: Tạo các lỗi con cụ thể (Semantic Exceptions)](#bước-22-tạo-các-lỗi-con-cụ-thể-semantic-exceptions)
+- [3. Xây dựng "Lưới Trời" (GlobalExceptionHandler)](#3-xây-dựng-lưới-trời-globalexceptionhandler)
+- [4. Cách sử dụng chuẩn Senior (Refactor Code)](#4-cách-sử-dụng-chuẩn-senior-refactor-code)
+  - [Trong Service (Nơi chứa logic)](#trong-service-nơi-chứa-logic)
+  - [Trong Controller](#trong-controller)
+- [5. Cấu hình nâng cao (Config Properties)](#5-cấu-hình-nâng-cao-config-properties)
+- [6. Tổng kết bài học](#6-tổng-kết-bài-học)
 
 ---
 

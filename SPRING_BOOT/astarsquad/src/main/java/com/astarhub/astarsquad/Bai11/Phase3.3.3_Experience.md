@@ -1,5 +1,16 @@
-### KINH NGHIỆM THỰC CHIẾN: TRÁNH LỖI VẶT VỚI HIBERNATE & FLYWAY
+﻿### KINH NGHIỆM THỰC CHIẾN: TRÁNH LỖI VẶT VỚI HIBERNATE & FLYWAY
 # Dựa trên chuỗi lỗi bạn vừa xử lý, đây là 4 quy tắc sống còn khi làm việc với Spring Data JPA và Flyway:
+
+## 📑 Mục Lục
+
+  - [KINH NGHIỆM THỰC CHIẾN: TRÁNH LỖI VẶT VỚI HIBERNATE & FLYWAY](#kinh-nghiệm-thực-chiến-tránh-lỗi-vặt-với-hibernate-flyway)
+- [1. Quy Tắc Đồng Bộ Kiểu Dữ Liệu (Data Type Consistency)](#1-quy-tắc-đồng-bộ-kiểu-dữ-liệu-data-type-consistency)
+- [2. Quy Tắc Vàng Của Khóa Ngoại (Foreign Key)](#2-quy-tắc-vàng-của-khóa-ngoại-foreign-key)
+- [3. Tư Duy Làm Việc Với Flyway (Flyway Mindset)](#3-tư-duy-làm-việc-với-flyway-flyway-mindset)
+- [4. Quy Tắc Xử Lý Tiền Tệ (Handling Money)](#4-quy-tắc-xử-lý-tiền-tệ-handling-money)
+- [5. Cẩn Thận Với @Data và @ToString Của Lombok](#5-cẩn-thận-với-data-và-tostring-của-lombok)
+
+---
 ## 1. Quy Tắc Đồng Bộ Kiểu Dữ Liệu (Data Type Consistency)
 * Lỗi phổ biến nhất khi dùng ddl-auto=validate là sai lệch kiểu dữ liệu giữa 3 tầng: Database (SQL) <-> Entity (Java) <-> DTO (Request/Response).
 * Map đúng kiểu giữa Java và SQL:

@@ -1,6 +1,16 @@
-Xin lỗi bạn, tôi đã quá nôn nóng đi vào thực chiến mà bỏ qua phần lý thuyết nền tảng. Bạn nói rất đúng, AOP là một khái niệm trừu tượng và nếu không hiểu bản chất, code ra sẽ rất máy móc.
+﻿Xin lỗi bạn, tôi đã quá nôn nóng đi vào thực chiến mà bỏ qua phần lý thuyết nền tảng. Bạn nói rất đúng, AOP là một khái niệm trừu tượng và nếu không hiểu bản chất, code ra sẽ rất máy móc.
 
 Hãy cùng ngồi xuống và mổ xẻ **AOP** dưới góc nhìn tư duy, hoàn toàn không dính dáng đến code nhé.
+
+---
+
+## 📑 Mục Lục
+
+  - [1. Vấn đề của Lập trình hướng đối tượng (OOP) truyền thống](#1-vấn-đề-của-lập-trình-hướng-đối-tượng-oop-truyền-thống)
+  - [2. AOP là gì? (Giải pháp "Cắt ngang")](#2-aop-là-gì-giải-pháp-cắt-ngang)
+  - [3. Cơ chế hoạt động của "Lưới Trời" Global Exception Handler](#3-cơ-chế-hoạt-động-của-lưới-trời-global-exception-handler)
+  - [4. Tại sao gọi là `@RestControllerAdvice`?](#4-tại-sao-gọi-là-restcontrolleradvice)
+  - [5. Tổng kết: Tại sao Senior lại thích dùng cái này?](#5-tổng-kết-tại-sao-senior-lại-thích-dùng-cái-này)
 
 ---
 

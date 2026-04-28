@@ -1,8 +1,19 @@
-Câu hỏi rất "đắt"! Để thực sự hiểu sâu và thiết kế hệ thống chuẩn chỉ, em phải hiểu bản chất gốc rễ này.
+﻿Câu hỏi rất "đắt"! Để thực sự hiểu sâu và thiết kế hệ thống chuẩn chỉ, em phải hiểu bản chất gốc rễ này.
 
 Nếu coi **REST** là một tôn giáo, thì **Resource (Tài nguyên)** chính là "Thần thánh" của tôn giáo đó. Mọi thứ xoay quanh nó.
 
 Dưới đây là bài phân tích chuyên sâu (Deep Dive).
+
+---
+
+## 📑 Mục Lục
+
+  - [1. Định nghĩa cốt lõi](#1-định-nghĩa-cốt-lõi)
+  - [2. Ba đặc điểm sống còn của Resource](#2-ba-đặc-điểm-sống-còn-của-resource)
+  - [3. Tài nguyên đơn (Singleton) vs. Tập tài nguyên (Collection)](#3-tài-nguyên-đơn-singleton-vs-tập-tài-nguyên-collection)
+  - [4. Sub-Resource (Tài nguyên lồng nhau) - Level Senior](#4-sub-resource-tài-nguyên-lồng-nhau-level-senior)
+  - [5. Những sai lầm kinh điển (Anti-patterns)](#5-những-sai-lầm-kinh-điển-anti-patterns)
+  - [TỔNG KẾT](#tổng-kết)
 
 ---
 

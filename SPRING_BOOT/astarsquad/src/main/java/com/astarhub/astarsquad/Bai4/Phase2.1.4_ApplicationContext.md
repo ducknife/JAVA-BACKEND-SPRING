@@ -1,4 +1,29 @@
-# 📚 Bài 4: ApplicationContext
+﻿# 📚 Bài 4: ApplicationContext
+
+---
+
+## 📑 Mục Lục
+
+- [🎯 Mục tiêu](#mục-tiêu)
+- [1. ApplicationContext là gì?](#1-applicationcontext-là-gì)
+- [2. ApplicationContext làm gì?](#2-applicationcontext-làm-gì)
+- [3. Khi nào ApplicationContext được tạo?](#3-khi-nào-applicationcontext-được-tạo)
+  - [Quá trình khởi động:](#quá-trình-khởi-động)
+- [4. Lấy Bean từ ApplicationContext](#4-lấy-bean-từ-applicationcontext)
+  - [Cách 1: Inject ApplicationContext (ít dùng)](#cách-1-inject-applicationcontext-ít-dùng)
+  - [Cách 2: Dùng Constructor Injection (khuyên dùng ✅)](#cách-2-dùng-constructor-injection-khuyên-dùng)
+  - [So sánh:](#so-sánh)
+- [5. Khi nào cần dùng ApplicationContext trực tiếp?](#5-khi-nào-cần-dùng-applicationcontext-trực-tiếp)
+  - [Rất hiếm! Chỉ khi:](#rất-hiếm-chỉ-khi)
+- [6. Các loại ApplicationContext](#6-các-loại-applicationcontext)
+  - [Spring Boot tự chọn cho bạn:](#spring-boot-tự-chọn-cho-bạn)
+- [7. BeanFactory vs ApplicationContext](#7-beanfactory-vs-applicationcontext)
+- [8. Application Events](#8-application-events)
+  - [Luồng chạy:](#luồng-chạy)
+- [9. Built-in Events](#9-built-in-events)
+- [10. Ví dụ thực tế](#10-ví-dụ-thực-tế)
+- [📌 Tóm tắt](#tóm-tắt)
+  - [Quy tắc:](#quy-tắc)
 
 ---
 

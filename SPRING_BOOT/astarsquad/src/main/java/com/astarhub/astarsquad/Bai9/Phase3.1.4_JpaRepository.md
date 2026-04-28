@@ -1,6 +1,21 @@
-Tuyệt vời! Chúng ta sẽ đi vào phần trọng tâm nhất, "vũ khí" lợi hại nhất của Spring Data JPA giúp bạn quên đi nỗi ám ảnh viết code JDBC dài dòng.
+﻿Tuyệt vời! Chúng ta sẽ đi vào phần trọng tâm nhất, "vũ khí" lợi hại nhất của Spring Data JPA giúp bạn quên đi nỗi ám ảnh viết code JDBC dài dòng.
 
 Chào mừng bạn đến với bài: **JpaRepository - Trái tim của Spring Data JPA**.
+
+---
+
+## 📑 Mục Lục
+
+- [1. JpaRepository là gì?](#1-jparepository-là-gì)
+  - [Cú pháp chuẩn](#cú-pháp-chuẩn)
+  - [Giải mã Generics `<User, Long>`](#giải-mã-generics-user-long)
+- [2. Gia phả thừa kế (Repository Hierarchy)](#2-gia-phả-thừa-kế-repository-hierarchy)
+- [3. Các phương thức "Được tặng kèm" (Built-in Methods)](#3-các-phương-thức-được-tặng-kèm-built-in-methods)
+  - [3.1. Nhóm Lưu & Cập nhật (`save`)](#31-nhóm-lưu-cập-nhật-save)
+  - [3.2. Nhóm Tìm kiếm (`find`)](#32-nhóm-tìm-kiếm-find)
+  - [3.3. Nhóm Xóa (`delete`)](#33-nhóm-xóa-delete)
+- [4. Cơ chế hoạt động (Under the hood)](#4-cơ-chế-hoạt-động-under-the-hood)
+- [🧠 Bài tập nhanh (Check Point)](#bài-tập-nhanh-check-point)
 
 ---
 

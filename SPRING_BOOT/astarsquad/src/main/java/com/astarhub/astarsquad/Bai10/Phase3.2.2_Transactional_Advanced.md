@@ -1,6 +1,23 @@
-Chào bạn, tiếp thu ý kiến của bạn. Đúng là ở phần trước mình tập trung nhiều vào *cơ chế hoạt động* (Proxy) mà chưa đi sâu vào *cách sử dụng* các thông số của chính annotation `@Transactional`.
+﻿Chào bạn, tiếp thu ý kiến của bạn. Đúng là ở phần trước mình tập trung nhiều vào *cơ chế hoạt động* (Proxy) mà chưa đi sâu vào *cách sử dụng* các thông số của chính annotation `@Transactional`.
 
 Đây là bài **Deep Dive về Annotation @Transactional** - mổ xẻ tất cả các ngóc ngách, thông số và luật lệ của nó để bạn dùng cho chuẩn.
+
+---
+
+## 📑 Mục Lục
+
+- [1. Vị trí đặt @Transactional (Scope)](#1-vị-trí-đặt-transactional-scope)
+  - [1.1. Trên Method (Phổ biến nhất)](#11-trên-method-phổ-biến-nhất)
+  - [1.2. Trên Class](#12-trên-class)
+  - [1.3. Trên Interface (Không khuyên dùng)](#13-trên-interface-không-khuyên-dùng)
+- [2. Các thuộc tính "Thần thánh" (Attributes)](#2-các-thuộc-tính-thần-thánh-attributes)
+  - [2.1. `rollbackFor` & `noRollbackFor` (Quyết định sống chết)](#21-rollbackfor-norollbackfor-quyết-định-sống-chết)
+  - [2.2. `readOnly` (Tối ưu hiệu năng)](#22-readonly-tối-ưu-hiệu-năng)
+  - [2.3. `timeout` (Ngắt giao dịch treo)](#23-timeout-ngắt-giao-dịch-treo)
+- [3. Những luật bất thành văn (Strict Rules)](#3-những-luật-bất-thành-văn-strict-rules)
+  - [Luật 1: Chỉ áp dụng cho `public` method](#luật-1-chỉ-áp-dụng-cho-public-method)
+  - [Luật 2: Cạm bẫy "Self-Invocation" (Tự gọi chính mình)](#luật-2-cạm-bẫy-self-invocation-tự-gọi-chính-mình)
+- [4. Tổng kết: Template chuẩn cho Senior](#4-tổng-kết-template-chuẩn-cho-senior)
 
 ---
 

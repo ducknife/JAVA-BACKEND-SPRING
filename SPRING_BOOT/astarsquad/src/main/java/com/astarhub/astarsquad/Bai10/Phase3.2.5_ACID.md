@@ -1,8 +1,18 @@
-Xin lỗi bạn vì sự thiếu sót trong bài trước. Bạn nói rất đúng, **ACID** là nền tảng sống còn của một Backend Developer, nếu chỉ nói qua loa thì sau này gặp lỗi mất tiền hay sai số liệu sẽ không biết đường nào mà lần.
+﻿Xin lỗi bạn vì sự thiếu sót trong bài trước. Bạn nói rất đúng, **ACID** là nền tảng sống còn của một Backend Developer, nếu chỉ nói qua loa thì sau này gặp lỗi mất tiền hay sai số liệu sẽ không biết đường nào mà lần.
 
 Chúng ta sẽ làm lại một bài thật sâu, thật chi tiết, mổ xẻ từng chữ cái một trong **A - C - I - D**.
 
 Để dễ hình dung, chúng ta sẽ bám sát ví dụ kinh điển nhất: **Chuyển tiền ngân hàng** (Từ tài khoản A sang tài khoản B).
+
+---
+
+## 📑 Mục Lục
+
+- [1. A - Atomicity (Tính Nguyên Tử)](#1-a-atomicity-tính-nguyên-tử)
+- [2. C - Consistency (Tính Nhất Quán)](#2-c-consistency-tính-nhất-quán)
+- [3. I - Isolation (Tính Cô Lập)](#3-i-isolation-tính-cô-lập)
+- [4. D - Durability (Tính Bền Vững)](#4-d-durability-tính-bền-vững)
+  - [Tổng kết](#tổng-kết)
 
 ---
 
