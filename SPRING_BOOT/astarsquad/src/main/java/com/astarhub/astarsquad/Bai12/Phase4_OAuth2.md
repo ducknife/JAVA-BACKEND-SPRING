@@ -6,6 +6,25 @@
 
 ---
 
+## 📑 Mục Lục
+
+- [1. OAuth2 Là Gì?](#1-oauth2-là-gì)
+  - [1.1 Các Vai Trò](#11-các-vai-trò)
+  - [1.2 Authorization Code Flow](#12-authorization-code-flow--luồng-phổ-biến-nhất)
+- [2. OAuth2 Login (Social Login)](#2-oauth2-login-social-login)
+  - [2.1 Dependency](#21-dependency)
+  - [2.2 application.yml](#22-applicationyml)
+  - [2.3 User Entity — Mở Rộng Từ File 2](#23-user-entity--mở-rộng-từ-file-2)
+  - [2.4 CustomOAuth2UserService](#24-customoauth2userservice--xử-lý-user-từ-provider)
+  - [2.5 CustomOAuth2User](#25-customoauth2user)
+  - [2.6 OAuth2 Login → Tạo JWT](#26-oauth2-login--tạo-jwt)
+  - [2.7 SecurityConfig — Tích Hợp](#27-securityconfig--tích-hợp-oauth2-login)
+- [3. OAuth2 Resource Server](#3-oauth2-resource-server--api-nhận-jwt-từ-bên-ngoài)
+- [4. Khi Nào Dùng Gì?](#4-khi-nào-dùng-gì)
+- [✅ Checklist](#-checklist)
+
+---
+
 ## 1. OAuth2 Là Gì?
 
 **OAuth2** = giao thức ủy quyền (authorization framework) cho phép ứng dụng 

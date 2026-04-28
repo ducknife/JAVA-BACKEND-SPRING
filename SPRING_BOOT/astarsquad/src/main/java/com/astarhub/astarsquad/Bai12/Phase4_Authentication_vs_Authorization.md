@@ -6,6 +6,27 @@
 
 ---
 
+## 📑 Mục Lục
+
+- [1. Authentication vs Authorization — Phân Biệt](#1-authentication-vs-authorization--phân-biệt)
+- [2. Authentication — Triển Khai Code](#2-authentication--triển-khai-code)
+  - [2.1 Entity Layer — User, Role, Permission (RBAC)](#21-entity-layer--user-role-permission-rbac)
+  - [2.2 CustomUserDetails](#22-customuserdetails--adapter-user--spring-security)
+  - [2.3 CustomUserDetailsService](#23-customuserdetailsservice--load-user-từ-db)
+  - [2.4 Exception Handlers — 401 và 403](#24-exception-handlers--401-và-403)
+  - [2.5 Tích Hợp Vào SecurityConfig](#25-tích-hợp-vào-securityconfig-cập-nhật-file-1)
+- [3. Authorization — @PreAuthorize & @PostAuthorize](#3-authorization--preauthorize--postauthorize-chi-tiết)
+  - [3.1 @PreAuthorize](#31-preauthorize--kiểm-tra-trước-khi-method-chạy)
+  - [3.2 @PostAuthorize](#32-postauthorize--kiểm-tra-sau-khi-method-chạy)
+  - [3.3 @PreFilter & @PostFilter](#33-prefilter--postfilter--lọc-collection)
+  - [3.4 Custom Permission Evaluator](#34-custom-permission-evaluator--logic-phân-quyền-phức-tạp)
+  - [3.5 Custom Permission Service](#35-custom-permission-service--cách-đơn-giản-hơn)
+- [4. Lấy User Hiện Tại — 3 Cách](#4-lấy-user-hiện-tại--3-cách)
+- [5. HTTP Authorization vs Method Authorization](#5-http-authorization-vs-method-authorization)
+- [✅ Checklist](#-checklist--sau-khi-đọc-file-này)
+
+---
+
 ## 1. Authentication vs Authorization — Phân Biệt
 
 | | Authentication (Xác thực) | Authorization (Phân quyền) |

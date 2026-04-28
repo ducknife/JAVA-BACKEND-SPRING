@@ -6,6 +6,32 @@
 
 ---
 
+## 📑 Mục Lục
+
+- [1. JWT Là Gì?](#1-jwt-là-gì)
+  - [1.1 Cấu Trúc JWT — 3 Phần](#11-cấu-trúc-jwt--3-phần)
+  - [1.2 Tại Sao JWT Cho REST API?](#12-tại-sao-jwt-cho-rest-api)
+- [2. RSA vs HMAC — Chọn Thuật Toán](#2-rsa-vs-hmac--chọn-thuật-toán)
+- [3. JWK (JSON Web Key) — Quản Lý Key](#3-jwk-json-web-key--quản-lý-key)
+  - [3.1 JWK Là Gì?](#31-jwk-là-gì)
+  - [3.2 JwtEncoder vs JwtDecoder](#32-jwtencoder-vs-jwtdecoder)
+  - [3.3 JwtAuthenticationConverter](#33-jwtauthenticationconverter)
+- [4. Dependency](#4-dependency)
+- [5. Tạo RSA Key Pair](#5-tạo-rsa-key-pair)
+- [6. Code Triển Khai — Tích Hợp File 1 + File 2](#6-code-triển-khai--tích-hợp-file-1--file-2)
+  - [6.1 RsaKeyProperties.java](#61-rsakeypropertiesjava--load-key)
+  - [6.2 JwtConfig.java — Encoder, Decoder, Converter](#62-jwtconfigjava--encoder-decoder-converter)
+  - [6.3 JwtService.java — Business Logic](#63-jwtservicejava--business-logic-tạo-token)
+  - [6.4 SecurityConfig.java — Cập Nhật Hoàn Chỉnh](#64-securityconfigjava--cập-nhật-hoàn-chỉnh)
+  - [6.5 AuthController.java](#65-authcontrollerjava--login-register-refresh)
+  - [6.6 DTOs](#66-dtos)
+- [7. Truy Cập JWT Claims — Trong Controller](#7-truy-cập-jwt-claims--trong-controller)
+- [8. Custom Validator & Blacklist](#8-custom-validator--blacklist)
+- [9. Luồng Hoàn Chỉnh](#9-luồng-hoàn-chỉnh)
+- [✅ Checklist](#-checklist)
+
+---
+
 ## 1. JWT Là Gì?
 
 **JWT (JSON Web Token)** là chuẩn mở (RFC 7519) để truyền thông tin an toàn giữa các bên

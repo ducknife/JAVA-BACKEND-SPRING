@@ -5,6 +5,29 @@
 
 ---
 
+## 📑 Mục Lục
+
+- [1. Password Encoding (BCrypt)](#1-password-encoding-bcrypt)
+  - [1.1 Tại Sao Phải Hash Password?](#11-tại-sao-phải-hash-password)
+  - [1.2 BCrypt Hoạt Động Thế Nào?](#12-bcrypt-hoạt-động-thế-nào)
+  - [1.3 Config — Đã Tạo Ở File 1](#13-config--đã-tạo-ở-file-1)
+  - [1.4 Sử Dụng — Trong UserService](#14-sử-dụng--trong-userservice)
+  - [1.5 Password Validation — Custom Annotation](#15-password-validation--custom-annotation)
+- [2. CORS (Cross-Origin Resource Sharing)](#2-cors-cross-origin-resource-sharing)
+  - [2.1 CORS Là Gì?](#21-cors-là-gì)
+  - [2.2 Preflight Request](#22-preflight-request)
+  - [2.3 Tích Hợp CORS Vào SecurityConfig](#23-tích-hợp-cors-vào-securityconfig)
+  - [2.4 CORS Theo Profile](#24-cors-theo-profile)
+- [3. CSRF (Cross-Site Request Forgery)](#3-csrf-cross-site-request-forgery)
+  - [3.1 CSRF Là Gì?](#31-csrf-là-gì)
+  - [3.2 Khi Nào Enable/Disable?](#32-khi-nào-enabledisable)
+  - [3.3 Tại Sao REST API + JWT Disable CSRF An Toàn?](#33-tại-sao-rest-api--jwt-disable-csrf-an-toàn)
+  - [3.4 Config CSRF cho SPA dùng Cookie](#34-config-csrf-cho-spa-dùng-cookie)
+- [4. SecurityConfig Hoàn Chỉnh — Tích Hợp Tất Cả](#4-securityconfig-hoàn-chỉnh--tích-hợp-tất-cả)
+- [✅ Phase 4 — Checklist Hoàn Chỉnh](#-phase-4--checklist-hoàn-chỉnh)
+
+---
+
 ## 1. Password Encoding (BCrypt)
 
 ### 1.1 Tại Sao Phải Hash Password?

@@ -19,6 +19,30 @@
 
 ---
 
+## 📑 Mục Lục
+
+- [1. Spring Security Là Gì?](#1-spring-security-là-gì)
+- [2. Kiến Trúc Tổng Quan — Servlet Filter Chain](#2-kiến-trúc-tổng-quan--servlet-filter-chain)
+  - [2.1 Khái niệm: Servlet Filter](#21-khái-niệm-servlet-filter)
+  - [2.2 Ba Thành Phần Chính](#22-ba-thành-phần-chính)
+- [3. Các Khái Niệm Cốt Lõi](#3-các-khái-niệm-cốt-lõi)
+  - [3.1 SecurityContext & SecurityContextHolder](#31-securitycontext--securitycontextholder)
+  - [3.2 Authentication Interface](#32-authentication-interface)
+  - [3.3 GrantedAuthority — Quyền Hạn](#33-grantedauthority--quyền-hạn)
+  - [3.4 UserDetails & UserDetailsService](#34-userdetails--userdetailsservice)
+- [4. Luồng Xác Thực (Authentication Flow)](#4-luồng-xác-thực-authentication-flow)
+  - [4.1 Các Thành Phần Tham Gia](#41-các-thành-phần-tham-gia)
+  - [4.2 Luồng Chi Tiết (Username/Password + JWT)](#42-luồng-chi-tiết-usernamepassword--jwt)
+- [5. Cấu Hình SecurityFilterChain](#5-cấu-hình-securityfilterchain--nền-tảng-cho-cả-phase)
+  - [5.1 Project Structure](#51-project-structure)
+  - [5.2 SecurityConfig.java — Base](#52-securityconfigjava--base-sẽ-mở-rộng-ở-các-file-sau)
+  - [5.3 Giải Thích Từng Dòng Config](#53-giải-thích-từng-dòng-config)
+- [6. Dependency](#6-dependency)
+- [7. Tóm Tắt: Kiến Trúc Bạn Cần Nhớ](#7-tóm-tắt-kiến-trúc-bạn-cần-nhớ)
+- [✅ Checklist](#-checklist--sau-khi-đọc-file-này)
+
+---
+
 ## 1. Spring Security Là Gì?
 
 **Spring Security** là framework bảo mật cho ứng dụng Java/Spring. Nó cung cấp:
