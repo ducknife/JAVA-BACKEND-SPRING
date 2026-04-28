@@ -755,5 +755,5 @@ public void updateProfile(Long userId, ProfileDTO dto) { ... }  // tinh
 
 ---
 
-> **Tiếp theo**: Đọc `Phase4_JWT_Token.md` →
+> **Tiếp theo**: Đọc `Phase4.3_JWT_Token.md` →
 > Sẽ tạo JwtConfig, JwtService, AuthController — tích hợp code từ file này.

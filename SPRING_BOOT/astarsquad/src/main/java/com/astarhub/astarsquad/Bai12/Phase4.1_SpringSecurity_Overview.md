@@ -9,11 +9,11 @@
 
 | # | File | Nội dung | Ghi chú |
 |---|------|---------|---------|
-| 1 | `Phase4_SpringSecurity_Overview.md` | Kiến trúc + khái niệm nền tảng | **File này** — đọc đầu tiên |
-| 2 | `Phase4_Authentication_vs_Authorization.md` | Xác thực & phân quyền chi tiết | Tích hợp code từ file 1 |
-| 3 | `Phase4_JWT_Token.md` | JWT với oauth2-resource-server | Tích hợp code từ file 1+2 |
-| 4 | `Phase4_OAuth2.md` | Social Login + Resource Server | Tích hợp code từ file 1+2+3 |
-| 5 | `Phase4_BestPractice_Password_CORS_CSRF.md` | BCrypt, CORS, CSRF | Tích hợp vào SecurityConfig chung |
+| 1 | `Phase4.1_SpringSecurity_Overview.md` | Kiến trúc + khái niệm nền tảng | **File này** — đọc đầu tiên |
+| 2 | `Phase4.2_Authentication_vs_Authorization.md` | Xác thực & phân quyền chi tiết | Tích hợp code từ file 1 |
+| 3 | `Phase4.3_JWT_Token.md` | JWT với oauth2-resource-server | Tích hợp code từ file 1+2 |
+| 4 | `Phase4.4_OAuth2.md` | Social Login + Resource Server | Tích hợp code từ file 1+2+3 |
+| 5 | `Phase4.5_BestPractice_Password_CORS_CSRF.md` | BCrypt, CORS, CSRF | Tích hợp vào SecurityConfig chung |
 
 > Các file tích hợp dần — code ở file sau **kế thừa và mở rộng** code ở file trước.
 
@@ -677,6 +677,6 @@ AuthorizationFilter đọc rules theo thứ tự:
 
 ---
 
-> **Tiếp theo**: Đọc `Phase4_Authentication_vs_Authorization.md` →
+> **Tiếp theo**: Đọc `Phase4.2_Authentication_vs_Authorization.md` →
 > Sẽ tạo `CustomUserDetailsService`, `CustomUserDetails`, Entity RBAC,
 > và giải thích chi tiết `@PreAuthorize` / `@PostAuthorize`.
