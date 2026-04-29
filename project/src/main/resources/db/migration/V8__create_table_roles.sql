@@ -5,7 +5,9 @@ create table
         constraint uk_name unique (name)
     );
 
-insert into roles (name) values 
-("ROLE_ADMIN"),
-("ROLE_USER"),
-("ROLE_COLLABORATOR")
+insert into
+    roles (name)
+values
+    ("ROLE_ADMIN"),
+    ("ROLE_USER"),
+    ("ROLE_COLLABORATOR")

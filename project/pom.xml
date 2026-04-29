@@ -95,7 +95,7 @@
             <scope>test</scope>
         </dependency>
         <!-- Oauth 2 resource Server -->
-        <!-- <dependency>
+        <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-security-oauth2-resource-server</artifactId>
         </dependency>
@@ -103,7 +103,7 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-security-oauth2-resource-server-test</artifactId>
             <scope>test</scope>
-        </dependency> -->
+        </dependency>
     </dependencies>
     <build>
         <plugins>

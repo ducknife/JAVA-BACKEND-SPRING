@@ -8,6 +8,8 @@ import org.springframework.data.domain.Sort;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.data.web.SortDefault;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -22,6 +24,7 @@ import com.ducknife.project.common.ApiResponse;
 import com.ducknife.project.modules.order.dto.OrderResponse;
 import com.ducknife.project.modules.user.dto.UserRequest;
 import com.ducknife.project.modules.user.dto.UserResponse;
+import com.ducknife.project.security.CustomUserDetails;
 
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
@@ -61,6 +64,12 @@ public class UserController {
     @GetMapping("/{id}/orders")
     public ResponseEntity<ApiResponse<List<OrderResponse>>> findOrdersById(@PathVariable Long id) {
         return ApiResponse.ok(userService.findOrdersById(id));
+    }
+
+    @GetMapping("/me")
+    public ResponseEntity<ApiResponse<UserResponse>> getMe(@AuthenticationPrincipal CustomUserDetails userDetails) {
+        Long id = userDetails.getUserId();
+        return ApiResponse.ok(userService.getMe(id));
     }
 
     @PostMapping

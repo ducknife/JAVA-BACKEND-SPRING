@@ -20,8 +20,12 @@ import jakarta.persistence.QueryHint;
 @Repository
 public interface UserRepository extends JpaRepository<User, Long> {
 
+        @EntityGraph(attributePaths = { "roles", "roles.permissions" })
         Optional<User> findByUsername(String username);
+
         Boolean existsByUsername(String username);
+
+        Boolean existsByRolesName(String roleName);
 
         List<User> findTop2ByOrderByUsernameDesc();
 
@@ -47,8 +51,11 @@ public interface UserRepository extends JpaRepository<User, Long> {
         @Query("SELECT u FROM User u WHERE LOWER(u.fullname) LIKE CONCAT('%', LOWER(:keyword), '%')")
         List<User> findByFullname(@Param("keyword") String keyword);
 
-        @Lock(LockModeType.PESSIMISTIC_WRITE) // khóa bi quan, khóa vật lý dòng, sinh ra for update, lock cứng db, service phải có transactional 
-        @QueryHints({ @QueryHint(name = "jakarta.persistence.lock.timeout", value = "3000") }) // giới hạn 3 giây, nếu ko lấy đc khóa, ném lỗi
+        @Lock(LockModeType.PESSIMISTIC_WRITE) // khóa bi quan, khóa vật lý dòng, sinh ra for update, lock cứng db,
+                                              // service phải có transactional
+        @QueryHints({ @QueryHint(name = "jakarta.persistence.lock.timeout", value = "3000") }) // giới hạn 3 giây, nếu
+                                                                                               // ko lấy đc khóa, ném
+                                                                                               // lỗi
         @EntityGraph(attributePaths = "roles")
         List<User> findByIdLessThan(Long id, Sort sort);
 }

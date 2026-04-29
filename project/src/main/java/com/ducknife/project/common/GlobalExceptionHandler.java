@@ -3,6 +3,8 @@ package com.ducknife.project.common;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.dao.DuplicateKeyException;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.AccessDeniedException;
+import org.springframework.security.core.AuthenticationException;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
@@ -10,6 +12,7 @@ import org.springframework.web.servlet.NoHandlerFoundException;
 
 import com.ducknife.project.common.exception.AppException;
 
+import jakarta.servlet.http.HttpServletRequest;
 import lombok.extern.slf4j.Slf4j;
 
 @RestControllerAdvice
@@ -49,6 +52,18 @@ public class GlobalExceptionHandler {
     @ExceptionHandler(NoHandlerFoundException.class)
     public ResponseEntity<ApiResponse<?>> handleNoResourceFoundException(NoHandlerFoundException e) {
         return ApiResponse.error(404, "Đường dẫn " + e.getRequestURL() + " không tồn tại!");
+    }
+
+    // Bắt lỗi xác thực 
+    @ExceptionHandler(AuthenticationException.class)
+    public ResponseEntity<ApiResponse<?>> handleAuthenticationException(AuthenticationException e, HttpServletRequest req) {
+        return ApiResponse.error(401, "Vui lòng đăng nhập để truy cập " + req.getRequestURI());
+    }
+
+    // Bắt lỗi phân quyền
+    @ExceptionHandler(AccessDeniedException.class)
+    public ResponseEntity<ApiResponse<?>> handleAccessDeniedException(AccessDeniedException e, HttpServletRequest req) {
+        return ApiResponse.error(403, "Bạn không có quyền truy cập " + req.getRequestURI());
     }
 
     // Bắt lỗi hệ thống, lưới cuối cùng bắt những lỗi ko ngờ tới

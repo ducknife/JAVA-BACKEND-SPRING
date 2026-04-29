@@ -10,6 +10,7 @@ import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
 import com.ducknife.project.common.exception.ResourceConflictException;
@@ -34,11 +35,19 @@ public class UserService {
         private final RoleRepository roleRepository;
         private final PasswordEncoder passwordEncoder;
 
+        public UserResponse getMe(Long id) {
+                User user = userRepository.findById(id)
+                                .orElseThrow(() -> new ResourceNotFoundException("User Not Found"));
+                return UserResponse.from(user);
+        }
+
+        @PreAuthorize("hasAnyRole('ADMIN', 'COLLABORATOR')")
         public Page<UserResponse> getUsers(Pageable pageable) {
                 return userRepository.findByNameLength(pageable)
                                 .map(UserResponse::from);
         }
 
+        @PreAuthorize("hasRole('ADMIN')")
         public List<UserResponse> getUsersByIdLessThan(Long id, Sort sort) {
                 return userRepository.findByIdLessThan(id, sort)
                                 .stream()
@@ -46,6 +55,7 @@ public class UserService {
                                 .collect(Collectors.toList());
         }
 
+        @PreAuthorize("hasAnyRole('ADMIN', 'USER')")
         public List<UserResponse> getUserByFullname(String keyword) {
                 return userRepository.findByFullname(keyword)
                                 .stream()
@@ -53,12 +63,14 @@ public class UserService {
                                 .collect(Collectors.toList());
         }
 
+        @PreAuthorize("hasAnyRole('ADMIN', 'USER') or #userId == authentication.principal.id")
         public UserResponse getUserById(Long userId) {
                 User user = userRepository.findById(userId)
                                 .orElseThrow(() -> new ResourceNotFoundException("Không tìm thấy người dùng"));
                 return UserResponse.from(user);
         }
 
+        @PreAuthorize("hasAnyRole('ADMIN', 'COLLABORATOR', 'USER') or #userId == authenticated.principal.id")
         public List<OrderResponse> findOrdersById(Long userId) {
                 if (!userRepository.existsById(userId)) {
                         throw new ResourceNotFoundException("Không tìm thấy người dùng");
@@ -69,6 +81,7 @@ public class UserService {
                                 .collect(Collectors.toList());
         }
 
+        @PreAuthorize("hasAnyRole('ADMIN', 'COLLABORATOR')")
         @Transactional
         // @Transactional(propagation = Propagation.NEVER) // chạy ok vì method trong
         // controller không có transaction
@@ -88,6 +101,7 @@ public class UserService {
                 return UserResponse.from(savedUser);
         }
 
+        @PreAuthorize("@perm.canUpdateUser(#id, authentication)")
         @Transactional(propagation = Propagation.SUPPORTS)
         public void updateUser(Long id, UserRequest newUser) {
                 User user = userRepository.findById(id)
@@ -109,6 +123,7 @@ public class UserService {
         // Exception.class) // do không có Transaction
         // cha nào đang hoạt động nên
         // nó bị lỗi
+        @PreAuthorize("hasRole('ADMIN')")
         @Transactional(rollbackFor = Exception.class)
         public void deleteUserById(Long userId) {
                 if (!userRepository.existsById(userId)) {

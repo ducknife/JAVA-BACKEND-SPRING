@@ -3,6 +3,7 @@ package com.ducknife.project.modules.product;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -62,6 +63,7 @@ public class ProductService {
     }
 
     @Transactional
+    @PreAuthorize("hasAnyRole('ADMIN', 'COLLABORATOR')")
     public ProductResponse updateProduct(Long id, ProductRequest product) {
         if (!productRepository.existsById(id)) {
             throw new ResourceNotFoundException("Không tìm thấy sản phẩm!");
@@ -77,6 +79,7 @@ public class ProductService {
     }
 
     @Transactional
+    @PreAuthorize("hasAnyRole('ADMIN', 'COLLABORATOR')")
     public ProductResponse addProduct(ProductRequest product) { // để tạm để bắt lỗi dup key trong DB
         // if (productRepository.existByName(product.getName())) {
         // throw new ResourceConflictException("Sản phẩm " + product.getName() + " đã
@@ -98,6 +101,8 @@ public class ProductService {
         return ProductResponse.from(savedProduct);
     }
 
+    @Transactional
+    @PreAuthorize("hasAnyRole('ADMIN', 'COLLABORATOR')")
     public void deleteProduct(Long id) {
         if (!productRepository.existsById(id)) {
             throw new ResourceNotFoundException("Sản phẩm không tồn tại!");

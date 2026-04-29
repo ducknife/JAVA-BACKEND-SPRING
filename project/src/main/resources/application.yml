@@ -3,6 +3,14 @@ spring:
         name: project
     profiles:
         active: dev
+
+admin:
+    bootstrap:
+        fullname: ${ADMIN_FULLNAME:Admin}
+        username: ${ADMIN_USERNAME:admin}
+        password: ${ADMIN_PASSWORD:admin}
+        email: ${ADMIN_EMAIL:admin@alandas.site}
+
  
 # ```
 # Ưu tiên từ CAO → THẤP:

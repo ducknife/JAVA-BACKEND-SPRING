@@ -1,0 +1,4 @@
+2026-04-29T11:45:09.015+07:00 DEBUG 30256 --- [project] [HikariPool-218:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-218 - Pool stats (total=10/10, idle=10/10, active=0, waiting=0)
+2026-04-29T11:45:09.016+07:00 DEBUG 30256 --- [project] [HikariPool-218:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-218 - Fill pool skipped, pool has sufficient level or currently being filled.
+2026-04-29T11:45:16.067+07:00 DEBUG 30256 --- [project] [HikariPool-218:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-218 - keepalive: connection com.mysql.cj.jdbc.ConnectionImpl@32f68d7a is alive
+2026-04-29T11:45:21.792+07:00 DEBUG 30256 --- [project] [HikariPool-218:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-218 - keepalive: connection com.mysql.cj.jdbc.ConnectionImpl@3d5a74a5 is alive
