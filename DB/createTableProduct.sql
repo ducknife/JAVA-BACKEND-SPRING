@@ -21,4 +21,4 @@ describe products;
 -- alter table product
 -- modify name varchar(200) not null;
 
-select * from products;
+select * from users;

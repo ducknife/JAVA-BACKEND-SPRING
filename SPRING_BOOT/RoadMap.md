@@ -53,34 +53,16 @@
 
 ---
 
-## 📌 Phase 5: Nâng Cao (4-6 tuần) — Chưa bắt đầu
+## 📌 Phase 5: Nâng Cao
 
-### 5.1 Validation
-- [ ] Bean Validation (@Valid, @NotNull, @Size...)
-- [ ] Custom Validators
-
-### 5.2 Design Patterns
-- [ ] DTO Pattern
-- [ ] Repository Pattern
-- [ ] Service Layer Pattern
-- [ ] Builder Pattern
-
-### 5.3 Testing
-- [ ] Unit Test (JUnit 5, Mockito)
-- [ ] Integration Test
-- [ ] @SpringBootTest, @WebMvcTest, @DataJpaTest
-
-### 5.4 API Documentation
-- [ ] Swagger/OpenAPI
-- [ ] SpringDoc
-
-### 5.5 Caching
-- [ ] Spring Cache
-- [ ] Redis
-
-### 5.6 Async & Scheduling
-- [ ] @Async
-- [ ] @Scheduled
+| # | File | Bài | Nội dung |
+|---|------|-----|---------|
+| 5.1 | `Bai13/Phase5.1_BeanValidation.md` | Bài 13 | @Valid, Custom Validators, Groups |
+| 5.2 | `Bai14/Phase5.2_DesignPatterns.md` | Bài 14 | DTO, Repository, Service Layer, Builder, Factory, Strategy |
+| 5.3 | `Bai15/Phase5.3_Testing.md` | Bài 15 | JUnit 5, Mockito, @WebMvcTest, @DataJpaTest |
+| 5.4 | `Bai16/Phase5.4_API_Documentation.md` | Bài 16 | Swagger/OpenAPI, SpringDoc |
+| 5.5 | `Bai17/Phase5.5_Caching.md` | Bài 17 | Spring Cache, Redis, TTL |
+| 5.6 | `Bai18/Phase5.6_Async_Scheduling.md` | Bài 18 | @Async, @Scheduled, Cron |
 
 ---
 
