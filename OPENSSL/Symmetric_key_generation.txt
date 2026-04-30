@@ -1,0 +1,4 @@
+openssl rand -base64 64  ==> 512 bits
+openssl rand -base64 32  ==> 256 bits
+
+use: git bash
