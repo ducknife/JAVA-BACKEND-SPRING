@@ -10,6 +10,8 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.crypto.factory.PasswordEncoderFactories;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.security.oauth2.jwt.JwtDecoder;
+import org.springframework.security.oauth2.server.resource.authentication.JwtAuthenticationConverter;
 import org.springframework.security.web.SecurityFilterChain;
 
 import com.ducknife.project.security.CustomAccessDeniedHandler;
@@ -25,6 +27,8 @@ public class SecurityConfig {
 
     private final CustomAccessDeniedHandler accessDeniedHandler;
     private final CustomAuthEntryPoint authEntryPoint;
+    private final JwtDecoder jwtDecoder;
+    private final JwtAuthenticationConverter jwtAuthenticationConverter;
 
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
@@ -34,6 +38,12 @@ public class SecurityConfig {
                         .requestMatchers("/api/auth/**").permitAll()
                         .requestMatchers("/api/products/**").permitAll()
                         .anyRequest().authenticated())
+                .oauth2ResourceServer(oauth2 -> oauth2
+                        .jwt(jwt -> jwt
+                            .decoder(jwtDecoder)
+                            .jwtAuthenticationConverter(jwtAuthenticationConverter)
+                        )
+                )   
                 .exceptionHandling(ex -> ex
                         .authenticationEntryPoint(authEntryPoint)
                         .accessDeniedHandler(accessDeniedHandler));

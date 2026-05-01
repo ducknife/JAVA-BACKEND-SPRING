@@ -11,7 +11,10 @@ import lombok.Setter;
 @Builder
 @Getter
 @Setter
-public class LoginRequest {
-    private String username;
-    private String password;
+public class AuthResponse {
+    private String accessToken;
+    private String refreshToken;
+    @Builder.Default
+    private String tokenType = "Bearer";
+    private Long expiresIn;
 }

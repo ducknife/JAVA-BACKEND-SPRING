@@ -1,0 +1,67 @@
+2026-05-01T19:25:05.327+07:00 DEBUG 28660 --- [project] [HikariPool-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Pool stats (total=10/10, idle=10/10, active=0, waiting=0)
+2026-05-01T19:25:05.328+07:00 DEBUG 28660 --- [project] [HikariPool-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Fill pool skipped, pool has sufficient level or currently being filled.
+2026-05-01T19:25:05.925+07:00 DEBUG 28660 --- [project] [http-nio-8080-exec-3] o.apache.coyote.http11.Http11Processor   : Error parsing HTTP request header
+
+java.io.EOFException
+	at org.apache.tomcat.util.net.NioEndpoint$NioSocketWrapper.fillReadBuffer(NioEndpoint.java:1338) ~[tomcat-embed-core-11.0.15.jar:11.0.15]
+	at org.apache.tomcat.util.net.NioEndpoint$NioSocketWrapper.read(NioEndpoint.java:1223) ~[tomcat-embed-core-11.0.15.jar:11.0.15]
+	at org.apache.coyote.http11.Http11InputBuffer.fill(Http11InputBuffer.java:776) ~[tomcat-embed-core-11.0.15.jar:11.0.15]
+	at org.apache.coyote.http11.Http11InputBuffer.parseRequestLine(Http11InputBuffer.java:334) ~[tomcat-embed-core-11.0.15.jar:11.0.15]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:270) ~[tomcat-embed-core-11.0.15.jar:11.0.15]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63) ~[tomcat-embed-core-11.0.15.jar:11.0.15]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:903) ~[tomcat-embed-core-11.0.15.jar:11.0.15]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1778) ~[tomcat-embed-core-11.0.15.jar:11.0.15]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52) ~[tomcat-embed-core-11.0.15.jar:11.0.15]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:946) ~[tomcat-embed-core-11.0.15.jar:11.0.15]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:480) ~[tomcat-embed-core-11.0.15.jar:11.0.15]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:57) ~[tomcat-embed-core-11.0.15.jar:11.0.15]
+	at java.base/java.lang.Thread.run(Thread.java:1447) ~[na:na]
+
+2026-05-01T19:25:05.926+07:00 DEBUG 28660 --- [project] [http-nio-8080-exec-3] o.apache.coyote.http11.Http11Processor   : Error state [CLOSE_CONNECTION_NOW] reported while processing request
+
+java.io.EOFException
+	at org.apache.tomcat.util.net.NioEndpoint$NioSocketWrapper.fillReadBuffer(NioEndpoint.java:1338) ~[tomcat-embed-core-11.0.15.jar:11.0.15]
+	at org.apache.tomcat.util.net.NioEndpoint$NioSocketWrapper.read(NioEndpoint.java:1223) ~[tomcat-embed-core-11.0.15.jar:11.0.15]
+	at org.apache.coyote.http11.Http11InputBuffer.fill(Http11InputBuffer.java:776) ~[tomcat-embed-core-11.0.15.jar:11.0.15]
+	at org.apache.coyote.http11.Http11InputBuffer.parseRequestLine(Http11InputBuffer.java:334) ~[tomcat-embed-core-11.0.15.jar:11.0.15]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:270) ~[tomcat-embed-core-11.0.15.jar:11.0.15]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63) ~[tomcat-embed-core-11.0.15.jar:11.0.15]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:903) ~[tomcat-embed-core-11.0.15.jar:11.0.15]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1778) ~[tomcat-embed-core-11.0.15.jar:11.0.15]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52) ~[tomcat-embed-core-11.0.15.jar:11.0.15]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:946) ~[tomcat-embed-core-11.0.15.jar:11.0.15]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:480) ~[tomcat-embed-core-11.0.15.jar:11.0.15]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:57) ~[tomcat-embed-core-11.0.15.jar:11.0.15]
+	at java.base/java.lang.Thread.run(Thread.java:1447) ~[na:na]
+
+2026-05-01T19:25:05.960+07:00 DEBUG 28660 --- [project] [http-nio-8080-exec-2] o.a.c.a.jaspic.AuthConfigFactoryImpl     : Loading persistent provider registrations from [C:\Users\darkp\AppData\Local\Temp\tomcat.8080.12919349522643742864\conf\jaspic-providers.xml]
+2026-05-01T19:25:05.964+07:00  INFO 28660 --- [project] [http-nio-8080-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-05-01T19:25:05.964+07:00  INFO 28660 --- [project] [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2026-05-01T19:25:05.965+07:00 DEBUG 28660 --- [project] [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Detected StandardServletMultipartResolver
+2026-05-01T19:25:05.965+07:00 DEBUG 28660 --- [project] [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Detected AcceptHeaderLocaleResolver
+2026-05-01T19:25:05.967+07:00 DEBUG 28660 --- [project] [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Detected org.springframework.web.servlet.view.DefaultRequestToViewNameTranslator@551a329f
+2026-05-01T19:25:05.968+07:00 DEBUG 28660 --- [project] [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Detected org.springframework.web.servlet.support.SessionFlashMapManager@145c7ae8
+2026-05-01T19:25:05.969+07:00 DEBUG 28660 --- [project] [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : enableLoggingRequestDetails='false': request parameters and headers will be masked to prevent unsafe logging of potentially sensitive data
+2026-05-01T19:25:05.969+07:00  INFO 28660 --- [project] [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 5 ms
+2026-05-01T19:25:05.983+07:00 DEBUG 28660 --- [project] [http-nio-8080-exec-2] o.s.security.web.FilterChainProxy        : Securing POST /api/auth/login
+2026-05-01T19:25:05.995+07:00 DEBUG 28660 --- [project] [http-nio-8080-exec-2] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
+2026-05-01T19:25:05.997+07:00 DEBUG 28660 --- [project] [http-nio-8080-exec-2] o.s.security.web.FilterChainProxy        : Secured POST /api/auth/login
+2026-05-01T19:25:06.001+07:00 DEBUG 28660 --- [project] [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : POST "/api/auth/login", parameters={}
+2026-05-01T19:25:06.014+07:00 DEBUG 28660 --- [project] [http-nio-8080-exec-2] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.ducknife.project.modules.auth.AuthController#login(LoginRequest)
+2026-05-01T19:25:06.015+07:00 DEBUG 28660 --- [project] [http-nio-8080-exec-2] o.j.s.OpenEntityManagerInViewInterceptor : Opening JPA EntityManager in OpenEntityManagerInViewInterceptor
+2026-05-01T19:25:06.015+07:00 DEBUG 28660 --- [project] [http-nio-8080-exec-2] org.hibernate.orm.core                   : HHH006588: Opening session [tenant=null]
+2026-05-01T19:25:06.093+07:00 DEBUG 28660 --- [project] [http-nio-8080-exec-2] m.m.a.RequestResponseBodyMethodProcessor : Read "application/json;charset=UTF-8" to [com.ducknife.project.modules.auth.dto.LoginRequest@599a3e36]
+2026-05-01T19:25:06.099+07:00 DEBUG 28660 --- [project] [http-nio-8080-exec-2] o.s.orm.jpa.JpaTransactionManager        : Found thread-bound EntityManager [SessionImpl(652755927<open>)] for JPA transaction
+2026-05-01T19:25:06.100+07:00 DEBUG 28660 --- [project] [http-nio-8080-exec-2] o.s.orm.jpa.JpaTransactionManager        : Creating new transaction with name [com.ducknife.project.modules.auth.AuthService.checkLogin]: PROPAGATION_REQUIRED,ISOLATION_DEFAULT
+2026-05-01T19:25:06.102+07:00 DEBUG 28660 --- [project] [http-nio-8080-exec-2] org.hibernate.orm.core                   : HHH006583: Beginning transaction
+2026-05-01T19:25:06.105+07:00 DEBUG 28660 --- [project] [http-nio-8080-exec-2] o.s.orm.jpa.JpaTransactionManager        : Exposing JPA transaction as JDBC [org.springframework.orm.jpa.vendor.HibernateJpaDialect$HibernateConnectionHandle@316fd25f]
+2026-05-01T19:25:35.330+07:00 DEBUG 28660 --- [project] [HikariPool-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Pool stats (total=10/10, idle=9/10, active=1, waiting=0)
+2026-05-01T19:25:35.330+07:00 DEBUG 28660 --- [project] [HikariPool-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Fill pool skipped, pool has sufficient level or currently being filled.
+2026-05-01T19:25:42.940+07:00 DEBUG 28660 --- [project] [HikariPool-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - keepalive: connection com.mysql.cj.jdbc.ConnectionImpl@118b1ac is alive
+2026-05-01T19:25:44.308+07:00 DEBUG 28660 --- [project] [HikariPool-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - keepalive: connection com.mysql.cj.jdbc.ConnectionImpl@3053d71c is alive
+2026-05-01T19:25:50.378+07:00 DEBUG 28660 --- [project] [HikariPool-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - keepalive: connection com.mysql.cj.jdbc.ConnectionImpl@6579d365 is alive
+2026-05-01T19:25:53.922+07:00 DEBUG 28660 --- [project] [HikariPool-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - keepalive: connection com.mysql.cj.jdbc.ConnectionImpl@664b9f56 is alive
+2026-05-01T19:25:54.366+07:00 DEBUG 28660 --- [project] [HikariPool-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - keepalive: connection com.mysql.cj.jdbc.ConnectionImpl@4025bb97 is alive
+2026-05-01T19:25:54.597+07:00 DEBUG 28660 --- [project] [HikariPool-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - keepalive: connection com.mysql.cj.jdbc.ConnectionImpl@61374ee3 is alive
+2026-05-01T19:25:55.846+07:00 DEBUG 28660 --- [project] [HikariPool-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - keepalive: connection com.mysql.cj.jdbc.ConnectionImpl@510443f3 is alive
+2026-05-01T19:25:58.806+07:00 DEBUG 28660 --- [project] [HikariPool-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - keepalive: connection com.mysql.cj.jdbc.ConnectionImpl@322f6009 is alive

@@ -1,13 +1,19 @@
 package com.ducknife.project.modules.auth;
 
+import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.Authentication;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.ducknife.project.common.exception.ResourceNotFoundException;
+import com.ducknife.project.common.exception.UnauthorizedException;
+import com.ducknife.project.config.properties.JwtProperties;
+import com.ducknife.project.modules.auth.dto.AuthResponse;
 import com.ducknife.project.modules.auth.dto.LoginRequest;
-import com.ducknife.project.modules.user.User;
 import com.ducknife.project.modules.user.UserRepository;
+import com.ducknife.project.security.CustomUserDetails;
+import com.ducknife.project.security.JwtService;
 
 import lombok.RequiredArgsConstructor;
 
@@ -15,18 +21,26 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 @Transactional(readOnly = true)
 public class AuthService {
-    private final UserRepository userRepository;
-    private final PasswordEncoder passwordEncoder;
+    private final AuthenticationManager authManager;
+    private final JwtService jwtService;
+    private final JwtProperties jwtProps;
 
-    @Transactional(rollbackFor = Exception.class)
-    public String authenticate(LoginRequest request) {
+    @Transactional
+    public AuthResponse checkLogin(LoginRequest request) {
         String username = request.getUsername();
         String password = request.getPassword();
-        User user = userRepository.findByUsername(username)
-                .orElseThrow(() -> new ResourceNotFoundException("Không tìm thấy người dùng!"));
-        if (passwordEncoder.matches(password, user.getPassword())) {
-            return "Xác thực thành công";
-        }
-        return "Lỗi xác thực! Vui lòng đăng nhập lại!";
+
+        Authentication auth = authManager.authenticate(
+                new UsernamePasswordAuthenticationToken(username, password));
+
+        CustomUserDetails userDetails = (CustomUserDetails) auth.getPrincipal();
+        String accessToken = jwtService.generateAccessToken(userDetails);
+        String refreshToken = jwtService.generateRefreshToken(userDetails);
+
+        return AuthResponse.builder()
+                .accessToken(accessToken)
+                .refreshToken(refreshToken)
+                .expiresIn(jwtProps.getAccessTokenExpiration())
+                .build();
     }
 }

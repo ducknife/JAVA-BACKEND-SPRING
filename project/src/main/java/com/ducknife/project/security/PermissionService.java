@@ -15,8 +15,7 @@ public class PermissionService {
     private final UserRepository userRepository;
 
     public boolean canUpdateUser(Long userId, Authentication authentication) {
-        // CustomUserDetails userDetails = (CustomUserDetails)
-        // authentication.getPrincipal();
+
         if (!userRepository.existsById(userId)) {
             throw new ResourceNotFoundException("User not found");
         }
