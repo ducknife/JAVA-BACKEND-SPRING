@@ -1,2 +1,2 @@
-# JAVA-BACKEND-SPRING-
-Learning Spring 
+# JAVA-BACKEND-SPRING-REST
+Learning Spring with RESTful Architecture
