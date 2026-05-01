@@ -11,7 +11,9 @@ admin:
         password: ${ADMIN_PASSWORD:admin}
         email: ${ADMIN_EMAIL:admin@alandas.site}
 
- 
+jwt: 
+    secret-key: ${JWT_SECRET_KEY:051ISFsCVKV9chsyd7r2eU2MC60HfCHish/m05hL86rNYom38Nw7xmocIPTkOCVOYIVcaEBeU8osmZO++LpCMA==}
+
 # ```
 # Ưu tiên từ CAO → THẤP:
 # ──────────────────────

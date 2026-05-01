@@ -4,6 +4,23 @@
 
 ## 📑 Mục Lục Tổng — Tất Cả Bài Học
 
+### 📌 Phase 1: Nền Tảng (Java Core + Database)
+
+> Kiến thức nền — không có file md riêng vì bạn đã có sẵn.
+
+| # | Chủ đề | Nội dung | Trạng thái |
+|---|--------|---------|-----------|
+| 1.1.1 | OOP | Encapsulation, Inheritance, Polymorphism, Abstraction | ✅ Đã có |
+| 1.1.2 | Interface & Abstract Class | Phân biệt và cách dùng | ✅ Đã có |
+| 1.1.3 | Collections Framework | List, Set, Map, Queue | ✅ Đã có |
+| 1.1.4 | Exception Handling | try-catch, custom exception | ✅ Đã có |
+| 1.1.5 | Lambda & Stream API | filter, map, collect, reduce | ✅ Đã có |
+| 1.1.6 | Optional | Tránh NullPointerException | ✅ Đã có |
+| 1.2.1 | SQL Cơ Bản | CRUD, JOIN, GROUP BY, Subquery | ✅ Đã có |
+| 1.2.2 | MySQL | Setup, quản lý database | ✅ Đã có |
+
+---
+
 ### 📌 Phase 2: Spring Boot Cơ Bản
 
 | # | File | Bài | Nội dung |
